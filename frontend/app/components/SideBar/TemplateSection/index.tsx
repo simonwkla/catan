@@ -1,38 +1,39 @@
 import { Section } from "@components/SideBar/Section";
-import { TileType, TileTypeCounter } from "./TilesTabContent/TileTypeCounter";
-import { getEntries } from "@lib/object";
-import { Label } from "@components/ui/label";
 import { useMemo } from "react";
-import { Token } from "./TokensTabContent/TokenCounter";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@components/ui/tabs";
 import { TilesTabContent } from "@components/SideBar/TemplateSection/TilesTabContent";
 import { TokensTabContent } from "@components/SideBar/TemplateSection/TokensTabContent";
-import { Catan } from "@catan";
-
-type PartialTileTypeMap = Partial<Record<TileType, number>>;
-type PartialTokenMap = Partial<Record<Token, number>>;
-
-interface Template {
-  tileTypesMap: PartialTileTypeMap;
-  tokensMap: PartialTokenMap;
-}
+import type { PartialTemplate } from "app/catan/domain/entity/template";
+type TileTypesMapPart = PartialTemplate["tileTypesMap"];
+type TokensMapPart = PartialTemplate["tokensMap"];
 
 interface TemplateSectionProps {
-  template: Template;
-  onChange: (template: Template) => void;
+  template: PartialTemplate;
+  onChange: (template: PartialTemplate) => void;
   totalTilesCount: number;
 }
 
 export const TemplateSection = ({ template, onChange, totalTilesCount }: TemplateSectionProps) => {
-  const onTileTypesMapChange = (tileTypesMap: PartialTileTypeMap) => {
+  const onTileTypesMapChange = (tileTypesMap: TileTypesMapPart) => {
     onChange({ ...template, tileTypesMap });
   };
 
-  const onTokensMapChange = (tokensMap: PartialTokenMap) => {
+  const onTokensMapChange = (tokensMap: TokensMapPart) => {
     onChange({ ...template, tokensMap });
   };
 
-  const allowedTokensCount = useMemo(() => Catan.calculateAllowedTokensCount(template), [template]);
+  const allowedTokensCount = useMemo(() => {
+    const t = template.tileTypesMap;
+    const resourceKeys = [
+      "sheep",
+      "forest",
+      "field",
+      "mountain",
+      "clay",
+      "gold",
+    ] as (keyof typeof t)[];
+    return resourceKeys.reduce((acc, k) => acc + (t[k] ?? 0), 0);
+  }, [template]);
 
   return (
     <Section

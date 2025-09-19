@@ -1,18 +1,17 @@
-import { Tile } from "./Tile";
 import { ReactElement } from "react";
 import { Vector2 } from "@lib/vector2";
 import { Catan } from "@catan";
-
-interface Field {
-  tiles: Tile[];
-}
+import { TileComponent } from "./Tile";
+import { VectorAx } from "@lib/vectorAx";
+import type { Field } from "app/catan/domain/entity/field";
+import type { Tile } from "app/catan/domain/entity/tile";
 
 export interface FieldProps {
   field: Field;
   onChange: (field: Field) => void;
 }
 
-export const Field = ({ field, onChange }: FieldProps): ReactElement => {
+export const FieldComponent = ({ field, onChange }: FieldProps): ReactElement => {
   const onTileChange = (tile: Tile) => {
     onChange(Catan.replaceTile(field, tile, tile));
   };
@@ -22,9 +21,9 @@ export const Field = ({ field, onChange }: FieldProps): ReactElement => {
       <div className="absolute left-1/2 top-1/2 h-0 w-0">
         <div className="relative">
           {field.tiles.map((t) => (
-            <Tile
+            <TileComponent
               onChange={onTileChange}
-              key={Vector2.toString(t.pos)}
+              key={Vector2.toString(VectorAx.toVector2(t.pos))}
               tile={t}
               className="-translate-x-1/2 -translate-y-1/2"
             />

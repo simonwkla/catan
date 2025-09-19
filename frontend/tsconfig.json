@@ -24,6 +24,7 @@
     "baseUrl": ".",
     "paths": {
       "@catan": ["./app/catan/index.ts"],
+      "@catan-server": ["./app/catan/.server/index.ts"],
       "@lib/*": ["./app/lib/*"],
       "@components/*": ["./app/components/*"]
     },

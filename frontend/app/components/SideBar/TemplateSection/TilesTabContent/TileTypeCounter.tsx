@@ -1,16 +1,7 @@
 import { Label } from "@components/ui/label";
 import { Counter } from "@components/ui/counter";
+import { TileType } from "app/catan/domain/entity/tile";
 
-export enum TileType {
-  Water = "water",
-  Desert = "desert",
-  Sheep = "sheep",
-  Forest = "forest",
-  Field = "field",
-  Mountain = "mountain",
-  Clay = "clay",
-  Gold = "gold",
-}
 
 const TILE_TYPE_DISPLAY_NAME: Record<TileType, string> = {
   [TileType.Water]: "Water",
@@ -21,6 +12,8 @@ const TILE_TYPE_DISPLAY_NAME: Record<TileType, string> = {
   [TileType.Mountain]: "Mountain",
   [TileType.Clay]: "Clay",
   [TileType.Gold]: "Gold",
+  [TileType.Empty]: "Empty",
+  [TileType.Placeholder]: "Placeholder",
 };
 
 interface TileTypeCounterProps {

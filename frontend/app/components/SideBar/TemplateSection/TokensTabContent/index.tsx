@@ -1,17 +1,12 @@
-import { getEntries } from "@lib/object";
 import { Label } from "@components/ui/label";
 import { useMemo } from "react";
-import {
-  Token,
-  TokenCounter,
-} from "@components/SideBar/TemplateSection/TokensTabContent/TokenCounter";
+import { Token, TokenCounter } from "@components/SideBar/TemplateSection/TokensTabContent/TokenCounter";
+import type { PartialTemplate } from "app/catan/domain/entity/template";
 
-type TokensMap = Record<Token, number>;
-type PartialTokensMap = Partial<TokensMap>;
 
 interface TilesTabContent {
-  tokensMap: PartialTokensMap;
-  onChange: (tokensMap: PartialTokensMap) => void;
+  tokensMap: PartialTemplate["tokensMap"];
+  onChange: (tokensMap: PartialTemplate["tokensMap"]) => void;
   totalTokensCount: number;
 }
 
@@ -39,13 +34,13 @@ export const TokensTabContent = ({ tokensMap, onChange, totalTokensCount }: Tile
         </div>
       </div>
       <div className="mt-4 grid w-fit auto-cols-min grid-cols-2 gap-x-1 gap-y-2">
-        {getEntries(tokensMap as TokensMap).map(([token, count]) => (
+        {(Object.entries(tokensMap) as [Token, number | undefined][]).map(([token, count]) => (
           <TokenCounter
             key={token}
             token={token}
-            count={count}
+            count={count ?? 0}
             onChange={onCountChange}
-            max={count + tilesLeftCount}
+            max={(count ?? 0) + tilesLeftCount}
           />
         ))}
       </div>

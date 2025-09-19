@@ -1,6 +1,6 @@
-import { ValidTile } from "./tile";
+import { TileType, ValidTile } from "./tile";
 import { Token } from "./token";
-import { getEntries } from "@lib/object";
+import { fromEntries, getEntries } from "@lib/object";
 import { Field } from "./field";
 
 type TileTypesMap = Readonly<Record<ValidTile["type"], number>>;
@@ -9,6 +9,11 @@ type TokensMap = Readonly<Record<Token, number>>;
 export interface Template {
   readonly tileTypesMap: TileTypesMap;
   readonly tokensMap: TokensMap;
+}
+
+export interface PartialTemplate {
+  readonly tileTypesMap: Partial<TileTypesMap>;
+  readonly tokensMap: Partial<TokensMap>;
 }
 
 /**
@@ -61,8 +66,57 @@ function getUnsetTokens(template: Template, field: Field): Token[] {
     .map(([token]) => token);
 }
 
+function Empty(): Template {
+  return {
+    tileTypesMap: {
+      [TileType.Water]: 0,
+      [TileType.Desert]: 0,
+      [TileType.Sheep]: 0,
+      [TileType.Forest]: 0,
+      [TileType.Field]: 0,
+      [TileType.Mountain]: 0,
+      [TileType.Clay]: 0,
+      [TileType.Gold]: 0,
+    },
+    tokensMap: {
+      [Token.Two]: 0,
+      [Token.Three]: 0,
+      [Token.Four]: 0,
+      [Token.Five]: 0,
+      [Token.Six]: 0,
+      [Token.Eight]: 0,
+      [Token.Nine]: 0,
+      [Token.Ten]: 0,
+      [Token.Eleven]: 0,
+      [Token.Twelve]: 0,
+    },
+  };
+}
 export const Template = {
   isCompatibleWithField,
   getUnsetTileTypes,
   getUnsetTokens,
+  Empty,
+};
+
+function toTemplate(template: PartialTemplate): Template {
+  const emptyTemplate = Empty();
+  const tileTypesMap = fromEntries(
+    getEntries(emptyTemplate.tileTypesMap).map(([tileType, count]) => {
+      return [tileType, template.tileTypesMap[tileType] || count];
+    }),
+  );
+  const tokensMap = fromEntries(
+    getEntries(emptyTemplate.tokensMap).map(([token, count]) => {
+      return [token, template.tokensMap[token] || count];
+    }),
+  );
+  return {
+    tileTypesMap,
+    tokensMap,
+  };
+}
+
+export const PartialTemplate = {
+  toTemplate,
 };

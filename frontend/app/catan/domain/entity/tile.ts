@@ -1,5 +1,6 @@
 import { VectorAx } from "@lib/vectorAx";
 import { Token } from "./token";
+import { match, P} from "ts-pattern";
 
 export enum TileType {
   Empty = "empty",
@@ -70,6 +71,8 @@ export type ResourceTile = SheepTile | ForestTile | MountainTile | FieldTile | C
 export type LandTile = ResourceTile | DesertTile;
 export type ValidTile = LandTile | WaterTile;
 
+export type AnyTile = ValidTile | EmptyTile | PlaceholderTile
+
 const resourceTileTypes: ResourceTile["type"][] = [
   TileType.Sheep,
   TileType.Forest,
@@ -79,7 +82,8 @@ const resourceTileTypes: ResourceTile["type"][] = [
   TileType.Gold,
 ];
 
-const validTileTypes: ValidTile["type"][] = [TileType.Water, TileType.Desert, ...resourceTileTypes];
+const validLandTileTypes: LandTile["type"][] = [TileType.Desert, ...resourceTileTypes]
+const validTileTypes: ValidTile["type"][] = [TileType.Water, ...validLandTileTypes];
 
 function isValid(tile: Tile): tile is ValidTile {
   return validTileTypes.some((s) => s === tile.type);
@@ -93,10 +97,15 @@ function isResource(tile: Tile): tile is ResourceTile {
   return isResourceType(tile.type);
 }
 
+function getAllowedTypes(tile: Tile): ValidTile["type"][] {
+  return match(tile.type).with(TileType.Empty, () => validTileTypes).with(TileType.Placeholder, () => validLandTileTypes).with(P._, (t) => [t]).exhaustive();
+}
+
 export const Tile = {
   isValid,
   isResourceType,
   isResource,
   resourceTileTypes,
   validTileTypes,
+  getAllowedTypes
 };
