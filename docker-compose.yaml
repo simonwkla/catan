@@ -1,0 +1,34 @@
+services:
+  frontend:
+    build:
+      context: src
+      target: development
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+    volumes:
+      - ./src/:/app
+      - frontend-node-modules:/app/node_modules
+    environment:
+      - SPOTIFY_CLIENT_ID=${SPOTIFY_CLIENT_ID}
+      - SPOTIFY_CLIENT_SECRET=${SPOTIFY_CLIENT_SECRET}
+      - SPOTIFY_REDIRECT_URL=${SPOTIFY_REDIRECT_URL}
+      - SPOTIFY_AUTHORIZATION_ENDPOINT=${SPOTIFY_AUTHORIZATION_ENDPOINT:-https://accounts.spotify.com/authorize}
+      - SPOTIFY_TOKEN_ENDPOINT=${SPOTIFY_TOKEN_ENDPOINT:-https://accounts.spotify.com/api/token}
+      - SESSION_COOKIE_SECRET=${SESSION_COOKIE_SECRET:-this-is-a-secret-for-the-session-cookie}
+      - DATABASE_URL=${DATABASE_URL:-postgres://postgres:postgres@database:5432/bpm}
+
+  reverse-proxy:
+    image: caddy:2-alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./dev/caddy/Caddyfile:/etc/caddy/Caddyfile
+    depends_on:
+      frontend:
+        condition: service_started
+
+volumes:
+  db-data:
+  frontend-node-modules:
+  drizzle-studio-node-modules:

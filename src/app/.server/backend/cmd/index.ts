@@ -1,0 +1,1 @@
+export { spotifyApplication } from "./application";

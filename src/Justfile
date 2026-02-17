@@ -1,0 +1,48 @@
+frontend-container := "bpm-frontend-1"
+
+[group('lint')]
+lint:
+    pnpm run -r fmt
+    pnpm run -r lint:fix-unsafe
+    pnpm run -r lint
+
+[group('lint')]
+typecheck:
+    pnpm run -r typecheck
+
+[group('test')]
+test-ci:
+    pnpm -r test:ci
+
+[group('drizzle')]
+drizzle-generate:
+    docker exec -it {{ frontend-container }} npm run drizzle:generate
+
+[group('drizzle')]
+drizzle-migrate: drizzle-generate
+    docker exec -it {{ frontend-container }} npm run drizzle:migrate
+
+[group('init')]
+etc-hosts:
+    sudo bash -c 'grep -qxF "127.0.0.1 dev.bpm.dotenv.de" /etc/hosts || echo "127.0.0.1 dev.bpm.dotenv.de" >> /etc/hosts'
+
+[group('dev')]
+start:
+    docker compose up --build -d
+
+# nuke node_modules, pnpm store and tsconfig build info files
+[group('nuke')]
+nuke-pnpm:
+    find . -name "node_modules" -type d -exec rm -rf {} +
+    rm -rf ./.pnpm-store/
+    find . -name "tsconfig.tsbuildinfo" -type f -exec rm -rf {} +
+
+# nuke the docker compose stack
+[group('nuke')]
+nuke-docker:
+    docker compose rm -f -s -v
+
+# nuke the docker compose stack and remove all node_modules
+[group('nuke')]
+nuke: nuke-pnpm nuke-docker
+

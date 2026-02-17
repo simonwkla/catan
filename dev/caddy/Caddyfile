@@ -1,0 +1,16 @@
+http://dev.bpm.dotenv.de {
+	# General reverse proxy to main frontend
+    reverse_proxy frontend:3000 {
+        header_up +X-Request-ID "{http.request.uuid}"
+    }
+
+    header {
+        X-Request-ID "{http.request.uuid}"
+    }
+
+    # Reverse proxy for Vite websockets
+    @websockets {
+        path /ws*
+    }
+    reverse_proxy @websockets frontend:3001
+}
