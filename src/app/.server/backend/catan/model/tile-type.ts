@@ -12,7 +12,7 @@ const TileTypeValue = {
 } as const;
 type TileTypeValue = (typeof TileTypeValue)[keyof typeof TileTypeValue];
 
-const TILE_TYPE_VALUE_TO_INT = {
+export const TILE_TYPE_VALUE_TO_INT = {
   [TileTypeValue.Empty]: 0,
   [TileTypeValue.Placeholder]: 1,
   [TileTypeValue.Water]: 2,
@@ -24,6 +24,19 @@ const TILE_TYPE_VALUE_TO_INT = {
   [TileTypeValue.Clay]: 8,
   [TileTypeValue.Gold]: 9,
 } as const;
+
+const INT_TO_TILE_TYPE_VALUE = {
+  0: TileTypeValue.Empty,
+  1: TileTypeValue.Placeholder,
+  2: TileTypeValue.Water,
+  3: TileTypeValue.Desert,
+  4: TileTypeValue.Sheep,
+  5: TileTypeValue.Forest,
+  6: TileTypeValue.Field,
+  7: TileTypeValue.Mountain,
+  8: TileTypeValue.Clay,
+  9: TileTypeValue.Gold,
+};
 
 // biome-ignore lint/suspicious/noExplicitAny: no other way to do this
 type DistributeTile<T extends TileTypeValue> = T extends any ? TileType<T> : never;
@@ -53,6 +66,12 @@ export class TileType<TT extends TileTypeValue = TileTypeValue> {
 
   static fromValue<TT extends TileTypeValue>(value: TT): DistributeTile<TT> {
     return new TileType(value) as DistributeTile<TT>;
+  }
+
+  static fromInt<Int extends keyof typeof INT_TO_TILE_TYPE_VALUE>(
+    value: Int,
+  ): DistributeTile<(typeof INT_TO_TILE_TYPE_VALUE)[Int]> {
+    return TileType.fromValue(INT_TO_TILE_TYPE_VALUE[value]);
   }
 
   static Empty: TileType<typeof TileTypeValue.Empty> = new TileType(TileTypeValue.Empty);

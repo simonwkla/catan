@@ -1,4 +1,4 @@
-import { Dices, RotateCcw, Sparkles } from "lucide-react";
+import { Loader2, RotateCcw, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useTemplateStore } from "@/hook/use-template";
@@ -9,29 +9,18 @@ import { TileCountsSection } from "./TileCountsSection";
 
 interface SideBarProps {
   onGenerate: () => void;
+  loading: boolean;
 }
 
-export function SideBar({ onGenerate }: SideBarProps) {
+export function SideBar({ onGenerate, loading }: SideBarProps) {
   const reset = useTemplateStore((state) => state.reset);
 
   return (
     <div
       className={cn(
-        "flex w-80 shrink-0 flex-col overflow-hidden border-border border-r bg-card transition-all duration-300",
+        "flex w-96 shrink-0 flex-col overflow-hidden border-border border-r bg-card transition-all duration-300",
       )}
     >
-      {/* Header */}
-      <div className="shrink-0 p-2">
-        <div className="flex items-center gap-2">
-          <Dices className="h-5 w-5 text-primary" />
-          <h1 className="font-bold text-foreground text-lg tracking-tight">Catan Board Forge</h1>
-        </div>
-        <p className="mt-1 text-muted-foreground text-xs">Configure and generate balanced boards</p>
-      </div>
-
-      <Separator />
-
-      {/* Tabs */}
       <Tabs defaultValue="shape" className="mt-2 flex-1">
         <div className="px-1">
           <TabsList className="w-full">
@@ -40,7 +29,6 @@ export function SideBar({ onGenerate }: SideBarProps) {
           </TabsList>
         </div>
 
-        {/* Tab content */}
         <div className="px-2">
           <TabsContent value="shape">
             <GeneralSection />
@@ -53,8 +41,8 @@ export function SideBar({ onGenerate }: SideBarProps) {
 
       <Separator />
       <div className="space-y-1 p-2">
-        <Button onClick={onGenerate} className="w-full py-3 font-semibold">
-          <Sparkles className="h-4 w-4" />
+        <Button onClick={onGenerate} className="w-full py-3 font-semibold" disabled={loading}>
+          {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Sparkles className="h-4 w-4" />}
           Generate Board
         </Button>
         <Button variant="secondary" className="w-full py-2" onClick={reset}>

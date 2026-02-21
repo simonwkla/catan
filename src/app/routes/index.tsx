@@ -1,15 +1,31 @@
+import { Hexagon, Loader2, Sparkles } from "lucide-react";
 import { useCallback } from "react";
+import { useFetcher } from "react-router";
+import { match, P } from "ts-pattern";
 import { catanBff } from "@/.server/bff/catan";
 import { FieldComponent } from "@/components/Field";
 import { PaintToolbar } from "@/components/PaintToolbar";
 import { SideBar } from "@/components/SideBar";
+import { Button } from "@/components/ui/button";
+import { Empty, EmptyContent, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle } from "@/components/ui/empty";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useLoaderData } from "@/hook/use-data";
 import { TemplateStoreProvider, useTemplateStore } from "@/hook/use-template";
 import type { VectorAx } from "@/lib/vec";
+import type { Field, Template } from "@/models";
+import type { Route } from "./+types";
 
 export const loader = async () => {
   const [template, field] = catanBff.createDefaultTemplate(DEFAULT_SIZE);
   return { template, field };
+};
+
+export const action = async ({ request }: Route.ActionArgs) => {
+  const { template, field } = (await request.json()) as { template: Template; field: Field };
+
+  const result = await catanBff.solve(template, field);
+
+  return result;
 };
 
 const DEFAULT_SIZE = 2;
@@ -26,12 +42,14 @@ export default function Page() {
 
 function Board() {
   const field = useTemplateStore((state) => state.field);
+  const template = useTemplateStore((state) => state.template);
   const brush = useTemplateStore((state) => state.brush);
   const selectTile = useTemplateStore((state) => state.selectTile);
   const setTileType = useTemplateStore((state) => state.setTileType);
   const setTileToken = useTemplateStore((state) => state.setTileToken);
   const clearTile = useTemplateStore((state) => state.clearTile);
   const selectedTile = useTemplateStore((state) => state.selectedTile);
+  const fetcher = useFetcher<typeof action>();
 
   const handleTileClick = useCallback(
     (pos: VectorAx) => {
@@ -57,15 +75,22 @@ function Board() {
     [brush, selectTile, setTileType, setTileToken, clearTile],
   );
 
+  const handleGenerate = useCallback(() => {
+    fetcher.submit({ template, field }, { method: "POST", encType: "application/json" });
+  }, [fetcher, template, field]);
+
+  const isGenerating = fetcher.state !== "idle";
+
   return (
     <div className="flex h-screen overflow-hidden bg-background">
-      {/* Sidebar */}
-      <SideBar onGenerate={() => {}} />
+      <SideBar onGenerate={handleGenerate} loading={isGenerating} />
 
-      {/* Board area */}
-      <div className="flex min-w-0 flex-1 flex-col">
-        {/* Top bar */}
-        <div className="flex shrink-0 items-center justify-between border-border border-b bg-card/50 px-6 py-3">
+      <Tabs className="flex min-w-0 flex-1 flex-col py-2 pr-2 pl-1" defaultValue="template">
+        <div className="flex shrink-0 items-center justify-between">
+          <TabsList>
+            <TabsTrigger value="template">Template</TabsTrigger>
+            <TabsTrigger value="generated">Generated</TabsTrigger>
+          </TabsList>
           <div className="flex items-center gap-2">
             {selectedTile && (
               <span className="rounded bg-primary/10 px-2 py-0.5 text-primary text-xs">
@@ -76,23 +101,37 @@ function Board() {
         </div>
 
         {/* Board + toolbar */}
-        <div className="relative min-h-0 flex-1 p-4">
+        <TabsContent value="template" className="relative min-h-0 flex-1">
           <FieldComponent field={field} selectedTilePos={selectedTile?.pos ?? null} onTileClick={handleTileClick} />
           <PaintToolbar />
-        </div>
-
-        {/* Bottom legend */}
-        <div className="flex shrink-0 flex-wrap items-center justify-center gap-4 border-border border-t bg-card/50 px-6 py-2.5">
-          <span className="flex items-center gap-1 text-muted-foreground text-xs">
-            <span className="inline-block h-2 w-2 rounded-full bg-primary" />
-            Pinned = survives generation
-          </span>
-          <span className="flex items-center gap-1 text-muted-foreground text-xs">
-            <span className="inline-block h-2.5 w-2.5 rounded-full bg-destructive" />6 & 8 = highest probability
-          </span>
-          <span className="text-muted-foreground text-xs">Use toolbar below to paint or erase</span>
-        </div>
-      </div>
+        </TabsContent>
+        <TabsContent value="generated" className="relative flex min-h-0 flex-1 items-center justify-center">
+          {match([isGenerating, fetcher.data])
+            .with([true, P._], () => <Loader2 className="size-4 animate-spin" />)
+            .with([false, P.nullish], () => (
+              <Empty>
+                <EmptyHeader>
+                  <EmptyMedia variant="icon">
+                    <Hexagon className="size-6" />
+                  </EmptyMedia>
+                  <EmptyTitle>No field yet</EmptyTitle>
+                  <EmptyDescription>
+                    You haven't generated a fair catan field yet. Get started by clicking the generate button.
+                  </EmptyDescription>
+                </EmptyHeader>
+                <EmptyContent>
+                  <Button onClick={handleGenerate}>
+                    <Sparkles className="size-4" />
+                    Generate Field
+                  </Button>
+                </EmptyContent>
+              </Empty>
+            ))
+            .with([false, { ok: true }], ([_, { val }]) => <FieldComponent field={val} />)
+            .with([false, { ok: false }], ([_, { err }]) => <div>Error: {err.message}</div>)
+            .exhaustive()}
+        </TabsContent>
+      </Tabs>
     </div>
   );
 }

@@ -1,1 +1,1 @@
-export { spotifyApplication } from "./application";
+export { templateApplication } from "./application";

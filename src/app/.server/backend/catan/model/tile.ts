@@ -6,19 +6,20 @@ import type { Token } from "./token";
 
 type CondToken<TT extends TileType> = TT extends (typeof TileType.ResourceTileTypes)[number] ? Token : null | Token;
 
+type TileProps<TT extends TileType> = {
+  pos: VectorAx;
+  type: TT;
+  token: CondToken<TT>;
+};
 /**
  * A Tile is any tile on a hexagonal field even an invalid (placeholder) tile
  */
 export class Tile<TT extends TileType = TileType> {
-  readonly pos: VectorAx;
-  readonly type: TT;
-  readonly token: CondToken<TT>;
-
-  private constructor(pos: VectorAx, type: TT, token: CondToken<TT>) {
-    this.pos = pos;
-    this.type = type;
-    this.token = token;
-  }
+  private constructor(
+    readonly pos: VectorAx,
+    readonly type: TT,
+    readonly token: CondToken<TT>,
+  ) {}
 
   isResource(): this is ResourceTile {
     return this.type.isResource();
@@ -42,6 +43,10 @@ export class Tile<TT extends TileType = TileType> {
 
   static empty(vectorAx: VectorAx): EmptyTile {
     return new Tile(vectorAx, TileType.Empty, null);
+  }
+
+  static create<TT extends TileType = TileType>(props: TileProps<TT>): Tile<TT> {
+    return new Tile(props.pos, props.type, props.token);
   }
 }
 

@@ -8,12 +8,13 @@ type TileTypesMap = Readonly<Record<ValidTile["type"]["value"], number>>;
 type TokensMap = Readonly<Record<Token["value"], number>>;
 
 export class Template {
-  private readonly tileTypesMap: TileTypesMap;
-  private readonly tokensMap: TokensMap;
+  private constructor(
+    readonly tileTypesMap: TileTypesMap,
+    readonly tokensMap: TokensMap,
+  ) {}
 
-  constructor(tileTypesMap: TileTypesMap, tokensMap: TokensMap) {
-    this.tileTypesMap = tileTypesMap;
-    this.tokensMap = tokensMap;
+  static create(tileTypesMap: TileTypesMap, tokensMap: TokensMap): Template {
+    return new Template(tileTypesMap, tokensMap);
   }
 
   get size(): number {
@@ -117,10 +118,6 @@ export class Template {
       twelve: 1,
     };
 
-    return new Template(tileTypesMap, tokensMap);
-  }
-
-  static fromExisting({ tileTypesMap, tokensMap }: Template): Template {
     return new Template(tileTypesMap, tokensMap);
   }
 }

@@ -2,7 +2,7 @@ import { createContext, type PropsWithChildren, useContext, useRef } from "react
 import { createJSONStorage, persist, subscribeWithSelector } from "zustand/middleware";
 import { useStoreWithEqualityFn } from "zustand/traditional";
 import { createStore, type StateCreator } from "zustand/vanilla";
-import { fn } from "@/lib/std";
+import { fn, obj } from "@/lib/std";
 import { VectorAx } from "@/lib/vec";
 import {
   type Brush,
@@ -12,8 +12,9 @@ import {
   type Tile,
   type TileTypeValue,
   type Token,
+  type TokenValue,
   type ValidTileTypeValue,
-} from "@/models/catan";
+} from "@/models";
 
 interface TemplateSlice {
   field: Field;
@@ -22,6 +23,7 @@ interface TemplateSlice {
   selectedTilePos: VectorAx | null;
   reset: () => void;
   setTileTypeCount: (type: ValidTileTypeValue, next: number) => void;
+  setTokenCount: (token: TokenValue, next: number) => void;
   incTileTypeCount: (type: ValidTileTypeValue) => void;
   decTileTypeCount: (type: ValidTileTypeValue) => void;
   getTile: (pos: VectorAx) => Tile | null;
@@ -31,6 +33,13 @@ interface TemplateSlice {
   selectBrush: (brush: Brush) => void;
   setTileType: (pos: VectorAx, type: TileTypeValue) => void;
   setTileToken: (pos: VectorAx, token: Token | null) => void;
+  getFieldTokenCount: () => Record<TokenValue, number>;
+  getFieldTypeCount: () => Record<ValidTileTypeValue, number>;
+
+  getTemplateTokenResourceTilesDiff: () => {
+    tokenCount: number;
+    resourceTilesCount: number;
+  };
 }
 
 const STATE_STORE_NAME = "catan-state";
@@ -65,6 +74,14 @@ const createTemplateSlice: (props: CreateTemplateSliceProps) => StateCreator<Tem
         template: {
           ...state.template,
           tileTypesMap: { ...state.template.tileTypesMap, [type]: Math.max(0, next) },
+        },
+      }));
+    },
+    setTokenCount: (token: TokenValue, next: number) => {
+      set((state) => ({
+        template: {
+          ...state.template,
+          tokensMap: { ...state.template.tokensMap, [token]: Math.max(0, next) },
         },
       }));
     },
@@ -128,7 +145,55 @@ const createTemplateSlice: (props: CreateTemplateSliceProps) => StateCreator<Tem
     selectBrush: (brush: Brush) => {
       set({ brush });
     },
+    getFieldTokenCount: () => {
+      // get any tokens that are > count on the field
+      const { template, field } = get();
+
+      // num tokens in template - tokens in field
+      const fieldTokenCountMap = obj.fromEntries(
+        obj.getEntries(template.tokensMap).map(([token, _count]) => {
+          const fCount = tileCountByToken(field, token);
+          return [token, fCount];
+        }),
+      );
+
+      return fieldTokenCountMap;
+    },
+    getFieldTypeCount: () => {
+      const { template, field } = get();
+
+      const fieldTypeCountMap = obj.fromEntries(
+        obj.getEntries(template.tileTypesMap).map(([tileType, _count]) => {
+          const fCount = tileCountByType(field, tileType);
+          return [tileType, fCount];
+        }),
+      );
+
+      return fieldTypeCountMap;
+    },
+    getTemplateTokenResourceTilesDiff: () => {
+      const { template } = get();
+
+      const tokenCount = obj.getEntries(template.tokensMap).reduce((acc, [_, count]) => acc + count, 0);
+      const resourceTilesCount = obj
+        .getEntries(template.tileTypesMap)
+        .filter(([type]) => isResourceTileType(type))
+        .reduce((acc, [_, count]) => acc + count, 0);
+
+      return {
+        tokenCount,
+        resourceTilesCount,
+      };
+    },
   });
+
+function tileCountByToken(field: Field, token: TokenValue): number {
+  return field.tiles.filter((t) => t.token?.value === token).length;
+}
+
+function tileCountByType(field: Field, type: TileTypeValue): number {
+  return field.tiles.filter((t) => t.type === type).length;
+}
 
 type CreateTemplateStoreProps = CreateTemplateSliceProps;
 type TemplateStoreState = TemplateSlice & {

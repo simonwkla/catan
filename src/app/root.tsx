@@ -1,6 +1,5 @@
 import type { PropsWithChildren } from "react";
 import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
-import { authMiddleware } from "./.server/middleware/auth.middleware";
 import type { Route } from "./+types/root";
 import { Button } from "./components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./components/ui/card";
@@ -25,8 +24,6 @@ export function Layout({ children }: PropsWithChildren) {
     </html>
   );
 }
-
-export const middleware = [authMiddleware];
 
 export default function App() {
   return <Outlet />;

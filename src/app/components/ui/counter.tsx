@@ -10,7 +10,7 @@ interface CounterProps {
 
 export function Counter({ count, onChange, min = 0, max = Number.POSITIVE_INFINITY }: CounterProps) {
   return (
-    <div className="flex items-center gap-1">
+    <div className="flex items-center">
       <Button
         variant="secondary"
         size="icon-xs"

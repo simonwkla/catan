@@ -1,7 +1,9 @@
 import { Eraser, MousePointer2, X } from "lucide-react";
 import { useState } from "react";
 import { useTemplateStore } from "@/hook/use-template";
+import { cn } from "@/lib/cn";
 import { ALL_TOKENS, type Brush, TILE_TYPE_INFO, VALID_TILE_TYPES } from "@/models/catan";
+import { Token } from "./ui/token";
 
 export function PaintToolbar() {
   const brush = useTemplateStore((state) => state.brush);
@@ -29,7 +31,6 @@ export function PaintToolbar() {
           <span className="mr-2 font-semibold text-[10px] text-muted-foreground uppercase tracking-wider">Tokens</span>
           {ALL_TOKENS.map((token) => {
             const active = isActive({ kind: "token", token });
-            const isRed = token.int === 6 || token.int === 8;
             return (
               <button
                 key={token.value}
@@ -37,22 +38,11 @@ export function PaintToolbar() {
                   selectBrush({ kind: "token", token });
                   setExpanded(null);
                 }}
-                className={`flex w-9 flex-col items-center gap-0.5 rounded-lg py-1.5 transition-all duration-150 ${
-                  active ? "bg-primary/20 ring-2 ring-primary" : "hover:bg-secondary"
-                }`}
-                title={`Paint number ${token.int}`}
               >
-                <span className={`font-bold font-serif text-xs ${isRed ? "text-destructive" : "text-foreground"}`}>
-                  {token.int}
-                </span>
-                <div className="flex gap-px">
-                  {Array.from({ length: token.pips }).map((_, i) => (
-                    <div
-                      key={i}
-                      className={`h-[3px] w-[3px] rounded-full ${isRed ? "bg-destructive" : "bg-foreground/60"}`}
-                    />
-                  ))}
-                </div>
+                <Token
+                  token={token}
+                  className={cn("hover:bg-secondary", active && "bg-primary/20 ring-2 ring-primary")}
+                />
               </button>
             );
           })}

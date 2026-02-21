@@ -39,6 +39,19 @@ const TOKEN_VALUE_TO_INT = {
   [TokenValue.Twelve]: 12,
 } as const;
 
+const INT_TO_TOKEN_VALUE = {
+  2: TokenValue.Two,
+  3: TokenValue.Three,
+  4: TokenValue.Four,
+  5: TokenValue.Five,
+  6: TokenValue.Six,
+  8: TokenValue.Eight,
+  9: TokenValue.Nine,
+  10: TokenValue.Ten,
+  11: TokenValue.Eleven,
+  12: TokenValue.Twelve,
+} as const;
+
 const TOKEN_VALUE_DISPLAY_NAME = {
   [TokenValue.Two]: "Two",
   [TokenValue.Three]: "Three",
@@ -52,6 +65,8 @@ const TOKEN_VALUE_DISPLAY_NAME = {
   [TokenValue.Twelve]: "Twelve",
 } as const;
 
+// biome-ignore lint/suspicious/noExplicitAny: no other way to do this
+type DistributeToken<T extends TokenValue> = T extends any ? Token<T> : never;
 export class Token<V extends TokenValue = TokenValue> {
   readonly value: V;
 
@@ -70,8 +85,14 @@ export class Token<V extends TokenValue = TokenValue> {
     return TOKEN_VALUE_DISPLAY_NAME[this.value];
   }
 
-  static fromValue(value: TokenValue): Token {
-    return new Token(value);
+  static fromValue<V extends TokenValue>(value: V): DistributeToken<V> {
+    return new Token(value) as DistributeToken<V>;
+  }
+
+  static fromInt<Int extends keyof typeof INT_TO_TOKEN_VALUE>(
+    value: Int,
+  ): DistributeToken<(typeof INT_TO_TOKEN_VALUE)[Int]> {
+    return Token.fromValue(INT_TO_TOKEN_VALUE[value]);
   }
 
   eq(other: Token): boolean {

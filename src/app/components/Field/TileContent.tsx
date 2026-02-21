@@ -1,4 +1,3 @@
-import { Lock } from "lucide-react";
 import type { Tile, TileTypeInfo } from "@/models/catan";
 
 interface TileContentProps {
@@ -22,7 +21,7 @@ export function TileContent({ tile, tileInfo, isRedToken, size, isEmpty, isPlace
     <>
       {isResourceType && (
         <div
-          className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 text-center"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center"
           style={{
             fontSize: `${size * 0.4}px`,
           }}
@@ -63,9 +62,7 @@ export function TileContent({ tile, tileInfo, isRedToken, size, isEmpty, isPlace
       )}
 
       {tile.token && isResourceType && (
-        <div
-          className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"
-        >
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
           <div
             className="flex h-12 w-12 items-center justify-center rounded-full border-2"
             style={{

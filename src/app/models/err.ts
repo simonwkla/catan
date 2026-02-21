@@ -3,11 +3,7 @@ export type Exception = {
   readonly message: string;
 };
 
-export type SpotifyApiException = Exception & {
-  readonly kind: "spotify-api-exception";
-  readonly cause: {
-    readonly name: string;
-    readonly message: string;
-    readonly stack: string | null;
-  } | null;
+export type UnsolvableError = Exception & {
+  readonly kind: "unsolvable";
+  readonly type: "unknown" | "unsat";
 };

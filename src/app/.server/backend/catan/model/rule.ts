@@ -1,17 +1,89 @@
-import type { Arith, Context, Solver } from "z3-solver";
-import type { Field } from "./field";
+import { type Arith, type Context, init, type Solver } from "z3-solver";
+import { Err, Exception, Ok, type Result } from "@/lib/std";
+import { Field, type ValidField } from "./field";
 import type { Template } from "./template";
-import type { Tile, ValidTile } from "./tile";
-import { TileType } from "./tile-type";
+import { Tile, type ValidTile } from "./tile";
+import { type TILE_TYPE_VALUE_TO_INT, TileType } from "./tile-type";
 import { Token } from "./token";
 
-interface SolverContext<C extends "catan"> {
-  Z3: Context<C>;
-  solver: Solver<C>;
-  field: Field;
-  template: Template;
-  typeVars: Arith<C>[];
-  tokenVars: Arith<C>[];
+export class SolverContext<C extends "catan"> {
+  private constructor(
+    public readonly Z3: Context<C>,
+    public readonly solver: Solver<C>,
+    public readonly field: Field,
+    public readonly template: Template,
+    public readonly typeVars: Arith<C>[],
+    public readonly tokenVars: Arith<C>[],
+  ) {}
+
+  static async create(field: Field, template: Template): Promise<SolverContext<"catan">> {
+    const { Context } = await init();
+
+    const Z3 = new Context("catan");
+
+    const solver = new Z3.Solver();
+
+    const typeVars = field.tiles.map((tile) => Z3.Int.const(`type-${tile.pos.q}-${tile.pos.r}`));
+    const tokenVars = field.tiles.map((tile) => Z3.Int.const(`token-${tile.pos.q}-${tile.pos.r}`));
+
+    return new SolverContext(Z3, solver, field, template, typeVars, tokenVars);
+  }
+
+  async solve(rules: Rule[]): Promise<Result<ValidField, UnsolvableError>> {
+    for (const rule of rules) {
+      rule.apply(this);
+    }
+
+    const result = await this.solver.check();
+
+    if (result === "unknown") {
+      return Err(UnsolvableError.unknown());
+    }
+
+    if (result === "unsat") {
+      return Err(UnsolvableError.unsat());
+    }
+
+    const model = this.solver.model();
+
+    const field = Field.fromTiles(
+      this.field.tiles.map((tile, i) => {
+        const typeInt = Number.parseInt(
+          model.get(this.typeVars[i]).toString(),
+          10,
+        ) as (typeof TILE_TYPE_VALUE_TO_INT)[ValidTile["type"]["value"]];
+        const tokenInt = Number.parseInt(model.get(this.tokenVars[i]).toString(), 10) as Parameters<
+          typeof Token.fromInt
+        >[0];
+
+        const type = TileType.fromInt(typeInt);
+        const token = Token.fromInt(tokenInt);
+
+        return Tile.create({ pos: tile.pos, type, token });
+      }),
+    );
+
+    return Ok(field);
+  }
+}
+
+export class UnsolvableError extends Exception {
+  readonly kind = "unsolvable" as const;
+
+  private constructor(
+    readonly type: "unknown" | "unsat",
+    message: string,
+  ) {
+    super(message);
+  }
+
+  static unknown(): UnsolvableError {
+    return new UnsolvableError("unknown", "Satisfiability could not be determined.");
+  }
+
+  static unsat(): UnsolvableError {
+    return new UnsolvableError("unsat", "With the selected rules the given template is unsatisfiable.");
+  }
 }
 
 interface Rule {
@@ -78,7 +150,7 @@ const AllowedTokensCountRule: Rule = {
     for (let i = 0; i < field.tiles.length; i++) {
       const tile = field.tiles[i];
       // fixed resource tile with fixed token
-      if (tile.isValid() && tile.isResource()) {
+      if (tile.isValid() && tile.isResource() && tile.token) {
         solver.add(tokenVars[i].eq(tile.token.int));
         continue;
       }

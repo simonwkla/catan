@@ -3,7 +3,7 @@ import { Border } from "@/components/Field/border";
 import { cn } from "@/lib/cn";
 import { Vector2, VectorAx } from "@/lib/vec";
 import type { Tile, ValidTileTypeValue } from "@/models/catan";
-import { TILE_TYPE_IMAGES, TILE_TYPE_INFO } from "@/models/catan";
+import { TILE_TYPE_INFO } from "@/models/catan";
 import { TileContent } from "./TileContent";
 
 export interface TileProps {

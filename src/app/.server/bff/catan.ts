@@ -1,44 +1,61 @@
-import type { Field as DomainField } from "@/.server/backend/catan/model/field";
+import { Field as DomainField } from "@/.server/backend/catan/model/field";
 import { Template as DomainTemplate } from "@/.server/backend/catan/model/template";
-import type { Tile as DomainTile } from "@/.server/backend/catan/model/tile";
+import { Tile as DomainTile } from "@/.server/backend/catan/model/tile";
 import { TileType } from "@/.server/backend/catan/model/tile-type";
 import { Token as DomainToken } from "@/.server/backend/catan/model/token";
-import { fn } from "@/lib/std";
+import { fn, type Result } from "@/lib/std";
 import type {
-  Field as CatanField,
-  Template as CatanTemplate,
-  Tile as CatanTile,
-  Token as CatanToken,
+  Field as FrontendField,
+  Template as FrontendTemplate,
+  Tile as FrontendTile,
+  Token as FrontendToken,
+  UnsolvableError as FrontendUnsolvableError,
   TileTypeValue,
-} from "@/models/catan";
+} from "@/models";
+import type { UnsolvableError as DomainUnsolvableError } from "@/models/err";
 import { templateApplication } from "../backend/cmd/application";
 
 export const catanBff = {
-  createDefaultTemplate: (size: number): [CatanTemplate, CatanField] => {
+  createDefaultTemplate: (size: number): [FrontendTemplate, FrontendField] => {
     const [template, field] = templateApplication.createDefaultTemplate(size);
     return [FromDomain.template(template), FromDomain.field(field)];
+  },
+
+  solve: async (
+    template: FrontendTemplate,
+    field: FrontendField,
+  ): Promise<Result<FrontendField, FrontendUnsolvableError>> => {
+    const [domainTemplate, domainField] = [FromBff.template(template), FromBff.field(field)];
+    const result = await templateApplication.solve(domainTemplate, domainField);
+    return result.map(FromDomain.field).mapErr(FromDomain.error);
   },
 };
 
 const FromDomain = {
-  field: (domain: DomainField): CatanField => ({
+  field: (domain: DomainField): FrontendField => ({
     tiles: domain.tiles.map(FromDomain.tile),
   }),
 
-  tile: (domain: DomainTile): CatanTile => ({
+  error: (domain: DomainUnsolvableError): FrontendUnsolvableError => ({
+    kind: domain.kind,
+    message: domain.message,
+    type: domain.type,
+  }),
+
+  tile: (domain: DomainTile): FrontendTile => ({
     pos: domain.pos,
     type: domain.type.value,
     token: fn.applyOptional(domain.token, FromDomain.token),
   }),
 
-  token: (domain: DomainToken): CatanToken => ({
+  token: (domain: DomainToken): FrontendToken => ({
     value: domain.value,
     int: domain.int,
     pips: domain.pips,
     displayName: domain.displayName,
   }),
 
-  template: (domain: DomainTemplate): CatanTemplate => ({
+  template: (domain: DomainTemplate): FrontendTemplate => ({
     tileTypesMap: {
       water: domain.typeCount(TileType.Water),
       desert: domain.typeCount(TileType.Desert),
@@ -69,12 +86,24 @@ const FromBff = {
     return TileType.fromValue(value);
   },
 
-  token: (token: CatanToken): DomainToken => {
+  token: (token: FrontendToken): DomainToken => {
     return DomainToken.fromValue(token.value);
   },
 
-  template: (bff: CatanTemplate): DomainTemplate => {
-    return new DomainTemplate(bff.tileTypesMap, bff.tokensMap);
+  field: (bff: FrontendField): DomainField => {
+    return DomainField.fromTiles(bff.tiles.map(FromBff.tile));
+  },
+
+  tile: (bff: FrontendTile): DomainTile => {
+    return DomainTile.create({
+      pos: bff.pos,
+      type: FromBff.tileType(bff.type),
+      token: fn.applyOptional(bff.token, FromBff.token),
+    });
+  },
+
+  template: (bff: FrontendTemplate): DomainTemplate => {
+    return DomainTemplate.create(bff.tileTypesMap, bff.tokensMap);
   },
 };
 

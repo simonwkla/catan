@@ -3,10 +3,10 @@ import { Vector2 } from "./vector2";
 /**
  * Describes a Vector or point in dimensional axial space
  */
-export interface VectorAx {
+export type VectorAx = {
   readonly q: number;
   readonly r: number;
-}
+};
 
 function create(q: number, r: number): VectorAx {
   return { q, r };
