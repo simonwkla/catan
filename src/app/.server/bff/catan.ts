@@ -1,4 +1,5 @@
 import { Field as DomainField } from "@/.server/backend/catan/model/field";
+import type { Rule as DomainRule } from "@/.server/backend/catan/model/rule";
 import { Template as DomainTemplate } from "@/.server/backend/catan/model/template";
 import { Tile as DomainTile } from "@/.server/backend/catan/model/tile";
 import { TileType } from "@/.server/backend/catan/model/tile-type";
@@ -6,13 +7,16 @@ import { Token as DomainToken } from "@/.server/backend/catan/model/token";
 import { fn, type Result } from "@/lib/std";
 import type {
   Field as FrontendField,
+  Rule as FrontendRule,
   Template as FrontendTemplate,
   Tile as FrontendTile,
   Token as FrontendToken,
   UnsolvableError as FrontendUnsolvableError,
+  RuleKind,
   TileTypeValue,
 } from "@/models";
 import type { UnsolvableError as DomainUnsolvableError } from "@/models/err";
+import { Rule } from "../backend/catan/model/rule";
 import { templateApplication } from "../backend/cmd/application";
 
 export const catanBff = {
@@ -24,10 +28,19 @@ export const catanBff = {
   solve: async (
     template: FrontendTemplate,
     field: FrontendField,
+    rules: readonly RuleKind[],
   ): Promise<Result<FrontendField, FrontendUnsolvableError>> => {
     const [domainTemplate, domainField] = [FromBff.template(template), FromBff.field(field)];
-    const result = await templateApplication.solve(domainTemplate, domainField);
+    const result = await templateApplication.solve(domainTemplate, domainField, rules);
     return result.map(FromDomain.field).mapErr(FromDomain.error);
+  },
+
+  getAllRules: (): readonly FrontendRule[] => {
+    return templateApplication.getAllRules().map(FromDomain.rule);
+  },
+
+  getDefaultRules: (): readonly FrontendRule[] => {
+    return templateApplication.getDefaultRules().map(FromDomain.rule);
   },
 };
 
@@ -53,6 +66,12 @@ const FromDomain = {
     int: domain.int,
     pips: domain.pips,
     displayName: domain.displayName,
+  }),
+
+  rule: (domain: DomainRule): FrontendRule => ({
+    kind: domain.kind,
+    name: domain.name,
+    description: domain.description,
   }),
 
   template: (domain: DomainTemplate): FrontendTemplate => ({
@@ -104,6 +123,10 @@ const FromBff = {
 
   template: (bff: FrontendTemplate): DomainTemplate => {
     return DomainTemplate.create(bff.tileTypesMap, bff.tokensMap);
+  },
+
+  rule: (bff: FrontendRule): DomainRule => {
+    return Rule.fromKind(bff.kind);
   },
 };
 

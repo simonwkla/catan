@@ -79,30 +79,16 @@ export class Template {
       .map(([token]) => Token.fromValue(token));
   }
 
-  static default(field: Field): Template {
-    const tileCount = field.tiles.length;
-    const desertCount = 1;
-    const landSlots = tileCount - desertCount;
-    const perType = Math.floor(landSlots / TileType.ResourceTileTypes.length);
-    let remaining = landSlots - perType * TileType.ResourceTileTypes.length;
-
-    function nextResourceCount(): number {
-      const count = perType + (remaining > 0 ? 1 : 0);
-      if (remaining > 0) {
-        remaining--;
-      }
-      return count;
-    }
-
+  static default(_field: Field): Template {
     const tileTypesMap: Record<ValidTile["type"]["value"], number> = {
       water: 0,
-      desert: desertCount,
-      sheep: nextResourceCount(),
-      forest: nextResourceCount(),
-      field: nextResourceCount(),
-      mountain: nextResourceCount(),
-      clay: nextResourceCount(),
-      gold: nextResourceCount(),
+      desert: 1,
+      sheep: 3,
+      forest: 4,
+      field: 4,
+      mountain: 4,
+      clay: 3,
+      gold: 0,
     };
 
     const tokensMap: Record<Token["value"], number> = {

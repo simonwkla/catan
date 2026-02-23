@@ -8,6 +8,8 @@ import {
   type Brush,
   type Field,
   isResourceTileType,
+  type Rule,
+  type RuleKind,
   type Template,
   type Tile,
   type TileTypeValue,
@@ -195,19 +197,39 @@ function tileCountByType(field: Field, type: TileTypeValue): number {
   return field.tiles.filter((t) => t.type === type).length;
 }
 
-type CreateTemplateStoreProps = CreateTemplateSliceProps;
-type TemplateStoreState = TemplateSlice & {
-  selectedTile: Tile | null;
-};
+interface RuleSlice {
+  rules: readonly (Rule & { enabled: boolean })[];
+  toggleRule: (rule: RuleKind) => void;
+}
 
-const createTemplateStore = ({ field, template }: CreateTemplateStoreProps) => {
+interface CreateRuleSliceProps {
+  allRules: readonly Rule[];
+  selectedRules: readonly Rule[];
+}
+
+const createRuleSlice: (props: CreateRuleSliceProps) => StateCreator<RuleSlice> = (props) => (set, _get) => ({
+  rules: props.allRules.map((rule) => ({ ...rule, enabled: props.selectedRules.some((r) => r.kind === rule.kind) })),
+  toggleRule: (rule: RuleKind) => {
+    set((state) => ({ rules: state.rules.map((r) => (r.kind === rule ? { ...r, enabled: !r.enabled } : r)) }));
+  },
+});
+
+type CreateTemplateStoreProps = CreateTemplateSliceProps & CreateRuleSliceProps;
+type TemplateStoreState = TemplateSlice &
+  RuleSlice & {
+    selectedTile: Tile | null;
+  };
+
+const createTemplateStore = ({ field, template, allRules, selectedRules }: CreateTemplateStoreProps) => {
   const store = createStore<TemplateStoreState>()(
     subscribeWithSelector(
       persist(
         (set, get, api) => {
           const templateSlice = createTemplateSlice({ field, template })(set, get, api);
+          const ruleSlice = createRuleSlice({ allRules, selectedRules })(set, get, api);
           return {
             ...templateSlice,
+            ...ruleSlice,
             selectedTile: null,
           };
         },

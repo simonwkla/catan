@@ -4,7 +4,6 @@ import { Badge } from "../ui/badge";
 import { Counter } from "../ui/counter";
 import { Label } from "../ui/label";
 import { Token } from "../ui/token";
-import { Separator } from "../ui/separator";
 
 export function TileCountsSection() {
   const template = useTemplateStore((state) => state.template);
@@ -60,13 +59,14 @@ export function TileCountsSection() {
 
       <div className="flex items-center justify-between">
         <h4 className="font-semibold">Tokens</h4>
-      <Badge
-        variant={
-          tokenResourceTilesDiff.tokenCount === tokenResourceTilesDiff.resourceTilesCount ? "default" : "destructive"
-        }
-      >
-        {tokenResourceTilesDiff.tokenCount} / {tokenResourceTilesDiff.resourceTilesCount}
-      </Badge></div>
+        <Badge
+          variant={
+            tokenResourceTilesDiff.tokenCount === tokenResourceTilesDiff.resourceTilesCount ? "default" : "destructive"
+          }
+        >
+          {tokenResourceTilesDiff.tokenCount} / {tokenResourceTilesDiff.resourceTilesCount}
+        </Badge>
+      </div>
 
       <div className="grid grid-cols-1 gap-1">
         {ALL_TOKENS.map((token) => {

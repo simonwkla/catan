@@ -12,18 +12,26 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useLoaderData } from "@/hook/use-data";
 import { TemplateStoreProvider, useTemplateStore } from "@/hook/use-template";
 import type { VectorAx } from "@/lib/vec";
-import type { Field, Template } from "@/models";
+import type { Field, RuleKind, Template } from "@/models";
 import type { Route } from "./+types";
 
 export const loader = async () => {
   const [template, field] = catanBff.createDefaultTemplate(DEFAULT_SIZE);
-  return { template, field };
+
+  const allRules = catanBff.getAllRules();
+  const selectedRules = catanBff.getDefaultRules();
+
+  return { template, field, allRules, selectedRules };
 };
 
 export const action = async ({ request }: Route.ActionArgs) => {
-  const { template, field } = (await request.json()) as { template: Template; field: Field };
+  const { template, field, rules } = (await request.json()) as {
+    template: Template;
+    field: Field;
+    rules: readonly RuleKind[];
+  };
 
-  const result = await catanBff.solve(template, field);
+  const result = await catanBff.solve(template, field, rules);
 
   return result;
 };
@@ -31,10 +39,10 @@ export const action = async ({ request }: Route.ActionArgs) => {
 const DEFAULT_SIZE = 2;
 
 export default function Page() {
-  const { template, field } = useLoaderData<typeof loader>();
+  const { template, field, allRules, selectedRules } = useLoaderData<typeof loader>();
 
   return (
-    <TemplateStoreProvider field={field} template={template}>
+    <TemplateStoreProvider field={field} template={template} allRules={allRules} selectedRules={selectedRules}>
       <Board />
     </TemplateStoreProvider>
   );
@@ -50,6 +58,8 @@ function Board() {
   const clearTile = useTemplateStore((state) => state.clearTile);
   const selectedTile = useTemplateStore((state) => state.selectedTile);
   const fetcher = useFetcher<typeof action>();
+
+  const selectedRuleKinds = useTemplateStore((state) => state.rules.filter((r) => r.enabled).map((r) => r.kind));
 
   const handleTileClick = useCallback(
     (pos: VectorAx) => {
@@ -76,8 +86,8 @@ function Board() {
   );
 
   const handleGenerate = useCallback(() => {
-    fetcher.submit({ template, field }, { method: "POST", encType: "application/json" });
-  }, [fetcher, template, field]);
+    fetcher.submit({ template, field, rules: selectedRuleKinds }, { method: "POST", encType: "application/json" });
+  }, [fetcher, template, field, selectedRuleKinds]);
 
   const isGenerating = fetcher.state !== "idle";
 

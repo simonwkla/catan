@@ -5,6 +5,7 @@ import { useTemplateStore } from "@/hook/use-template";
 import { cn } from "@/lib/cn";
 import { Separator } from "../ui/separator";
 import { GeneralSection } from "./GeneralSection";
+import { RulesSection } from "./RulesSection";
 import { TileCountsSection } from "./TileCountsSection";
 
 interface SideBarProps {
@@ -18,18 +19,22 @@ export function SideBar({ onGenerate, loading }: SideBarProps) {
   return (
     <div
       className={cn(
-        "flex w-96 shrink-0 flex-col overflow-hidden border-border border-r bg-card transition-all duration-300",
+        "flex w-md shrink-0 flex-col overflow-hidden border-border border-r bg-card transition-all duration-300",
       )}
     >
-      <Tabs defaultValue="shape" className="mt-2 flex-1">
+      <Tabs defaultValue="rules" className="mt-2 flex-1">
         <div className="px-1">
           <TabsList className="w-full">
+            <TabsTrigger value="rules">Rules</TabsTrigger>
             <TabsTrigger value="shape">Shape</TabsTrigger>
             <TabsTrigger value="tiles">Counts</TabsTrigger>
           </TabsList>
         </div>
 
         <div className="px-2">
+          <TabsContent value="rules">
+            <RulesSection />
+          </TabsContent>
           <TabsContent value="shape">
             <GeneralSection />
           </TabsContent>

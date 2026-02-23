@@ -1,3 +1,4 @@
+import { match } from "ts-pattern";
 import { type Arith, type Context, init, type Solver } from "z3-solver";
 import { Err, Exception, Ok, type Result } from "@/lib/std";
 import { Field, type ValidField } from "./field";
@@ -29,9 +30,9 @@ export class SolverContext<C extends "catan"> {
     return new SolverContext(Z3, solver, field, template, typeVars, tokenVars);
   }
 
-  async solve(rules: Rule[]): Promise<Result<ValidField, UnsolvableError>> {
+  async solve(rules: readonly Rule[]): Promise<Result<ValidField, UnsolvableError>> {
     for (const rule of rules) {
-      rule.apply(this);
+      rule.apply(this as unknown as SolverContext<"catan">);
     }
 
     const result = await this.solver.check();
@@ -86,10 +87,11 @@ export class UnsolvableError extends Exception {
   }
 }
 
-interface Rule {
-  name: string;
-  description: string;
-  apply: <Context extends "catan">(context: SolverContext<Context>) => void;
+export interface Rule {
+  readonly kind: RuleKind;
+  readonly name: string;
+  readonly description: string;
+  apply(context: SolverContext<"catan">): void;
 }
 
 class ApplyRuleError extends Error {}
@@ -104,11 +106,15 @@ class NoAllowedTileTypesError extends ApplyRuleError {
   }
 }
 
-const AllowedTileTypesCountRule: Rule = {
-  name: "Allowed tile types count",
-  description:
-    "Ensures that the number of tiles of each allowed tile type is equal to the number of tiles of that type in the template.",
-  apply: ({ Z3, solver, field, template, typeVars }): void => {
+const TOKEN_NONE = 0;
+
+export class AllowedTileTypesCountRule implements Rule {
+  readonly kind = "allowed-tile-types-count" as const;
+  readonly name = "Allowed tile types count";
+  readonly description =
+    "Ensures that the number of tiles of each allowed tile type is equal to the number of tiles of that type in the template.";
+
+  apply({ Z3, solver, field, template, typeVars }: SolverContext<"catan">): void {
     for (let i = 0; i < field.tiles.length; i++) {
       const tile = field.tiles[i];
       /**
@@ -137,16 +143,20 @@ const AllowedTileTypesCountRule: Rule = {
       const sum = indicators.reduce((acc, x) => acc.add(x), Z3.Int.val(0));
       solver.add(sum.eq(targetCount));
     }
-  },
-};
+  }
 
-const TOKEN_NONE = 0;
+  static create() {
+    return new AllowedTileTypesCountRule();
+  }
+}
 
-const AllowedTokensCountRule: Rule = {
-  name: "Allowed tokens count",
-  description:
-    "Ensures that the number of tokens is equal to the number of tokens in the template and that tokens are only placed on resource tiles.",
-  apply: ({ Z3, solver, field, template, typeVars, tokenVars }): void => {
+export class AllowedTokensCountRule implements Rule {
+  readonly kind = "allowed-tokens-count" as const;
+  readonly name = "Allowed tokens count";
+  readonly description =
+    "Ensures that the number of tokens is equal to the number of tokens in the template and that tokens are only placed on resource tiles.";
+
+  apply({ Z3, solver, field, template, typeVars, tokenVars }: SolverContext<"catan">): void {
     for (let i = 0; i < field.tiles.length; i++) {
       const tile = field.tiles[i];
       // fixed resource tile with fixed token
@@ -190,52 +200,76 @@ const AllowedTokensCountRule: Rule = {
       const sum = indicators.reduce((acc, x) => acc.add(x), Z3.Int.val(0));
       solver.add(sum.eq(targetCount));
     }
-  },
-};
+  }
 
-const NeighbouringResourceTilesRule: Rule = {
-  name: "Neighbouring resource tiles cannot have same resource",
-  description: "Ensures that neighbouring resource tiles cannot have same resource",
-  apply: ({ Z3, solver, field, typeVars }): void => {
+  static create() {
+    return new AllowedTokensCountRule();
+  }
+}
+
+export class NeighbouringResourceTilesRule implements Rule {
+  readonly kind = "neighbouring-resource-tiles" as const;
+  readonly name = "Neighbouring resource tiles cannot have same resource";
+  readonly description = "Ensures that neighbouring resource tiles cannot have same resource";
+
+  apply({ Z3, solver, field, typeVars }: SolverContext<"catan">): void {
     const neighbours = field.getNeighbouringIndices();
     const isResource = (idx: number) => Z3.Or(...TileType.ResourceTileTypes.map((t) => typeVars[idx].eq(t.int)));
 
     for (const [i, j] of neighbours) {
       solver.add(Z3.Implies(Z3.And(isResource(i), isResource(j)), typeVars[i].neq(typeVars[j])));
     }
-  },
-};
+  }
 
-const NeighbouringTokensRule: Rule = {
-  name: "Neighbouring tiles cannot have same token",
-  description: "Ensures that neighbouring tiles cannot have same token",
-  apply: ({ Z3, solver, field, tokenVars }): void => {
+  static create() {
+    return new NeighbouringResourceTilesRule();
+  }
+}
+
+export class NeighbouringTokensRule implements Rule {
+  readonly kind = "neighbouring-tokens" as const;
+  readonly name = "Neighbouring tiles cannot have same token";
+  readonly description = "Ensures that neighbouring tiles cannot have same token";
+
+  apply({ Z3, solver, field, tokenVars }: SolverContext<"catan">): void {
     const neighbours = field.getNeighbouringIndices();
     for (const [i, j] of neighbours) {
       solver.add(
         Z3.Implies(Z3.And(tokenVars[i].neq(TOKEN_NONE), tokenVars[j].neq(TOKEN_NONE)), tokenVars[i].neq(tokenVars[j])),
       );
     }
-  },
-};
+  }
 
-const NoAdjacent6Or8Rule: Rule = {
-  name: "No adjacent 6 or 8",
-  description: "Ensures that no adjacent 6 or 8 are placed on the field",
-  apply: <C extends "catan">({ Z3, solver, field, tokenVars }: SolverContext<C>): void => {
+  static create() {
+    return new NeighbouringTokensRule();
+  }
+}
+
+export class NoAdjacent6Or8Rule implements Rule {
+  readonly kind = "no-adjacent-6-or-8" as const;
+  readonly name = "No adjacent 6 or 8";
+  readonly description = "Ensures that no adjacent 6 or 8 are placed on the field";
+
+  apply({ Z3, solver, field, tokenVars }: SolverContext<"catan">): void {
     const neighbours = field.getNeighbouringIndices();
-    const isHigh = (v: Arith<C>) => Z3.Or(v.eq(Token.Six.int), v.eq(Token.Eight.int));
+    const isHigh = (v: Arith<"catan">) => Z3.Or(v.eq(Token.Six.int), v.eq(Token.Eight.int));
     for (const [i, j] of neighbours) {
       solver.add(Z3.Not(Z3.And(isHigh(tokenVars[i]), isHigh(tokenVars[j]))));
     }
-  },
-};
+  }
 
-const BalancedResourceProbabilitiesRule: Rule = {
-  name: "Balanced resource probabilities",
-  description: "Ensures that the probabilities over the same resource as balanced",
-  apply: <C extends "catan">({ Z3, solver, field, template, typeVars, tokenVars }: SolverContext<C>): void => {
-    const pipExpr = (v: Arith<C>) => {
+  static create() {
+    return new NoAdjacent6Or8Rule();
+  }
+}
+
+export class BalancedResourceProbabilitiesRule implements Rule {
+  readonly kind = "balanced-resource-probabilities" as const;
+  readonly name = "Balanced resource probabilities";
+  readonly description = "Ensures that the probabilities over the same resource as balanced";
+
+  apply({ Z3, solver, field, template, typeVars, tokenVars }: SolverContext<"catan">): void {
+    const pipExpr = (v: Arith<"catan">) => {
       let expr = Z3.Int.val(0);
       for (const tk of Token.All) {
         expr = Z3.If(v.eq(tk.int), Z3.Int.val(tk.pips), expr);
@@ -245,9 +279,9 @@ const BalancedResourceProbabilitiesRule: Rule = {
 
     const resourceTypes = template.getAllowedResourceTileTypes();
     // sum of pips for each resource type
-    const pipSumByResource = new Map<ValidTile["type"], Arith<C>>();
+    const pipSumByResource = new Map<ValidTile["type"], Arith<"catan">>();
     for (const rt of resourceTypes) {
-      let sum: Arith<C> = Z3.Int.val(0);
+      let sum: Arith<"catan"> = Z3.Int.val(0);
       for (let i = 0; i < field.tiles.length; i++) {
         sum = sum.add(Z3.If(typeVars[i].eq(rt.int), pipExpr(tokenVars[i]), Z3.Int.val(0)));
       }
@@ -265,14 +299,20 @@ const BalancedResourceProbabilitiesRule: Rule = {
         solver.add(diff.ge(-1));
       }
     }
-  },
-};
+  }
 
-const Maximum11PipsPerIntersectionRule: Rule = {
-  name: "Maximum 11 pips per intersection",
-  description: "Ensures that the sum of pips for each intersection is at most 11",
-  apply: <C extends "catan">({ Z3, solver, field, tokenVars }: SolverContext<C>): void => {
-    const pipExpr = (v: Arith<C>) => {
+  static create() {
+    return new BalancedResourceProbabilitiesRule();
+  }
+}
+
+export class Maximum11PipsPerIntersectionRule implements Rule {
+  readonly kind = "maximum-11-pips-per-intersection" as const;
+  readonly name = "Maximum 11 pips per intersection";
+  readonly description = "Ensures that the sum of pips for each intersection is at most 11";
+
+  apply({ Z3, solver, field, tokenVars }: SolverContext<"catan">): void {
+    const pipExpr = (v: Arith<"catan">) => {
       let expr = Z3.Int.val(0);
       for (const tk of Token.All) {
         expr = Z3.If(v.eq(tk.int), Z3.Int.val(tk.pips), expr);
@@ -284,15 +324,47 @@ const Maximum11PipsPerIntersectionRule: Rule = {
       const s = pipExpr(tokenVars[i]).add(pipExpr(tokenVars[j])).add(pipExpr(tokenVars[k]));
       solver.add(s.le(11));
     }
-  },
-};
+  }
 
-export const DefaultRules: Rule[] = [
-  AllowedTileTypesCountRule,
-  AllowedTokensCountRule,
-  NeighbouringResourceTilesRule,
-  NeighbouringTokensRule,
-  NoAdjacent6Or8Rule,
-  BalancedResourceProbabilitiesRule,
-  Maximum11PipsPerIntersectionRule,
-];
+  static create() {
+    return new Maximum11PipsPerIntersectionRule();
+  }
+}
+
+const ALL_RULES = [
+  AllowedTileTypesCountRule.create(),
+  AllowedTokensCountRule.create(),
+  NeighbouringResourceTilesRule.create(),
+  NeighbouringTokensRule.create(),
+  NoAdjacent6Or8Rule.create(),
+  BalancedResourceProbabilitiesRule.create(),
+  Maximum11PipsPerIntersectionRule.create(),
+] as const;
+
+const DEFAULT_RULES = [
+  AllowedTileTypesCountRule.create(),
+  AllowedTokensCountRule.create(),
+  NeighbouringResourceTilesRule.create(),
+  NeighbouringTokensRule.create(),
+  NoAdjacent6Or8Rule.create(),
+  BalancedResourceProbabilitiesRule.create(),
+  Maximum11PipsPerIntersectionRule.create(),
+] as const;
+
+export type RuleKind = (typeof ALL_RULES)[number]["kind"];
+
+export const Rule = {
+  fromKind: (kind: RuleKind): Rule => {
+    return match(kind)
+      .with("allowed-tile-types-count", () => AllowedTileTypesCountRule.create())
+      .with("allowed-tokens-count", () => AllowedTokensCountRule.create())
+      .with("neighbouring-resource-tiles", () => NeighbouringResourceTilesRule.create())
+      .with("neighbouring-tokens", () => NeighbouringTokensRule.create())
+      .with("no-adjacent-6-or-8", () => NoAdjacent6Or8Rule.create())
+      .with("balanced-resource-probabilities", () => BalancedResourceProbabilitiesRule.create())
+      .with("maximum-11-pips-per-intersection", () => Maximum11PipsPerIntersectionRule.create())
+      .exhaustive();
+  },
+  ALL: ALL_RULES,
+  DEFAULT: DEFAULT_RULES,
+};

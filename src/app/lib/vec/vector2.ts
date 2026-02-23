@@ -1,3 +1,4 @@
+import type { Viewport } from "../2d";
 import { VectorAx } from "./vectorAx";
 
 /**
@@ -10,6 +11,14 @@ export interface Vector2 {
 
 function create(x: number, y: number): Vector2 {
   return { x, y };
+}
+
+function all(vp: Viewport): Vector2[] {
+  const points: Vector2[] = [];
+  for(let x = 0; x < vp.W; x++) for(let y = 0; y < vp.H; y++) {
+    points.push(create(x, y));
+  }
+  return points;
 }
 
 function scale(v: Vector2, n: number): Vector2 {
@@ -40,6 +49,7 @@ export const Vector2 = {
   key,
   add,
   toVectorAx,
+  all,
   equals,
   zero: create(0, 0),
 };

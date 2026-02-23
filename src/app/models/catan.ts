@@ -122,3 +122,18 @@ export type Brush =
   | {
       kind: "eraser";
     };
+
+export type RuleKind =
+  | "allowed-tile-types-count"
+  | "allowed-tokens-count"
+  | "neighbouring-resource-tiles"
+  | "neighbouring-tokens"
+  | "no-adjacent-6-or-8"
+  | "balanced-resource-probabilities"
+  | "maximum-11-pips-per-intersection";
+
+export type Rule = {
+  readonly kind: RuleKind;
+  readonly name: string;
+  readonly description: string;
+};
