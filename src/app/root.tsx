@@ -1,13 +1,25 @@
 import type { PropsWithChildren } from "react";
-import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
+import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData } from "react-router";
 import type { Route } from "./+types/root";
 import { Button } from "./components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./components/ui/card";
 import tailwindcss from "./tailwind.css?url";
+import { SeedProvider } from "./hook/use-seed";
+import { Rand } from "@/lib/std";
 
 export const links: Route.LinksFunction = () => [{ rel: "stylesheet", href: tailwindcss }];
 
+export function loader() {
+  const seed = Rand.seed();
+
+  return {
+    seed,
+  };
+}
+
 export function Layout({ children }: PropsWithChildren) {
+  const { seed } = useLoaderData<typeof loader>();
+
   return (
     <html lang="en">
       <head>
@@ -17,7 +29,9 @@ export function Layout({ children }: PropsWithChildren) {
         <Links />
       </head>
       <body>
+        <SeedProvider seed={seed}>
         {children}
+        </SeedProvider>
         <ScrollRestoration />
         <Scripts />
       </body>

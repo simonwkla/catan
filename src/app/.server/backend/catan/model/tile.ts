@@ -1,5 +1,5 @@
 import { match, P } from "ts-pattern";
-import type { VectorAx } from "@/lib/vec";
+import type { VectorAx } from "@/lib/2d";
 import type { Template } from "./template";
 import { TileType } from "./tile-type";
 import type { Token } from "./token";

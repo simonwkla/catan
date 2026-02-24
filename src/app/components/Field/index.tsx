@@ -1,5 +1,5 @@
 import type { ReactElement } from "react";
-import { VectorAx } from "@/lib/vec";
+import { VectorAx } from "@/lib/2d";
 import type { Field } from "@/models/catan";
 import { TileComponent } from "./Tile";
 

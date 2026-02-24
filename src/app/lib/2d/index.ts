@@ -1,2 +1,5 @@
 export * from "./circle";
-export * from "./canvas";
+export * from "./mask";
+export * from "./vector2";
+export * from "./vectorAx";
+export * from "./viewport";

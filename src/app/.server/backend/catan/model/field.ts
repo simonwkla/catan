@@ -1,4 +1,4 @@
-import { VectorAx } from "@/lib/vec";
+import { VectorAx } from "@/lib/2d";
 import { type EmptyTile, Tile, type ValidTile } from "./tile";
 import type { TileType } from "./tile-type";
 import type { Token } from "./token";

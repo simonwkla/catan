@@ -1,12 +1,11 @@
-import type { Vector2 } from "../vec";
-import type { Viewport } from "./canvas";
+import type { Vector2 } from "./vector2";
+import type { Viewport } from "./viewport";
 
 export type Circle = {
   x: number;
   y: number;
   r: number;
 };
-
 
 /**
  * The field is a continuous scalar F(x,y) computed for every pixel. It measures
@@ -22,16 +21,16 @@ export type Circle = {
   $$
  */
 const field = (x: number, y: number, circle: Circle | Circle[]) => {
-    const circles = Array.isArray(circle) ? circle : [circle];
+  const circles = Array.isArray(circle) ? circle : [circle];
 
-    let F = 0;
-    for (const b of circles) {
-        const dx = x - b.x;
-        const dy = y - b.y;
-        const D2 = dx * dx + dy * dy + 1e-6;
-        F += Math.max(0, 1 - D2 / (b.r * b.r));
-    }
-    return F;
+  let F = 0;
+  for (const b of circles) {
+    const dx = x - b.x;
+    const dy = y - b.y;
+    const D2 = dx * dx + dy * dy + 1e-6;
+    F += Math.max(0, 1 - D2 / (b.r * b.r));
+  }
+  return F;
 };
 
 /**
@@ -39,49 +38,46 @@ const field = (x: number, y: number, circle: Circle | Circle[]) => {
  * (Bresenham) circle algorithm. Center and radius can be fractional; output
  * coordinates are rounded to integers.
  */
-const outlinePixels = (
-    circle: Circle,
-    vp: Viewport,
-): Vector2[] => {
-    const { x: cx, y: cy, r } = circle;
-    const points: Vector2[] = [];
+const outlinePixels = (circle: Circle, vp: Viewport): Vector2[] => {
+  const { x: cx, y: cy, r } = circle;
+  const points: Vector2[] = [];
 
-    const add = (px: number, py: number) => {
-        const gx = Math.round(cx + px);
-        const gy = Math.round(cy + py);
-        if (gx >= 0 && gx < vp.W && gy >= 0 && gy < vp.H) {
-            points.push({x: gx, y: gy});
-        }
-    };
-
-    let x = 0;
-    let y = Math.round(r);
-
-    let d = 3 - 2 * r;
-
-    while (x <= y) {
-        add(x, y);
-        add(-x, y);
-        add(x, -y);
-        add(-x, -y);
-        add(y, x);
-        add(-y, x);
-        add(y, -x);
-        add(-y, -x);
-
-        if (d < 0) {
-            d += 4 * x + 6;
-        } else {
-            d += 4 * (x - y) + 10;
-            y--;
-        }
-        x++;
+  const add = (px: number, py: number) => {
+    const gx = Math.round(cx + px);
+    const gy = Math.round(cy + py);
+    if (gx >= 0 && gx < vp.W && gy >= 0 && gy < vp.H) {
+      points.push({ x: gx, y: gy });
     }
+  };
 
-    return points;
+  let x = 0;
+  let y = Math.round(r);
+
+  let d = 3 - 2 * r;
+
+  while (x <= y) {
+    add(x, y);
+    add(-x, y);
+    add(x, -y);
+    add(-x, -y);
+    add(y, x);
+    add(-y, x);
+    add(y, -x);
+    add(-y, -x);
+
+    if (d < 0) {
+      d += 4 * x + 6;
+    } else {
+      d += 4 * (x - y) + 10;
+      y--;
+    }
+    x++;
+  }
+
+  return points;
 };
 
 export const circle = {
-    field,
-    outlinePixels,
+  field,
+  outlinePixels,
 };

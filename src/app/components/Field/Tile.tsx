@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { Border } from "@/components/Field/border";
+import { Vector2, VectorAx } from "@/lib/2d";
 import { cn } from "@/lib/cn";
-import { Vector2, VectorAx } from "@/lib/vec";
 import type { Tile, ValidTileTypeValue } from "@/models/catan";
 import { TILE_TYPE_INFO } from "@/models/catan";
 import { TileContent } from "./TileContent";
@@ -26,7 +26,6 @@ export function TileComponent({ tile, className, selected = false, onClick }: Ti
   const isPlaceholder = tile.type === "placeholder";
   const isValidType = tile.type !== "empty" && tile.type !== "placeholder";
   const tileInfo = isValidType ? TILE_TYPE_INFO[tile.type as ValidTileTypeValue] : null;
-  const fillColor = tileInfo ? tileInfo.color : "var(--color-muted)";
 
   const isRedToken = tile.token !== null && (tile.token.int === 6 || tile.token.int === 8);
 
@@ -51,8 +50,8 @@ export function TileComponent({ tile, className, selected = false, onClick }: Ti
         style={{
           height: `${TILE_SIZE}px`,
           aspectRatio: "cos(30deg)",
+          backgroundColor: isEmpty ? "var(--color-muted)" : undefined,
           clipPath: "polygon(-50% 50%,50% 100%,150% 50%,50% 0)",
-          backgroundColor: fillColor,
         }}
       >
         {/* Content */}

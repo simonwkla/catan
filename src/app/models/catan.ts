@@ -1,4 +1,4 @@
-import type { VectorAx } from "@/lib/vec";
+import type { VectorAx } from "@/lib/2d";
 
 // ─── TileType value arrays (single source of truth) ────────────
 

@@ -11,7 +11,7 @@ import { Empty, EmptyContent, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTi
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useLoaderData } from "@/hook/use-data";
 import { TemplateStoreProvider, useTemplateStore } from "@/hook/use-template";
-import type { VectorAx } from "@/lib/vec";
+import type { VectorAx } from "@/lib/2d";
 import type { Field, RuleKind, Template } from "@/models";
 import type { Route } from "./+types";
 

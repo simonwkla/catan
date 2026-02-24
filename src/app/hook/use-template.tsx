@@ -2,8 +2,8 @@ import { createContext, type PropsWithChildren, useContext, useRef } from "react
 import { createJSONStorage, persist, subscribeWithSelector } from "zustand/middleware";
 import { useStoreWithEqualityFn } from "zustand/traditional";
 import { createStore, type StateCreator } from "zustand/vanilla";
+import { VectorAx } from "@/lib/2d";
 import { fn, obj } from "@/lib/std";
-import { VectorAx } from "@/lib/vec";
 import {
   type Brush,
   type Field,

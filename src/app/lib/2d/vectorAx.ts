@@ -1,4 +1,6 @@
+import type { Vector3 } from "three";
 import { Vector2 } from "./vector2";
+import * as THREE from "three";
 
 /**
  * Describes a Vector or point in dimensional axial space
@@ -27,6 +29,12 @@ function toVector2(v: VectorAx): Vector2 {
   const x = Math.sqrt(3) * v.q + (Math.sqrt(3) / 2) * v.r;
   const y = (3 / 2) * v.r;
   return Vector2.create(x, y);
+}
+
+function toVector3(v: VectorAx): Vector3 {
+  const x = Math.sqrt(3) * (v.q + v.r/2)
+  const z = (3/2) * v.r;
+  return new THREE.Vector3(x, 0, z);
 }
 
 function round(v: VectorAx): VectorAx {
@@ -83,6 +91,7 @@ export const VectorAx = {
   add,
   equals,
   toVector2,
+  toVector3,
   round,
   getNeighbours,
   neighbourAt,
