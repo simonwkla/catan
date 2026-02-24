@@ -13,7 +13,7 @@ export interface TileProps {
   onClick?: () => void;
 }
 
-export const TILE_SIZE = 150;
+export const TILE_SIZE = 175;
 export const SPACING = 0;
 
 export function TileComponent({ tile, className, selected = false, onClick }: TileProps) {
@@ -36,6 +36,8 @@ export function TileComponent({ tile, className, selected = false, onClick }: Ti
     }
   };
 
+  const borderVariant = isEmpty ? "dashed" : "solid";
+
   return (
     <div
       className={cn("absolute hover:z-20", className)}
@@ -46,11 +48,12 @@ export function TileComponent({ tile, className, selected = false, onClick }: Ti
     >
       <div
         onClick={handleClick}
-        className={cn("group relative w-fit cursor-pointer transition-transform duration-75 hover:scale-[105%]")}
+        className={cn("group relative w-fit cursor-pointer transition-transform duration-75 hover:scale-[105%]",
+          isEmpty ? "bg-muted" : "bg-background",
+        )}
         style={{
           height: `${TILE_SIZE}px`,
           aspectRatio: "cos(30deg)",
-          backgroundColor: isEmpty ? "var(--color-muted)" : undefined,
           clipPath: "polygon(-50% 50%,50% 100%,150% 50%,50% 0)",
         }}
       >
@@ -66,12 +69,13 @@ export function TileComponent({ tile, className, selected = false, onClick }: Ti
 
         {/* Border */}
         <Border
-          variant={isEmpty ? "dashed" : "solid"}
+          variant={borderVariant}
           dashCount={3}
           gapFrac={1}
           className={cn(
-            "stroke-[4px] transition-all duration-150",
-            isEmpty && "stroke-[2px] *:stroke-border group-hover:stroke-[4px]",
+            "stroke-[2px] transition-all duration-150",
+            borderVariant === "solid" && "text-foreground/30",
+            borderVariant === "dashed" && "stroke-[2px] *:stroke-border group-hover:stroke-[4px]",
           )}
         />
 

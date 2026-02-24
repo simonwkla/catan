@@ -1,5 +1,5 @@
 import type { Tile, TileTypeInfo } from "@/models/catan";
-import { TileTextureMuted } from "../textures/muted/TileTexture";
+import { TileTextureFlat } from "../textures/flat";
 
 interface TileContentProps {
   tile: Tile;
@@ -20,18 +20,14 @@ export function TileContent({ tile, tileInfo, isRedToken, size, isEmpty, isPlace
 
   return (
     <>
-      {isValidType && <TileTextureMuted tileType={tile.type} tilePos={tile.pos} />}
+      {isValidType && <TileTextureFlat tileType={tile.type} tilePos={tile.pos} />}
 
       {tile.token && isResourceType && (
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
           <div
-            className="flex h-12 w-12 items-center justify-center rounded-full border-2"
-            style={{
-              backgroundColor: "#f5f0e1",
-              borderColor: "#8b7e6a",
-            }}
+            className="flex h-14 w-14 items-center justify-center rounded-full bg-background border-black"
           >
-            <div className="flex flex-col items-center gap-0.5">
+            <div className="flex flex-col items-center -mt-1.5">
               <span
                 className="font-bold font-serif text-lg"
                 style={{
