@@ -6,3 +6,5 @@
 /build/
 /.cache
 .env
+/textures/flat/src/
+/textures/flat/tile-builder-win-final/
