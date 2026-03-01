@@ -4,9 +4,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useTemplateStore } from "@/hook/use-template";
 import { cn } from "@/lib/cn";
 import { Separator } from "../ui/separator";
-import { GeneralSection } from "./GeneralSection";
-import { RulesSection } from "./RulesSection";
-import { TileCountsSection } from "./TileCountsSection";
+import { GeneralSection } from "./general-section";
+import { RulesSection } from "./rules-section";
+import { TileCountsSection } from "./tile-counts-section";
 
 interface SideBarProps {
   onGenerate: () => void;

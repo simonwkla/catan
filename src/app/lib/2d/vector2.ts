@@ -1,4 +1,4 @@
-import { VectorAx } from "./vectorAx";
+import { VectorAx } from "./vector-ax";
 import type { Viewport } from "./viewport";
 
 const N8 = [

@@ -1,4 +1,4 @@
-import { readdir, mkdir, copyFile, rm } from "node:fs/promises";
+import { copyFile, mkdir, readdir, rm } from "node:fs/promises";
 import path from "node:path";
 
 /**
@@ -15,7 +15,7 @@ const POINTY_DIRS = [
   // Wetlands
   "pointy.swamp_dense.green",
 
-  // Pasture 
+  // Pasture
   "pointy.meadow_dense.green",
   "pointy.hills_dense.green",
 
@@ -73,7 +73,9 @@ async function copyAndNumberPngsInFolder(srcFolder, destFolder) {
     .map((e) => e.name)
     .sort((a, b) => a.localeCompare(b));
 
-  if (pngFiles.length === 0) return;
+  if (pngFiles.length === 0) {
+    return;
+  }
 
   await mkdir(destFolder, { recursive: true });
 
@@ -97,7 +99,9 @@ async function walkAndCopyNumberedPngs(srcRoot, destRoot) {
   const entries = await readdir(srcRoot, { withFileTypes: true });
 
   for (const entry of entries) {
-    if (!entry.isDirectory()) continue;
+    if (!entry.isDirectory()) {
+      continue;
+    }
 
     const nextSrc = path.join(srcRoot, entry.name);
     const nextDest = path.join(destRoot, entry.name);
@@ -116,7 +120,7 @@ export async function copyPointyBiomePngs({ srcRoot, destRoot }) {
     const srcPath = path.join(srcRoot, pointyDir);
     const destPath = path.join(destRoot, biomeFolder);
 
-    await rm(destPath, {recursive: true, force: true})
+    await rm(destPath, { recursive: true, force: true });
 
     await walkAndCopyNumberedPngs(srcPath, destPath);
   }
@@ -130,8 +134,7 @@ const srcRoot = process.argv[2] ?? "./src/HexMapMaker/Workbench/Tiles";
 const destRoot = process.argv[3] ?? "../../public/textures/flat";
 
 copyPointyBiomePngs({ srcRoot, destRoot })
-  .then(() => console.log("Done copying and renaming PNGs"))
-  .catch((err) => {
-    console.error(err);
+  .then(() => {})
+  .catch((_err) => {
     process.exitCode = 1;
   });

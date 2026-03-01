@@ -1,10 +1,10 @@
 import { useMemo } from "react";
-import { Border } from "@/components/Field/border";
+import { Border } from "@/components/field/border";
 import { Vector2, VectorAx } from "@/lib/2d";
 import { cn } from "@/lib/cn";
 import type { Tile, ValidTileTypeValue } from "@/models/catan";
 import { TILE_TYPE_INFO } from "@/models/catan";
-import { TileContent } from "./TileContent";
+import { TileContent } from "./tile-content";
 
 export interface TileProps {
   tile: Tile;
@@ -13,10 +13,10 @@ export interface TileProps {
   onClick?: () => void;
 }
 
-export const TILE_SIZE = 175;
-export const SPACING = 0;
+const TILE_SIZE = 175;
+const SPACING = 0;
 
-export function TileComponent({ tile, className, selected = false, onClick }: TileProps) {
+export function TileComponent({ tile, className, onClick }: TileProps) {
   const pixelPos = useMemo(() => {
     const v2 = VectorAx.toVector2(tile.pos);
     return Vector2.scale(v2, TILE_SIZE / 2 + SPACING);
@@ -46,9 +46,11 @@ export function TileComponent({ tile, className, selected = false, onClick }: Ti
         top: `${pixelPos.y}px`,
       }}
     >
-      <div
+      <button
+        type="button"
         onClick={handleClick}
-        className={cn("group relative w-fit cursor-pointer transition-transform duration-75 hover:scale-[105%]",
+        className={cn(
+          "group relative w-fit cursor-pointer transition-transform duration-75 hover:scale-[105%]",
           isEmpty ? "bg-muted" : "bg-background",
         )}
         style={{
@@ -87,7 +89,7 @@ export function TileComponent({ tile, className, selected = false, onClick }: Ti
             backgroundColor: "white",
           }}
         />
-      </div>
+      </button>
     </div>
   );
 }

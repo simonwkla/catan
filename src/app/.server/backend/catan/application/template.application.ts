@@ -17,7 +17,7 @@ export class TemplateApplication {
   ): Promise<Result<Field, UnsolvableError>> => {
     const rules = ruleKinds.map(Rule.fromKind);
     const context = await SolverContext.create(field, template);
-    return context.solve(rules);
+    return context.solveTwoStep(rules);
   };
 
   getAllRules = (): readonly Rule[] => {

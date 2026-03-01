@@ -1,2 +1,2 @@
-export { TileTextureFlat } from "./TileTexture";
 export { texture } from "./textures";
+export { TileTextureFlat } from "./tile-texture";

@@ -1,5 +1,5 @@
 import type { ComponentProps, PropsWithChildren } from "react";
-import { Border } from "@/components/Field/border";
+import { Border } from "@/components/field/border";
 import { cn } from "@/lib/cn";
 import { TILE_TYPE_IMAGES, type TileTypeValue, type Token } from "@/models/catan";
 

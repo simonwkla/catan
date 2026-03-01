@@ -18,11 +18,13 @@ function Slider({
     [value, defaultValue, min, max],
   );
 
+  const id = React.useId();
+
   return (
     <SliderPrimitive.Root
       data-slot="slider"
-      defaultValue={defaultValue}
-      value={value}
+      {...(defaultValue ? { defaultValue } : {})}
+      {...(value ? { value } : {})}
       min={min}
       max={max}
       className={cn(
@@ -43,7 +45,8 @@ function Slider({
       {Array.from({ length: _values.length }, (_, index) => (
         <SliderPrimitive.Thumb
           data-slot="slider-thumb"
-          key={index}
+          // biome-ignore lint/suspicious/noArrayIndexKey: correct here
+          key={`${id}-${index}`}
           className="block size-4 shrink-0 select-none rounded-4xl border border-primary bg-white shadow-sm ring-ring/50 transition-colors hover:ring-4 focus-visible:outline-hidden focus-visible:ring-4 disabled:pointer-events-none disabled:opacity-50"
         />
       ))}

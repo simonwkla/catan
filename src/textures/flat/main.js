@@ -1,6 +1,15 @@
-import { readdir, mkdir,  readFile, writeFile, rm } from "node:fs/promises";
 import { spawn } from "node:child_process";
+import { mkdir, readdir, readFile, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
+
+/** Regex for newlines (CRLF or LF). */
+const RE_NEWLINE = /\r?\n/;
+/** Regex for section header lines like "# SOMETHING". */
+const RE_SECTION_HEADER = /^\s*#\s+\S+/;
+/** Regex for "# BORDER" section header. */
+const RE_BORDER_HEADER = /^\s*#\s+BORDER\s*$/;
+/** Regex for trailing newline at end of string. */
+const RE_TRAILING_NEWLINE = /\r?\n$/;
 
 /**
  * Only these biome directories will be processed (and their subfolders).
@@ -42,14 +51,14 @@ const POINTY_DIRS = [
  * - delete following lines until the next section header "# SOMETHING" or EOF
  */
 export function removeBorderSection(text) {
-  const lines = text.split(/\r?\n/);
+  const lines = text.split(RE_NEWLINE);
 
   const out = [];
   let skipping = false;
 
   for (const line of lines) {
-    const isHeader = /^\s*#\s+\S+/.test(line);
-    const isBorderHeader = /^\s*#\s+BORDER\s*$/.test(line);
+    const isHeader = RE_SECTION_HEADER.test(line);
+    const isBorderHeader = RE_BORDER_HEADER.test(line);
 
     if (isBorderHeader) {
       skipping = true;
@@ -60,12 +69,14 @@ export function removeBorderSection(text) {
       skipping = false; // stop skipping at next header
     }
 
-    if (!skipping) out.push(line);
+    if (!skipping) {
+      out.push(line);
+    }
   }
 
-  const hadTrailingNewline = /\r?\n$/.test(text);
+  const hadTrailingNewline = RE_TRAILING_NEWLINE.test(text);
   const result = out.join("\n");
-  return hadTrailingNewline ? result + "\n" : result;
+  return hadTrailingNewline ? `${result}\n` : result;
 }
 
 /**
@@ -75,14 +86,13 @@ function applyBiomeSpecificRules(text, biomeDirName) {
   // Desert rule: remove any line containing palm_trees.green
   if (biomeDirName === "pointy.desert_clearing.yellow") {
     return text
-      .split(/\r?\n/)
-      .filter(line => !line.includes("palm_trees.green"))
+      .split(RE_NEWLINE)
+      .filter((line) => !line.includes("palm_trees.green"))
       .join("\n");
   }
 
   return text;
 }
-
 
 function isTxt(name) {
   return path.extname(name).toLowerCase() === ".txt";
@@ -125,8 +135,8 @@ async function copyTxtRecursiveFiltered(sourceDir, targetDir, biomeDirName) {
 export async function copyPointyTxtFiles({ srcRoot, destRoot }) {
   await rm(destRoot, {
     force: true,
-    recursive: true
-  })
+    recursive: true,
+  });
 
   for (const dir of POINTY_DIRS) {
     const srcPath = path.join(srcRoot, dir);
@@ -146,18 +156,12 @@ const destRoot = process.argv[3] ?? "./src/HexMapMaker/Workbench/Tiles";
 
 copyPointyTxtFiles({ srcRoot, destRoot })
   .then(() => {
-    console.log("Done copying filtered .txt files (border removed)")
-
     const child = spawn("./tile-builder-win-final/TileBuilder.exe", [], {
-      stdio: 'inherit'
-    })
+      stdio: "inherit",
+    });
 
-    child.on("close", (code) => {
-      console.log("Exited with code", code)
-    })
+    child.on("close", (_code) => {});
   })
-  .catch((err) => {
-    console.error(err);
+  .catch((_err) => {
     process.exitCode = 1;
   });
-

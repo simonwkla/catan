@@ -32,6 +32,7 @@
         "noUnusedTemplateLiteral": "error",
         "useLiteralEnumMembers": "error",
         "useNodejsImportProtocol": "error",
+        "useComponentExportOnlyModules": "off",
         "useAsConstAssertion": "error",
         "useEnumInitializers": "error",
         "useSelfClosingElements": "error",

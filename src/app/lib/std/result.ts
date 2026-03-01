@@ -86,6 +86,14 @@ export class ErrResult<E> extends BaseResult {
   }
 }
 
+const tryOr = <T>(fn: () => T, or: T): T => {
+  try {
+    return fn();
+  } catch (_error) {
+    return or;
+  }
+};
+
 const tryFn = <T, E>(fn: () => T, err: ErrMapFn<E>): Result<T, E> => {
   try {
     return Ok(fn());
@@ -99,6 +107,14 @@ const tryAsync = async <T, E>(fn: () => Promise<T>, err: ErrMapFn<E>): Promise<R
     return Ok(await fn());
   } catch (error) {
     return Err(err(error));
+  }
+};
+
+const tryOrAsync = async <T>(fn: () => Promise<T>, or: T): Promise<T> => {
+  try {
+    return await fn();
+  } catch (_error) {
+    return or;
   }
 };
 
@@ -130,6 +146,8 @@ export const Result = {
   isResult: isResult,
   try: tryFn,
   tryAsync: tryAsync,
+  tryOr: tryOr,
+  tryOrAsync: tryOrAsync,
   wrap: wrap,
   wrapAsync: wrapAsync,
 };

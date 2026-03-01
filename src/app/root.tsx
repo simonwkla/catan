@@ -1,11 +1,11 @@
 import type { PropsWithChildren } from "react";
 import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData } from "react-router";
+import { Rand } from "@/lib/std";
 import type { Route } from "./+types/root";
 import { Button } from "./components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./components/ui/card";
-import tailwindcss from "./tailwind.css?url";
 import { SeedProvider } from "./hook/use-seed";
-import { Rand } from "@/lib/std";
+import tailwindcss from "./tailwind.css?url";
 
 export const links: Route.LinksFunction = () => [{ rel: "stylesheet", href: tailwindcss }];
 
@@ -29,9 +29,7 @@ export function Layout({ children }: PropsWithChildren) {
         <Links />
       </head>
       <body>
-        <SeedProvider seed={seed}>
-        {children}
-        </SeedProvider>
+        <SeedProvider seed={seed}>{children}</SeedProvider>
         <ScrollRestoration />
         <Scripts />
       </body>

@@ -1,3 +1,4 @@
+import { cn } from "@/lib/cn";
 import type { Tile, TileTypeInfo } from "@/models/catan";
 import { TileTextureFlat } from "../textures/flat";
 
@@ -10,7 +11,7 @@ interface TileContentProps {
   isPlaceholder: boolean;
 }
 
-export function TileContent({ tile, tileInfo, isRedToken, size, isEmpty, isPlaceholder }: TileContentProps) {
+export function TileContent({ tile, isRedToken, isEmpty }: TileContentProps) {
   if (isEmpty) {
     return null;
   }
@@ -24,12 +25,17 @@ export function TileContent({ tile, tileInfo, isRedToken, size, isEmpty, isPlace
 
       {tile.token && isResourceType && (
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-          <div
-            className="flex h-14 w-14 items-center justify-center rounded-full bg-background border-black"
-          >
-            <div className="flex flex-col items-center -mt-1.5">
+          <div className="flex h-14 w-14 items-center justify-center rounded-full border-black bg-background">
+            <div className="-mt-1.5 flex flex-col items-center">
               <span
-                className="font-bold font-serif text-lg"
+                className={cn(
+                  "font-bold font-serif",
+                  tile.token.pips === 5 && "text-2xl",
+                  tile.token.pips === 4 && "text-xl",
+                  tile.token.pips === 3 && "text-lg",
+                  tile.token.pips === 2 && "text-base",
+                  tile.token.pips === 1 && "text-sm",
+                )}
                 style={{
                   color: isRedToken ? "#b83b3b" : "#2c2416",
                 }}
@@ -39,6 +45,7 @@ export function TileContent({ tile, tileInfo, isRedToken, size, isEmpty, isPlace
               <div className="flex gap-0.5">
                 {Array.from({ length: tile.token.pips }).map((_, i) => (
                   <div
+                    // biome-ignore lint/suspicious/noArrayIndexKey: correct here
                     key={i}
                     className="h-1 w-1 rounded-full"
                     style={{

@@ -1,7 +1,7 @@
 import { cn } from "@/lib/cn";
 import type { Token } from "@/models";
 
-export function Token({ token, className }: { token: Token; className?: string }) {
+export function TokenComponent({ token, className }: { token: Token; className?: string }) {
   const isRed = token.pips === 5;
 
   return (
@@ -16,8 +16,9 @@ export function Token({ token, className }: { token: Token; className?: string }
       </span>
 
       <div className="flex gap-px">
-        {Array.from({ length: token.pips }).map((_, _i) => (
-          <div className={cn("h-[3px] w-[3px] rounded-full bg-foreground/60", isRed && "bg-destructive")} />
+        {Array.from({ length: token.pips }).map((_, i) => (
+          // biome-ignore lint/suspicious/noArrayIndexKey: correct here
+          <div key={i} className={cn("h-[3px] w-[3px] rounded-full bg-foreground/60", isRed && "bg-destructive")} />
         ))}
       </div>
     </div>

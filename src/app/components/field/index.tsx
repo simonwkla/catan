@@ -1,7 +1,7 @@
 import type { ReactElement } from "react";
 import { VectorAx } from "@/lib/2d";
 import type { Field } from "@/models/catan";
-import { TileComponent } from "./Tile";
+import { TileComponent } from "./tile";
 
 export interface FieldProps {
   field: Field;

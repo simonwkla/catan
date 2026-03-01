@@ -24,7 +24,7 @@ const badgeVariants = cva(
   },
 );
 
-function Badge({
+export function Badge({
   className,
   variant = "default",
   asChild = false,
@@ -36,5 +36,3 @@ function Badge({
     <Comp data-slot="badge" data-variant={variant} className={cn(badgeVariants({ variant }), className)} {...props} />
   );
 }
-
-export { Badge, badgeVariants };

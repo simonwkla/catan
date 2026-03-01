@@ -1,21 +1,38 @@
 import { match } from "ts-pattern";
 import { type Arith, type Context, init, type Solver } from "z3-solver";
-import { Err, Exception, Ok, type Result } from "@/lib/std";
+import { Err, Exception, Ok, Result } from "@/lib/std";
 import { Field, type ValidField } from "./field";
 import type { Template } from "./template";
 import { Tile, type ValidTile } from "./tile";
 import { type TILE_TYPE_VALUE_TO_INT, TileType } from "./tile-type";
 import { Token } from "./token";
 
+const TOKEN_NONE = 0;
 export class SolverContext<C extends "catan"> {
   private constructor(
     public readonly Z3: Context<C>,
-    public readonly solver: Solver<C>,
-    public readonly field: Field,
+    private _solver: Solver<C>,
+    private _typeVars: Arith<C>[],
+    private _tokenVars: Arith<C>[],
+    private _field: Field,
     public readonly template: Template,
-    public readonly typeVars: Arith<C>[],
-    public readonly tokenVars: Arith<C>[],
   ) {}
+
+  get field(): Field {
+    return this._field;
+  }
+
+  get solver(): Solver<C> {
+    return this._solver;
+  }
+
+  get typeVars(): Arith<C>[] {
+    return this._typeVars;
+  }
+
+  get tokenVars(): Arith<C>[] {
+    return this._tokenVars;
+  }
 
   static async create(field: Field, template: Template): Promise<SolverContext<"catan">> {
     const { Context } = await init();
@@ -27,7 +44,7 @@ export class SolverContext<C extends "catan"> {
     const typeVars = field.tiles.map((tile) => Z3.Int.const(`type-${tile.pos.q}-${tile.pos.r}`));
     const tokenVars = field.tiles.map((tile) => Z3.Int.const(`token-${tile.pos.q}-${tile.pos.r}`));
 
-    return new SolverContext(Z3, solver, field, template, typeVars, tokenVars);
+    return new SolverContext(Z3, solver, typeVars, tokenVars, field, template);
   }
 
   async solve(rules: readonly Rule[]): Promise<Result<ValidField, UnsolvableError>> {
@@ -53,18 +70,45 @@ export class SolverContext<C extends "catan"> {
           model.get(this.typeVars[i]).toString(),
           10,
         ) as (typeof TILE_TYPE_VALUE_TO_INT)[ValidTile["type"]["value"]];
-        const tokenInt = Number.parseInt(model.get(this.tokenVars[i]).toString(), 10) as Parameters<
-          typeof Token.fromInt
-        >[0];
+
+        // get all keys
+        const tokenInt = Result.tryOr(
+          () => Number.parseInt(model.get(this.tokenVars[i]).toString(), 10) as Parameters<typeof Token.fromInt>[0],
+          TOKEN_NONE,
+        );
 
         const type = TileType.fromInt(typeInt);
-        const token = Token.fromInt(tokenInt);
+        const token = tokenInt === TOKEN_NONE ? null : Token.fromInt(tokenInt);
 
         return Tile.create({ pos: tile.pos, type, token });
       }),
     );
 
     return Ok(field);
+  }
+
+  /**
+   * First solves for the tile types and then for the tokens.
+   * This splits the problem into two smaller SAT problems which are faster to solve.
+   */
+  async solveTwoStep(rules: readonly Rule[]): Promise<Result<ValidField, UnsolvableError>> {
+    const tileTypeRules = rules.filter((r) => TILE_TYPE_RULES.some((t) => t.kind === r.kind));
+    const tokenRules = rules.filter((r) => TOKEN_RULES.some((t) => t.kind === r.kind));
+
+    const [field, err] = (await this.solve(tileTypeRules)).unpack();
+    if (err) {
+      return Err(err);
+    }
+
+    this._field = field;
+    this._solver = new this.Z3.Solver();
+
+    // set the type vars to the values of the field tiles
+    for (let i = 0; i < field.tiles.length; i++) {
+      this.solver.add(this.typeVars[i].eq(field.tiles[i].type.int));
+    }
+
+    return await this.solve(tokenRules);
   }
 }
 
@@ -105,8 +149,6 @@ class NoAllowedTileTypesError extends ApplyRuleError {
     this.template = template;
   }
 }
-
-const TOKEN_NONE = 0;
 
 export class AllowedTileTypesCountRule implements Rule {
   readonly kind = "allowed-tile-types-count" as const;
@@ -335,6 +377,16 @@ const ALL_RULES = [
   AllowedTileTypesCountRule.create(),
   AllowedTokensCountRule.create(),
   NeighbouringResourceTilesRule.create(),
+  NeighbouringTokensRule.create(),
+  NoAdjacent6Or8Rule.create(),
+  BalancedResourceProbabilitiesRule.create(),
+  Maximum11PipsPerIntersectionRule.create(),
+] as const;
+
+const TILE_TYPE_RULES = [AllowedTileTypesCountRule.create(), NeighbouringResourceTilesRule.create()] as const;
+
+const TOKEN_RULES = [
+  AllowedTokensCountRule.create(),
   NeighbouringTokensRule.create(),
   NoAdjacent6Or8Rule.create(),
   BalancedResourceProbabilitiesRule.create(),

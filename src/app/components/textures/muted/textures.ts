@@ -15,10 +15,7 @@ const TEXTURE_MAP: Record<ValidTileTypeValue, TextureVariant> = {
     "/textures/muted/tiles/ocean/ocean-waves-1.webp",
     "/textures/muted/tiles/ocean/ocean-waves-2.webp",
   ],
-  desert: [
-    "/textures/muted/tiles/desert/desert-plains-1.webp",
-    "/textures/muted/tiles/desert/desert-plains-2.webp",
-  ],
+  desert: ["/textures/muted/tiles/desert/desert-plains-1.webp", "/textures/muted/tiles/desert/desert-plains-2.webp"],
   sheep: [
     "/textures/muted/tiles/pasture/pasture-plains-1.webp",
     "/textures/muted/tiles/pasture/pasture-plains-2.webp",
@@ -55,21 +52,20 @@ const TEXTURE_MAP: Record<ValidTileTypeValue, TextureVariant> = {
 
 export function getTileUrl(tileType: ValidTileTypeValue, seed: Seed, tileId?: string | number): string {
   let rand: Rand;
-  
+
   if (tileId !== undefined) {
-    const idStr = typeof tileId === 'string' ? tileId : tileId.toString();
+    const idStr = typeof tileId === "string" ? tileId : tileId.toString();
     const salt = seed[0] ^ seed[1] ^ seed[2] ^ seed[3];
     rand = Rand.fromString(idStr, salt);
   } else {
     rand = new Rand(seed);
   }
-  
+
   const variants = TEXTURE_MAP[tileType];
   const index = rand.int(0, variants.length - 1);
   return variants[index];
 }
 
-
 export const texture = {
-    getTileUrl: getTileUrl,
-}
+  getTileUrl: getTileUrl,
+};

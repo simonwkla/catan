@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useTemplateStore } from "@/hook/use-template";
 import { cn } from "@/lib/cn";
 import { ALL_TOKENS, type Brush, TILE_TYPE_INFO, VALID_TILE_TYPES } from "@/models/catan";
-import { Token } from "./ui/token";
+import { TokenComponent } from "./ui/token";
 
 export function PaintToolbar() {
   const brush = useTemplateStore((state) => state.brush);
@@ -33,13 +33,14 @@ export function PaintToolbar() {
             const active = isActive({ kind: "token", token });
             return (
               <button
+                type="button"
                 key={token.value}
                 onClick={() => {
                   selectBrush({ kind: "token", token });
                   setExpanded(null);
                 }}
               >
-                <Token
+                <TokenComponent
                   token={token}
                   className={cn("hover:bg-secondary", active && "bg-primary/20 ring-2 ring-primary")}
                 />
@@ -47,6 +48,7 @@ export function PaintToolbar() {
             );
           })}
           <button
+            type="button"
             onClick={() => setExpanded(null)}
             className="ml-1 rounded p-1 text-muted-foreground hover:text-foreground"
           >
@@ -146,6 +148,7 @@ function ToolbarButton({
 }) {
   return (
     <button
+      type="button"
       onClick={onClick}
       title={title}
       className={`relative flex h-9 w-9 items-center justify-center rounded-lg transition-all duration-150 ${

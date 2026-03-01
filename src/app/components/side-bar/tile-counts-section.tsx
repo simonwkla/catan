@@ -3,7 +3,7 @@ import { ALL_TOKENS, TILE_TYPE_INFO, VALID_TILE_TYPES } from "@/models/catan";
 import { Badge } from "../ui/badge";
 import { Counter } from "../ui/counter";
 import { Label } from "../ui/label";
-import { Token } from "../ui/token";
+import { TokenComponent } from "../ui/token";
 
 export function TileCountsSection() {
   const template = useTemplateStore((state) => state.template);
@@ -75,7 +75,7 @@ export function TileCountsSection() {
               key={token.value}
               className="grid grid-cols-[2rem_1fr_auto] items-center gap-2 rounded-full bg-secondary/30 px-2"
             >
-              <Token token={token} />
+              <TokenComponent token={token} />
               <Badge
                 variant={fieldTokenCount[token.value] > template.tokensMap[token.value] ? "destructive" : "secondary"}
               >
