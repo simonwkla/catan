@@ -1,13 +1,13 @@
 services:
   frontend:
     build:
-      context: src
+      context: artifact/catan
       target: development
     ports:
       - "3000:3000"
       - "3001:3001"
     volumes:
-      - ./src/:/app
+      - ./artifact/catan/:/app
       - frontend-node-modules:/app/node_modules
     environment:
       - SPOTIFY_CLIENT_ID=${SPOTIFY_CLIENT_ID}

@@ -1,4 +1,4 @@
-import type { AnyAsyncFn, AnyFn } from "../std/types";
+import type { AnyAsyncFn, AnyFn } from "./types";
 
 export type Result<T, E> = OkResult<T> | ErrResult<E>;
 

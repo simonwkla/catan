@@ -1,4 +1,4 @@
-import type { Duration } from "luxon";
+import type { Duration } from "node_modules/@types/luxon";
 import { type ClassProps, type OpaqueOf, opaque } from "@/lib/std";
 import type { Artist } from "./artist";
 import type { Image } from "./image";
