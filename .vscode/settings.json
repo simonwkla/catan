@@ -1,0 +1,5 @@
+{
+    "rust-analyzer.linkedProjects": [
+        "artifact/tile-builder/Cargo.toml",
+    ]
+}
