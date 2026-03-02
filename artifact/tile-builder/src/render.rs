@@ -1,4 +1,4 @@
-use std::path::Path;
+use std::{fs, path::Path};
 
 use crate::{
     asset::AssetCache,
@@ -101,9 +101,20 @@ impl Renderer {
         Ok(canvas)
     }
 
-    pub fn render_to_file(&mut self, scene: &mut Scene, path: &Path) -> Result<()> {
+    pub fn render_to_file(&mut self, scene: &mut Scene, output_dir: &Path) -> Result<()> {
         let img = self.render(scene)?;
-        img.save(path)
-            .wrap_err_with(|| format!("Failed to save image to file: {}", path.display()))
+
+        // use the assets file name
+        let path = output_dir.join(&scene.cfg.source_id).with_extension("png");
+
+        if let Some(parent) = path.parent() {
+            fs::create_dir_all(parent)
+                .wrap_err_with(|| format!("Failed to create output directory: {}", parent.display()))?;
+        }
+
+        img.save(&path)
+            .wrap_err_with(|| format!("Failed to save image to file: {}", path.display()))?;
+
+        Ok(())
     }
 }

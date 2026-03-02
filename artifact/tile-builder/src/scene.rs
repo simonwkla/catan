@@ -35,6 +35,7 @@ impl Scene {
             border,
             items,
             cfg: Cfg {
+                source_id: config.source_id.clone(),
                 render_mask_active: config
                     .render_mask
                     .as_ref()
@@ -163,4 +164,5 @@ impl From<&config::Layer> for Layer {
 #[derive(Debug)]
 pub struct Cfg {
     pub render_mask_active: bool,
+    pub source_id: String,
 }

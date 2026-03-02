@@ -1,4 +1,4 @@
-use std::io::Read;
+use std::{fs::{File}, io::Read, path::Path};
 
 use ariadne::{Label, Report, ReportKind, Source};
 use chumsky::error::Rich;
@@ -16,7 +16,11 @@ pub struct Config {
     pub border: Option<Border>,
 
     pub elements: Vec<Element>,
+
+    pub source_id: String,
 }
+
+const EXTENSION: &str = ".tile.txt";
 
 impl Config {
     pub fn from_reader<R: Read>(source_id: &str, mut reader: R) -> Result<Self> {
@@ -29,12 +33,35 @@ impl Config {
     }
 
     pub fn from_str(source_id: &str, input: &str) -> Result<Self> {
-        match cfg_parser().parse(input).into_result() {
+        match cfg_parser(source_id).parse(input).into_result() {
             Ok(cfg) => Ok(cfg),
             Err(errs) => Err(eyre!(render_chumsky_errors(source_id, input, errs))),
         }
     }
+
+    fn from_file(path: &Path) -> Result<Self> {
+        let file = File::open(path).wrap_err_with(|| format!("Failed to open file: {}", path.display()))?;
+        let file_name = path.file_name().ok_or_else(|| eyre!("Failed to get file name: {}", path.display()))?.to_string_lossy().to_string();
+        Self::from_reader(&file_name, file)
+    }
+
+    pub fn from_dir(path: &Path) -> Result<Vec<Self>> {
+        let mut cfgs = Vec::new();
+
+        let walker = walkdir::WalkDir::new(path).into_iter();
+
+        for entry in walker {
+            let entry = entry?;
+            let path = entry.path();
+            if path.file_name().map_or(false, |n| n.to_string_lossy().ends_with(EXTENSION)) {
+                cfgs.push(Self::from_file(path)?);
+            }
+        }
+
+        Ok(cfgs)
+    }
 }
+
 
 #[derive(Debug)]
 pub struct Canvas {
@@ -113,8 +140,10 @@ pub fn render_chumsky_errors(source_id: &str, input: &str, errs: Vec<Rich<char>>
     out
 }
 
-pub fn cfg_parser<'a>() -> impl Parser<'a, &'a str, Config, extra::Err<Rich<'a, char>>> {
-    let int = text::int(10).from_str().unwrapped().map(|x: i32| x);
+pub fn cfg_parser<'a>(file_name: &str) -> impl Parser<'a, &'a str, Config, extra::Err<Rich<'a, char>>> {
+    let uint = text::int(10).from_str().unwrapped().map(|x: u32| x);
+
+    let int = just("-").padded().or_not().then(uint).map(|(minus, x)| if minus.is_some() { (x as i32) * -1 } else { x as i32 });
 
     let boolean = choice((just("true"), just("false"))).map(|x| x == "true");
 
@@ -125,11 +154,18 @@ pub fn cfg_parser<'a>() -> impl Parser<'a, &'a str, Config, extra::Err<Rich<'a, 
         .delimited_by(just('('), just(')'))
         .map(|(x, y)| (x, y));
 
+    let uint_tuple = uint
+        .clone()
+        .then_ignore(just(",").padded())
+        .then(uint)
+        .delimited_by(just('('), just(')'))
+        .map(|(x, y)| (x, y));
+
     let string = just('"')
         .ignore_then(none_of('"').repeated().collect::<String>())
         .then_ignore(just('"'));
 
-    let version = int.clone().then_ignore(just(".")).then(int);
+    let version = uint.clone().then_ignore(just(".")).then(uint);
 
     let newline = one_of("\n\r").repeated().at_least(1).ignored();
 
@@ -167,15 +203,15 @@ pub fn cfg_parser<'a>() -> impl Parser<'a, &'a str, Config, extra::Err<Rich<'a, 
 
     let size_line = just("size:")
         .padded()
-        .ignore_then(int_tuple)
+        .ignore_then(uint_tuple)
         .then_ignore(newline);
 
     let canvas = canvas_header
         .ignore_then(version_line)
         .ignore_then(size_line)
         .map(|(width, height)| Canvas {
-            width: width as u32,
-            height: height as u32,
+            width: width,
+            height: height,
         });
 
     let id = just("id:").padded().ignore_then(string);
@@ -225,7 +261,7 @@ pub fn cfg_parser<'a>() -> impl Parser<'a, &'a str, Config, extra::Err<Rich<'a, 
 
     let flipped = just("flipped:").padded().ignore_then(boolean);
 
-    let sort = just("sort:").padded().ignore_then(int);
+    let sort = just("sort:").padded().ignore_then(uint);
 
     let element_line = just("element:")
         .padded()
@@ -240,7 +276,7 @@ pub fn cfg_parser<'a>() -> impl Parser<'a, &'a str, Config, extra::Err<Rich<'a, 
             layer,
             position,
             flipped,
-            sort: sort as u32,
+            sort,
         });
 
     let elements = elements_header.ignore_then(element_line.repeated().collect::<Vec<_>>());
@@ -258,6 +294,7 @@ pub fn cfg_parser<'a>() -> impl Parser<'a, &'a str, Config, extra::Err<Rich<'a, 
                 ground,
                 border,
                 elements,
+                source_id: file_name.to_string(),
             },
         );
 
