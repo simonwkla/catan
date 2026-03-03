@@ -1,34 +1,37 @@
-frontend-container := "bpm-frontend-1"
+# Catan workspace tasks
+
+[group('lint')]
+fmt:
+    pnpm run fmt
 
 [group('lint')]
 lint:
-    pnpm run -r fmt
-    pnpm run -r lint:fix-unsafe
-    pnpm run -r lint
+    pnpm run lint
+
+[group('lint')]
+lint-fix:
+    pnpm run fmt
+    pnpm run lint:fix-unsafe
+    pnpm run lint
 
 [group('lint')]
 typecheck:
-    pnpm run -r typecheck
+    pnpm run typecheck
 
 [group('test')]
 test-ci:
-    pnpm -r test:ci
-
-[group('drizzle')]
-drizzle-generate:
-    docker exec -it {{ frontend-container }} npm run drizzle:generate
-
-[group('drizzle')]
-drizzle-migrate: drizzle-generate
-    docker exec -it {{ frontend-container }} npm run drizzle:migrate
-
-[group('init')]
-etc-hosts:
-    sudo bash -c 'grep -qxF "127.0.0.1 dev.bpm.dotenv.de" /etc/hosts || echo "127.0.0.1 dev.bpm.dotenv.de" >> /etc/hosts'
+    pnpm --filter './artifact/catan' run test:ci
 
 [group('dev')]
 start:
     docker compose up --build -d
+
+# build tile-builder and copy the binary into the extension's bin directory
+[group('build')]
+build-tb:
+    cargo build --release --manifest-path artifact/tile-builder/Cargo.toml
+    mkdir -p artifact/tile-builder-extension/bin
+    cp artifact/tile-builder/target/release/tile-builder artifact/tile-builder-extension/bin/
 
 # nuke node_modules, pnpm store and tsconfig build info files
 [group('nuke')]
@@ -45,4 +48,3 @@ nuke-docker:
 # nuke the docker compose stack and remove all node_modules
 [group('nuke')]
 nuke: nuke-pnpm nuke-docker
-

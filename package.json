@@ -1,0 +1,16 @@
+{
+  "name": "catan-workspace",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "fmt": "biome format --write . && biome check --write --only=lint/nursery/useSortedClasses .",
+    "lint": "biome check --error-on-warnings .",
+    "lint:fix": "biome check --write .",
+    "lint:fix-unsafe": "biome check --write --unsafe .",
+    "typecheck": "pnpm --dir artifact/catan exec react-router typegen && pnpm --dir artifact/catan exec tsc --noEmit && pnpm --dir artifact/tile-builder-extension exec tsc --noEmit"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.3.10",
+    "typescript": "^5.9.3"
+  }
+}

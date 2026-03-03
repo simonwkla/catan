@@ -6,17 +6,8 @@
     "build": "react-router build",
     "dev": "NODE_OPTIONS='--inspect=0.0.0.0:7000' react-router dev",
     "start": "react-router-serve ./build/server/index.js",
-    "lint": "biome check --error-on-warnings .",
-    "lint:fix": "biome check --write .",
-    "lint:fix-unsafe": "biome check --write --unsafe .",
-    "fmt": "biome format --write . && biome lint --only=lint/nursery/useSortedClasses --write .",
-    "ci": "biome ci . && npm run typecheck",
-    "typecheck": "react-router typegen && tsc --noEmit",
     "test:ci": "vitest run",
-    "test:ui": "vitest --ui",
-    "drizzle:generate": "drizzle-kit generate --config=./drizzle.config.ts",
-    "drizzle:migrate": "drizzle-kit migrate --config=./drizzle.config.ts",
-    "drizzle:studio": "drizzle-kit studio --config=./drizzle.config.ts --port 4000"
+    "test:ui": "vitest --ui"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.2.8",
@@ -70,7 +61,6 @@
     "react-router-devtools": "^6.0.1",
     "tailwindcss": "^4.1.18",
     "tailwindcss-animate": "^1.0.7",
-    "typescript": "^5.9.3",
     "vite": "^7.3.0",
     "vite-tsconfig-paths": "^6.0.3",
     "vitest": "^4.0.16"

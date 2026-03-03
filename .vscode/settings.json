@@ -1,5 +1,3 @@
 {
-    "rust-analyzer.linkedProjects": [
-        "artifact/tile-builder/Cargo.toml",
-    ]
+  "rust-analyzer.linkedProjects": ["artifact/tile-builder/Cargo.toml"]
 }
