@@ -1,0 +1,28 @@
+# CANVAS
+
+version: 1.0
+size: (840, 840)
+
+# GROUND
+
+id: "flat.water_grounds.blue\water_ground_0"
+position: (57, 106)
+render: true
+
+# BORDER
+
+id: "flat.border_medium.dark\border_medium_0"
+position: (22, 76)
+
+# RENDER MASK
+
+active: true
+
+# ELEMENTS
+
+element: id:"small_waves.white\small_wave_58" layer:main position:(487, 265) flipped:true sort:0
+element: id:"small_waves.white\small_wave_43" layer:main position:(310, 366) flipped:true sort:0
+element: id:"small_waves.white\small_wave_31" layer:main position:(655, 392) flipped:true sort:0
+element: id:"small_waves.white\small_wave_41" layer:main position:(153, 512) flipped:true sort:0
+element: id:"small_waves.white\small_wave_8" layer:main position:(629, 536) flipped:false sort:0
+element: id:"mountains.blue\mountain_10" layer:main position:(583, 1590) flipped:true sort:0

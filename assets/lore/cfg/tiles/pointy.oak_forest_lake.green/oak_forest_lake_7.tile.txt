@@ -1,0 +1,44 @@
+# CANVAS
+
+version: 1.0
+size: (840, 840)
+
+# GROUND
+
+id: "pointy.grass_grounds.green\grass_ground_0"
+position: (106, 57)
+render: true
+
+# BORDER
+
+id: "pointy.border_medium.dark\border_medium_0"
+position: (76, 22)
+
+# RENDER MASK
+
+active: true
+
+# ELEMENTS
+
+element: id:"dirt_patches.brown\dirt_patch_3" layer:ground position:(195, 471) flipped:false sort:0
+element: id:"lakes.blue\lake_23" layer:ground position:(439, 581) flipped:false sort:1
+element: id:"grass_marks.green\grass_marks_51" layer:ground position:(482, 374) flipped:true sort:2
+element: id:"oak_trees.green\oak_tree_24" layer:main position:(412, 273) flipped:true sort:0
+element: id:"grass_bushes.green\grass_bush_8" layer:main position:(430, 293) flipped:false sort:0
+element: id:"grass_bushes.greendark\grass_bush_29" layer:main position:(510, 331) flipped:false sort:0
+element: id:"oak_trees.green\oak_tree_19" layer:main position:(293, 332) flipped:false sort:0
+element: id:"bushes.green\bush_8" layer:main position:(339, 346) flipped:true sort:0
+element: id:"oak_trees.green\oak_tree_42" layer:main position:(541, 353) flipped:false sort:0
+element: id:"oak_trees.green\oak_tree_47" layer:main position:(227, 409) flipped:true sort:0
+element: id:"oak_trees.green\oak_tree_20" layer:main position:(618, 452) flipped:false sort:0
+element: id:"oak_trees.green\oak_tree_54" layer:main position:(746, 478) flipped:false sort:0
+element: id:"grass_bushes.greendark\grass_bush_19" layer:main position:(181, 528) flipped:false sort:0
+element: id:"oak_trees.green\oak_tree_34" layer:main position:(131, 539) flipped:true sort:0
+element: id:"oak_trees.green\oak_tree_57" layer:main position:(658, 574) flipped:false sort:0
+element: id:"grass_bushes.green\grass_bush_57" layer:main position:(248, 580) flipped:true sort:0
+element: id:"grass_bushes.greendark\grass_bush_45" layer:main position:(425, 654) flipped:true sort:0
+element: id:"oak_trees.green\oak_tree_26" layer:main position:(715, 767) flipped:true sort:0
+element: id:"oak_trees.green\oak_tree_47" layer:main position:(144, 771) flipped:true sort:0
+element: id:"oak_trees.green\oak_tree_46" layer:main position:(298, 836) flipped:true sort:0
+element: id:"oak_trees.green\oak_tree_16" layer:main position:(563, 845) flipped:true sort:0
+element: id:"oak_trees.green\oak_tree_14" layer:main position:(414, 895) flipped:false sort:0

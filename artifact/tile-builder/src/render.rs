@@ -101,19 +101,27 @@ impl Renderer {
         Ok(canvas)
     }
 
-    pub fn render_to_file(&mut self, scene: &mut Scene, output_dir: &Path) -> Result<()> {
+    pub fn render_to_dir(&mut self, scene: &mut Scene, output_dir: &Path) -> Result<()> {
+        // use the assets file name
+        let path = output_dir
+            .join(&scene.cfg.tile_type)
+            .join(&scene.cfg.source_id)
+            .with_extension("png");
+
+        self.render_to_path(scene, &path)
+    }
+
+    pub fn render_to_path(&mut self, scene: &mut Scene, output_path: &Path) -> Result<()> {
         let img = self.render(scene)?;
 
-        // use the assets file name
-        let path = output_dir.join(&scene.cfg.source_id).with_extension("png");
-
-        if let Some(parent) = path.parent() {
-            fs::create_dir_all(parent)
-                .wrap_err_with(|| format!("Failed to create output directory: {}", parent.display()))?;
+        if let Some(parent) = output_path.parent() {
+            fs::create_dir_all(parent).wrap_err_with(|| {
+                format!("Failed to create output directory: {}", parent.display())
+            })?;
         }
 
-        img.save(&path)
-            .wrap_err_with(|| format!("Failed to save image to file: {}", path.display()))?;
+        img.save(output_path)
+            .wrap_err_with(|| format!("Failed to save image to file: {}", output_path.display()))?;
 
         Ok(())
     }

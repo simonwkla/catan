@@ -1,0 +1,38 @@
+# CANVAS
+
+version: 1.0
+size: (840, 840)
+
+# GROUND
+
+id: "pointy.city_grounds.blue\city_ground_0"
+position: (106, 57)
+render: true
+
+# BORDER
+
+id: "pointy.border_medium.dark\border_medium_0"
+position: (76, 22)
+
+# RENDER MASK
+
+active: true
+
+# ELEMENTS
+
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(402, 263) flipped:false sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(273, 379) flipped:false sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(535, 414) flipped:false sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(410, 459) flipped:false sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(160, 483) flipped:false sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(655, 493) flipped:true sort:0
+element: id:"oak_trees.green\oak_tree_1" layer:main position:(695, 562) flipped:false sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(35, 577) flipped:false sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(271, 591) flipped:true sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(803, 595) flipped:false sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(545, 596) flipped:true sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(151, 726) flipped:false sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(668, 732) flipped:false sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(81, 899) flipped:false sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(755, 917) flipped:true sort:0
+element: id:"mountains.blue\mountain_1" layer:main position:(636, 1485) flipped:false sort:0

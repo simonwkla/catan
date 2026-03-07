@@ -1,0 +1,41 @@
+# CANVAS
+
+version: 1.0
+size: (840, 840)
+
+# GROUND
+
+id: "pointy.grass_grounds.green\grass_ground_0"
+position: (106, 57)
+render: true
+
+# BORDER
+
+id: "pointy.border_medium.dark\border_medium_0"
+position: (76, 22)
+
+# RENDER MASK
+
+active: true
+
+# ELEMENTS
+
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(278, 336) flipped:true sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(585, 355) flipped:true sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(416, 416) flipped:false sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(132, 446) flipped:false sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(705, 465) flipped:true sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(563, 537) flipped:false sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(266, 543) flipped:false sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(416, 625) flipped:true sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(155, 650) flipped:true sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(673, 657) flipped:false sort:0
+element: id:"oak_trees.green\oak_tree_17" layer:main position:(151, 726) flipped:false sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(307, 739) flipped:false sort:0
+element: id:"oak_trees.green\oak_tree_16" layer:main position:(677, 746) flipped:false sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(523, 750) flipped:false sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(201, 862) flipped:true sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(631, 869) flipped:false sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(416, 873) flipped:false sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(328, 1012) flipped:true sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(493, 1024) flipped:false sort:0

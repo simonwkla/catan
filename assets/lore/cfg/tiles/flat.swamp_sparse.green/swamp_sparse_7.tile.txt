@@ -1,0 +1,41 @@
+# CANVAS
+
+version: 1.0
+size: (840, 840)
+
+# GROUND
+
+id: "flat.swamp_grounds.green\swamp_ground_0"
+position: (57, 106)
+render: true
+
+# BORDER
+
+id: "flat.border_medium.dark\border_medium_0"
+position: (22, 76)
+
+# RENDER MASK
+
+active: true
+
+# ELEMENTS
+
+element: id:"water_patches.blue\water_patch_8" layer:ground position:(391, 220) flipped:true sort:0
+element: id:"water_patches.blue\water_patch_47" layer:ground position:(472, 260) flipped:false sort:1
+element: id:"dirt_patches.brown\dirt_patch_12" layer:ground position:(230, 672) flipped:false sort:2
+element: id:"dirt_patches.brown\dirt_patch_11" layer:ground position:(516, 834) flipped:true sort:3
+element: id:"dirt_patches.brown\dirt_patch_22" layer:ground position:(521, 568) flipped:false sort:4
+element: id:"grass_marks.green\grass_marks_7" layer:ground position:(551, 378) flipped:false sort:5
+element: id:"grass_marks.green\grass_marks_25" layer:ground position:(579, 649) flipped:true sort:6
+element: id:"grass_marks.green\grass_marks_30" layer:ground position:(353, 548) flipped:false sort:7
+element: id:"dirt_patches.brown\dirt_patch_34" layer:ground position:(96, 474) flipped:true sort:8
+element: id:"reeds.green\reed_15" layer:main position:(620, 337) flipped:false sort:0
+element: id:"reeds.green\reed_3" layer:main position:(260, 414) flipped:true sort:0
+element: id:"peats.blue\peat_28" layer:main position:(339, 460) flipped:false sort:0
+element: id:"thorns.brown\thorn_8" layer:main position:(272, 484) flipped:true sort:0
+element: id:"thorns.brown\thorn_55" layer:main position:(688, 549) flipped:true sort:0
+element: id:"reeds.green\reed_34" layer:main position:(476, 631) flipped:false sort:0
+element: id:"reeds.green\reed_24" layer:main position:(76, 684) flipped:false sort:0
+element: id:"reeds.green\reed_42" layer:main position:(704, 785) flipped:true sort:0
+element: id:"thorns.brown\thorn_17" layer:main position:(563, 793) flipped:true sort:0
+element: id:"reeds.green\reed_41" layer:main position:(308, 836) flipped:true sort:0

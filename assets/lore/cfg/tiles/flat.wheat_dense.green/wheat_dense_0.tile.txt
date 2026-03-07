@@ -1,0 +1,62 @@
+# CANVAS
+
+version: 1.0
+size: (840, 840)
+
+# GROUND
+
+id: "flat.grass_grounds.green\grass_ground_0"
+position: (57, 106)
+render: true
+
+# BORDER
+
+id: "flat.border_medium.dark\border_medium_0"
+position: (22, 76)
+
+# RENDER MASK
+
+active: true
+
+# ELEMENTS
+
+element: id:"wheat.yellow\wheat_10" layer:main position:(558, 239) flipped:true sort:0
+element: id:"wheat.yellow\wheat_52" layer:main position:(355, 270) flipped:false sort:0
+element: id:"wheat.yellow\wheat_35" layer:main position:(213, 271) flipped:false sort:0
+element: id:"wheat.yellow\wheat_0" layer:main position:(502, 288) flipped:true sort:0
+element: id:"wheat.yellow\wheat_39" layer:main position:(675, 295) flipped:false sort:0
+element: id:"wheat.yellow\wheat_33" layer:main position:(590, 342) flipped:true sort:0
+element: id:"wheat.yellow\wheat_7" layer:main position:(422, 356) flipped:false sort:0
+element: id:"wheat.yellow\wheat_55" layer:main position:(266, 363) flipped:true sort:0
+element: id:"wheat.yellow\wheat_46" layer:main position:(347, 423) flipped:false sort:0
+element: id:"wheat.yellow\wheat_24" layer:main position:(508, 434) flipped:true sort:0
+element: id:"wheat.yellow\wheat_13" layer:main position:(200, 437) flipped:false sort:0
+element: id:"wheat.yellow\wheat_51" layer:main position:(659, 445) flipped:false sort:0
+element: id:"wheat.yellow\wheat_33" layer:main position:(731, 506) flipped:true sort:0
+element: id:"wheat.yellow\wheat_29" layer:main position:(119, 508) flipped:false sort:0
+element: id:"wheat.yellow\wheat_22" layer:main position:(263, 511) flipped:true sort:0
+element: id:"wheat.yellow\wheat_8" layer:main position:(580, 511) flipped:false sort:0
+element: id:"wheat.yellow\wheat_43" layer:main position:(424, 515) flipped:true sort:0
+element: id:"wheat.yellow\wheat_7" layer:main position:(343, 582) flipped:true sort:0
+element: id:"wheat.yellow\wheat_29" layer:main position:(195, 596) flipped:false sort:0
+element: id:"wheat.yellow\wheat_3" layer:main position:(500, 600) flipped:false sort:0
+element: id:"wheat.yellow\wheat_20" layer:main position:(661, 602) flipped:true sort:0
+element: id:"wheat.yellow\wheat_1" layer:main position:(59, 616) flipped:false sort:0
+element: id:"wheat.yellow\wheat_51" layer:main position:(578, 663) flipped:false sort:0
+element: id:"wheat.yellow\wheat_18" layer:main position:(265, 668) flipped:true sort:0
+element: id:"wheat.yellow\wheat_51" layer:main position:(421, 671) flipped:true sort:0
+element: id:"wheat.yellow\wheat_15" layer:main position:(737, 673) flipped:true sort:0
+element: id:"wheat.yellow\wheat_51" layer:main position:(121, 673) flipped:false sort:0
+element: id:"wheat.yellow\wheat_25" layer:main position:(186, 724) flipped:false sort:0
+element: id:"wheat.yellow\wheat_29" layer:main position:(348, 747) flipped:true sort:0
+element: id:"wheat.yellow\wheat_5" layer:main position:(655, 751) flipped:false sort:0
+element: id:"wheat.yellow\wheat_26" layer:main position:(502, 751) flipped:true sort:0
+element: id:"wheat.yellow\wheat_35" layer:main position:(581, 807) flipped:false sort:0
+element: id:"wheat.yellow\wheat_37" layer:main position:(419, 811) flipped:true sort:0
+element: id:"wheat.yellow\wheat_20" layer:main position:(262, 813) flipped:false sort:0
+element: id:"wheat.yellow\wheat_37" layer:main position:(211, 871) flipped:true sort:0
+element: id:"wheat.yellow\wheat_13" layer:main position:(336, 894) flipped:true sort:0
+element: id:"wheat.yellow\wheat_24" layer:main position:(495, 900) flipped:false sort:0
+element: id:"wheat.yellow\wheat_58" layer:main position:(413, 925) flipped:false sort:0
+element: id:"wheat.yellow\wheat_46" layer:main position:(585, 953) flipped:false sort:0
+element: id:"wheat.yellow\wheat_10" layer:main position:(287, 974) flipped:true sort:0

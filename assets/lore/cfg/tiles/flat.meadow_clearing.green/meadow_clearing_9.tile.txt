@@ -1,0 +1,56 @@
+# CANVAS
+
+version: 1.0
+size: (840, 840)
+
+# GROUND
+
+id: "flat.grass_grounds.green\grass_ground_0"
+position: (57, 106)
+render: true
+
+# BORDER
+
+id: "flat.border_medium.dark\border_medium_0"
+position: (22, 76)
+
+# RENDER MASK
+
+active: true
+
+# ELEMENTS
+
+element: id:"dirt_patches.brown\dirt_patch_6" layer:ground position:(432, 547) flipped:false sort:0
+element: id:"dirt_patches.brown\dirt_patch_39" layer:ground position:(373, 657) flipped:true sort:1
+element: id:"grass_patches.green\grass_patch_22" layer:ground position:(509, 420) flipped:true sort:2
+element: id:"grass_patches.green\grass_patch_19" layer:ground position:(432, 730) flipped:true sort:3
+element: id:"grass_patches.green\grass_patch_14" layer:ground position:(429, 378) flipped:false sort:4
+element: id:"grass_patches.green\grass_patch_24" layer:ground position:(367, 230) flipped:true sort:5
+element: id:"grass_marks.green\grass_marks_13" layer:ground position:(590, 502) flipped:false sort:6
+element: id:"grass_marks.green\grass_marks_48" layer:ground position:(192, 634) flipped:true sort:7
+element: id:"grass_marks.green\grass_marks_14" layer:ground position:(374, 384) flipped:true sort:8
+element: id:"grass_bushes.greendark\grass_bush_24" layer:main position:(484, 219) flipped:false sort:0
+element: id:"grass_bushes.greendark\grass_bush_13" layer:main position:(597, 236) flipped:true sort:0
+element: id:"grass_bushes.greendark\grass_bush_31" layer:main position:(541, 259) flipped:true sort:0
+element: id:"grass_bushes.green\grass_bush_51" layer:main position:(456, 269) flipped:false sort:0
+element: id:"bushes.green\bush_24" layer:main position:(249, 275) flipped:false sort:0
+element: id:"bushes.green\bush_52" layer:main position:(627, 315) flipped:true sort:0
+element: id:"bushes.green\bush_11" layer:main position:(211, 327) flipped:true sort:0
+element: id:"grass_bushes.green\grass_bush_35" layer:main position:(242, 372) flipped:true sort:0
+element: id:"grass_bushes.greendark\grass_bush_44" layer:main position:(287, 413) flipped:true sort:0
+element: id:"grass_bushes.greendark\grass_bush_24" layer:main position:(649, 414) flipped:false sort:0
+element: id:"grass_bushes.green\grass_bush_25" layer:main position:(178, 453) flipped:true sort:0
+element: id:"bushes.green\bush_53" layer:main position:(749, 462) flipped:false sort:0
+element: id:"grass_bushes.green\grass_bush_39" layer:main position:(217, 512) flipped:false sort:0
+element: id:"bushes.green\bush_5" layer:main position:(128, 526) flipped:true sort:0
+element: id:"grass_bushes.greendark\grass_bush_51" layer:main position:(210, 557) flipped:true sort:0
+element: id:"grass_bushes.green\grass_bush_55" layer:main position:(687, 570) flipped:true sort:0
+element: id:"grass_bushes.green\grass_bush_29" layer:main position:(132, 575) flipped:false sort:0
+element: id:"bushes.green\bush_53" layer:main position:(646, 641) flipped:false sort:0
+element: id:"grass_bushes.green\grass_bush_40" layer:main position:(494, 711) flipped:false sort:0
+element: id:"grass_bushes.greendark\grass_bush_9" layer:main position:(561, 735) flipped:false sort:0
+element: id:"grass_bushes.greendark\grass_bush_44" layer:main position:(241, 736) flipped:false sort:0
+element: id:"bushes.green\bush_50" layer:main position:(318, 736) flipped:true sort:0
+element: id:"grass_bushes.greendark\grass_bush_22" layer:main position:(466, 779) flipped:true sort:0
+element: id:"grass_bushes.green\grass_bush_19" layer:main position:(274, 785) flipped:true sort:0
+element: id:"grass_bushes.greendark\grass_bush_32" layer:main position:(542, 811) flipped:false sort:0

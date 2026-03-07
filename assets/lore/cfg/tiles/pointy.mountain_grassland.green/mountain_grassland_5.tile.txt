@@ -1,0 +1,43 @@
+# CANVAS
+
+version: 1.0
+size: (840, 840)
+
+# GROUND
+
+id: "pointy.grass_grounds.green\grass_ground_0"
+position: (106, 57)
+render: true
+
+# BORDER
+
+id: "pointy.border_medium.dark\border_medium_0"
+position: (76, 22)
+
+# RENDER MASK
+
+active: true
+
+# ELEMENTS
+
+element: id:"tall_grass.green\tall_grass_7" layer:main position:(338, 178) flipped:false sort:0
+element: id:"tall_grass.green\tall_grass_16" layer:main position:(456, 245) flipped:true sort:0
+element: id:"tall_grass.green\tall_grass_6" layer:main position:(581, 270) flipped:true sort:0
+element: id:"tall_grass.green\tall_grass_55" layer:main position:(716, 280) flipped:true sort:0
+element: id:"tall_grass.green\tall_grass_23" layer:main position:(310, 304) flipped:false sort:0
+element: id:"tall_grass.green\tall_grass_12" layer:main position:(204, 321) flipped:false sort:0
+element: id:"tall_grass.green\tall_grass_10" layer:main position:(84, 323) flipped:false sort:0
+element: id:"tall_grass.green\tall_grass_56" layer:main position:(515, 338) flipped:false sort:0
+element: id:"tall_grass.green\tall_grass_28" layer:main position:(376, 383) flipped:true sort:0
+element: id:"tall_grass.green\tall_grass_21" layer:main position:(649, 401) flipped:true sort:0
+element: id:"tall_grass.green\tall_grass_13" layer:main position:(153, 412) flipped:true sort:0
+element: id:"tall_grass.green\tall_grass_29" layer:main position:(780, 424) flipped:false sort:0
+element: id:"tall_grass.green\tall_grass_26" layer:main position:(285, 474) flipped:true sort:0
+element: id:"tall_grass.green\tall_grass_30" layer:main position:(666, 525) flipped:true sort:0
+element: id:"tall_grass.green\tall_grass_48" layer:main position:(190, 546) flipped:true sort:0
+element: id:"tall_grass.green\tall_grass_30" layer:main position:(85, 548) flipped:true sort:0
+element: id:"tall_grass.green\tall_grass_10" layer:main position:(116, 661) flipped:true sort:0
+element: id:"tall_grass.green\tall_grass_24" layer:main position:(708, 665) flipped:false sort:0
+element: id:"tall_grass.green\tall_grass_20" layer:main position:(99, 761) flipped:false sort:0
+element: id:"tall_grass.green\tall_grass_53" layer:main position:(709, 772) flipped:false sort:0
+element: id:"mountains.blue\mountain_9" layer:main position:(560, 1518) flipped:false sort:0

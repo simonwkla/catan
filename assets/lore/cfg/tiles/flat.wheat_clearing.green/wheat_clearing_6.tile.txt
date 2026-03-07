@@ -1,0 +1,67 @@
+# CANVAS
+
+version: 1.0
+size: (840, 840)
+
+# GROUND
+
+id: "flat.grass_grounds.green\grass_ground_0"
+position: (57, 106)
+render: true
+
+# BORDER
+
+id: "flat.border_medium.dark\border_medium_0"
+position: (22, 76)
+
+# RENDER MASK
+
+active: true
+
+# ELEMENTS
+
+element: id:"dirt_patches.brown\dirt_patch_58" layer:ground position:(455, 546) flipped:true sort:0
+element: id:"grass_patches.green\grass_patch_33" layer:ground position:(316, 601) flipped:false sort:1
+element: id:"grass_patches.green\grass_patch_24" layer:ground position:(500, 321) flipped:false sort:2
+element: id:"grass_marks.green\grass_marks_11" layer:ground position:(430, 382) flipped:true sort:3
+element: id:"wheat.yellow\wheat_4" layer:main position:(208, 282) flipped:true sort:0
+element: id:"wheat.yellow\wheat_30" layer:main position:(343, 287) flipped:false sort:0
+element: id:"wheat.yellow\wheat_2" layer:main position:(584, 295) flipped:true sort:0
+element: id:"grass_bushes.green\grass_bush_48" layer:main position:(373, 298) flipped:true sort:0
+element: id:"wheat.yellow\wheat_10" layer:main position:(439, 306) flipped:true sort:0
+element: id:"wheat.yellow\wheat_0" layer:main position:(283, 323) flipped:true sort:0
+element: id:"wheat.yellow\wheat_44" layer:main position:(509, 331) flipped:true sort:0
+element: id:"grass_bushes.greendark\grass_bush_22" layer:main position:(530, 349) flipped:true sort:0
+element: id:"wheat.yellow\wheat_46" layer:main position:(665, 363) flipped:false sort:0
+element: id:"grass_bushes.green\grass_bush_19" layer:main position:(584, 402) flipped:true sort:0
+element: id:"wheat.yellow\wheat_2" layer:main position:(608, 406) flipped:true sort:0
+element: id:"wheat.yellow\wheat_37" layer:main position:(185, 415) flipped:false sort:0
+element: id:"grass_bushes.green\grass_bush_7" layer:main position:(246, 464) flipped:true sort:0
+element: id:"oak_trees.green\oak_tree_50" layer:main position:(283, 488) flipped:false sort:0
+element: id:"wheat.yellow\wheat_16" layer:main position:(673, 506) flipped:false sort:0
+element: id:"grass_bushes.greendark\grass_bush_54" layer:main position:(201, 529) flipped:true sort:0
+element: id:"wheat.yellow\wheat_41" layer:main position:(746, 551) flipped:true sort:0
+element: id:"wheat.yellow\wheat_28" layer:main position:(159, 551) flipped:true sort:0
+element: id:"wheat.yellow\wheat_24" layer:main position:(82, 554) flipped:true sort:0
+element: id:"wheat.yellow\wheat_10" layer:main position:(625, 564) flipped:false sort:0
+element: id:"grass_bushes.greendark\grass_bush_14" layer:main position:(421, 606) flipped:false sort:0
+element: id:"wheat.yellow\wheat_37" layer:main position:(710, 626) flipped:true sort:0
+element: id:"grass_bushes.green\grass_bush_59" layer:main position:(330, 643) flipped:true sort:0
+element: id:"wheat.yellow\wheat_32" layer:main position:(563, 653) flipped:false sort:0
+element: id:"wheat.yellow\wheat_20" layer:main position:(130, 664) flipped:false sort:0
+element: id:"wheat.yellow\wheat_28" layer:main position:(791, 703) flipped:false sort:0
+element: id:"wheat.yellow\wheat_6" layer:main position:(491, 707) flipped:false sort:0
+element: id:"wheat.yellow\wheat_52" layer:main position:(637, 725) flipped:true sort:0
+element: id:"wheat.yellow\wheat_10" layer:main position:(211, 742) flipped:false sort:0
+element: id:"wheat.yellow\wheat_50" layer:main position:(713, 747) flipped:true sort:0
+element: id:"wheat.yellow\wheat_27" layer:main position:(154, 804) flipped:false sort:0
+element: id:"wheat.yellow\wheat_48" layer:main position:(570, 822) flipped:true sort:0
+element: id:"wheat.yellow\wheat_21" layer:main position:(408, 823) flipped:false sort:0
+element: id:"wheat.yellow\wheat_25" layer:main position:(273, 828) flipped:true sort:0
+element: id:"wheat.yellow\wheat_8" layer:main position:(653, 833) flipped:true sort:0
+element: id:"wheat.yellow\wheat_33" layer:main position:(490, 853) flipped:true sort:0
+element: id:"wheat.yellow\wheat_33" layer:main position:(327, 854) flipped:false sort:0
+element: id:"wheat.yellow\wheat_42" layer:main position:(218, 880) flipped:true sort:0
+element: id:"wheat.yellow\wheat_53" layer:main position:(590, 923) flipped:true sort:0
+element: id:"wheat.yellow\wheat_40" layer:main position:(408, 923) flipped:false sort:0
+element: id:"wheat.yellow\wheat_6" layer:main position:(295, 957) flipped:true sort:0

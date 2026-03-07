@@ -1,0 +1,50 @@
+# CANVAS
+
+version: 1.0
+size: (840, 840)
+
+# GROUND
+
+id: "flat.swamp_grounds.green\swamp_ground_0"
+position: (57, 106)
+render: true
+
+# BORDER
+
+id: "flat.border_medium.dark\border_medium_0"
+position: (22, 76)
+
+# RENDER MASK
+
+active: true
+
+# ELEMENTS
+
+element: id:"water_patches.blue\water_patch_43" layer:ground position:(553, 609) flipped:false sort:0
+element: id:"water_patches.blue\water_patch_44" layer:ground position:(456, 429) flipped:false sort:1
+element: id:"water_patches.blue\water_patch_32" layer:ground position:(531, 560) flipped:false sort:2
+element: id:"dirt_patches.brown\dirt_patch_5" layer:ground position:(435, 278) flipped:true sort:3
+element: id:"dirt_patches.brown\dirt_patch_45" layer:ground position:(816, 573) flipped:true sort:4
+element: id:"dirt_patches.brown\dirt_patch_55" layer:ground position:(163, 609) flipped:false sort:5
+element: id:"grass_marks.green\grass_marks_24" layer:ground position:(602, 670) flipped:false sort:6
+element: id:"grass_marks.green\grass_marks_41" layer:ground position:(455, 332) flipped:true sort:7
+element: id:"grass_marks.green\grass_marks_58" layer:ground position:(317, 501) flipped:false sort:8
+element: id:"thorns.brown\thorn_46" layer:main position:(304, 216) flipped:false sort:0
+element: id:"reeds.green\reed_5" layer:main position:(561, 309) flipped:true sort:0
+element: id:"thorns.brown\thorn_21" layer:main position:(581, 318) flipped:true sort:0
+element: id:"peats.blue\peat_18" layer:main position:(632, 374) flipped:true sort:0
+element: id:"reeds.green\reed_29" layer:main position:(253, 382) flipped:true sort:0
+element: id:"reeds.green\reed_31" layer:main position:(694, 409) flipped:false sort:0
+element: id:"reeds.green\reed_55" layer:main position:(644, 424) flipped:true sort:0
+element: id:"peats.blue\peat_15" layer:main position:(207, 433) flipped:true sort:0
+element: id:"thorns.brown\thorn_16" layer:main position:(104, 466) flipped:false sort:0
+element: id:"reeds.green\reed_35" layer:main position:(414, 530) flipped:false sort:0
+element: id:"thorns.brown\thorn_35" layer:main position:(666, 615) flipped:false sort:0
+element: id:"reeds.green\reed_7" layer:main position:(188, 704) flipped:false sort:0
+element: id:"reeds.green\reed_35" layer:main position:(435, 720) flipped:false sort:0
+element: id:"reeds.green\reed_18" layer:main position:(457, 727) flipped:true sort:0
+element: id:"peats.blue\peat_9" layer:main position:(412, 786) flipped:false sort:0
+element: id:"thorns.brown\thorn_2" layer:main position:(367, 791) flipped:false sort:0
+element: id:"reeds.green\reed_22" layer:main position:(210, 826) flipped:true sort:0
+element: id:"reeds.green\reed_19" layer:main position:(667, 829) flipped:true sort:0
+element: id:"reeds.green\reed_16" layer:main position:(241, 902) flipped:false sort:0

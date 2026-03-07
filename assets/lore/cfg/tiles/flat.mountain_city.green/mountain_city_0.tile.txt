@@ -1,0 +1,39 @@
+# CANVAS
+
+version: 1.0
+size: (840, 840)
+
+# GROUND
+
+id: "flat.city_grounds.blue\city_ground_0"
+position: (57, 106)
+render: true
+
+# BORDER
+
+id: "flat.border_medium.dark\border_medium_0"
+position: (22, 76)
+
+# RENDER MASK
+
+active: true
+
+# ELEMENTS
+
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(519, 352) flipped:false sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(281, 379) flipped:true sort:0
+element: id:"oak_trees.green\oak_tree_8" layer:main position:(525, 455) flipped:true sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(401, 458) flipped:true sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(624, 475) flipped:true sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(171, 496) flipped:false sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(749, 582) flipped:false sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(522, 588) flipped:false sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(286, 594) flipped:true sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(51, 610) flipped:true sort:0
+element: id:"oak_trees.green\oak_tree_31" layer:main position:(165, 627) flipped:false sort:0
+element: id:"oak_trees.green\oak_tree_15" layer:main position:(701, 643) flipped:true sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(636, 732) flipped:true sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(176, 734) flipped:true sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(176, 906) flipped:false sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(692, 921) flipped:true sort:0
+element: id:"mountains.blue\mountain_5" layer:main position:(650, 1585) flipped:true sort:0

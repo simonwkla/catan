@@ -1,0 +1,36 @@
+# CANVAS
+
+version: 1.0
+size: (840, 840)
+
+# GROUND
+
+id: "flat.swamp_grounds.green\swamp_ground_0"
+position: (57, 106)
+render: true
+
+# BORDER
+
+id: "flat.border_medium.dark\border_medium_0"
+position: (22, 76)
+
+# RENDER MASK
+
+active: true
+
+# ELEMENTS
+
+element: id:"water_patches.blue\water_patch_25" layer:ground position:(688, 658) flipped:false sort:0
+element: id:"water_patches.blue\water_patch_22" layer:ground position:(216, 333) flipped:true sort:1
+element: id:"water_patches.blue\water_patch_18" layer:ground position:(252, 238) flipped:true sort:2
+element: id:"grass_marks.green\grass_marks_55" layer:ground position:(617, 549) flipped:true sort:3
+element: id:"grass_marks.green\grass_marks_5" layer:ground position:(454, 231) flipped:true sort:4
+element: id:"reeds.green\reed_24" layer:main position:(544, 433) flipped:false sort:0
+element: id:"reeds.green\reed_33" layer:main position:(586, 487) flipped:true sort:0
+element: id:"peats.blue\peat_46" layer:main position:(676, 517) flipped:false sort:0
+element: id:"reeds.green\reed_54" layer:main position:(261, 520) flipped:true sort:0
+element: id:"thorns.brown\thorn_9" layer:main position:(259, 547) flipped:true sort:0
+element: id:"thorns.brown\thorn_36" layer:main position:(758, 563) flipped:true sort:0
+element: id:"reeds.green\reed_25" layer:main position:(166, 587) flipped:true sort:0
+element: id:"peats.blue\peat_56" layer:main position:(197, 670) flipped:true sort:0
+element: id:"mountains.blue\mountain_8" layer:main position:(441, 1538) flipped:true sort:0

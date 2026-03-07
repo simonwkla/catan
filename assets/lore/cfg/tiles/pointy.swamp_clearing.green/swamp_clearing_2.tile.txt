@@ -1,0 +1,42 @@
+# CANVAS
+
+version: 1.0
+size: (840, 840)
+
+# GROUND
+
+id: "pointy.swamp_grounds.green\swamp_ground_0"
+position: (106, 57)
+render: true
+
+# BORDER
+
+id: "pointy.border_medium.dark\border_medium_0"
+position: (76, 22)
+
+# RENDER MASK
+
+active: true
+
+# ELEMENTS
+
+element: id:"water_patches.blue\water_patch_3" layer:ground position:(709, 484) flipped:false sort:0
+element: id:"water_patches.blue\water_patch_54" layer:ground position:(164, 444) flipped:true sort:1
+element: id:"dirt_patches.brown\dirt_patch_2" layer:ground position:(409, 650) flipped:true sort:2
+element: id:"dirt_patches.brown\dirt_patch_12" layer:ground position:(443, 487) flipped:true sort:3
+element: id:"dirt_patches.brown\dirt_patch_41" layer:ground position:(487, 497) flipped:true sort:4
+element: id:"grass_marks.green\grass_marks_26" layer:ground position:(526, 341) flipped:true sort:5
+element: id:"grass_marks.green\grass_marks_36" layer:ground position:(545, 686) flipped:false sort:6
+element: id:"grass_marks.green\grass_marks_2" layer:ground position:(318, 352) flipped:false sort:7
+element: id:"reeds.green\reed_53" layer:main position:(499, 288) flipped:true sort:0
+element: id:"thorns.brown\thorn_41" layer:main position:(297, 291) flipped:true sort:0
+element: id:"peats.blue\peat_50" layer:main position:(224, 304) flipped:true sort:0
+element: id:"peats.blue\peat_11" layer:main position:(691, 351) flipped:true sort:0
+element: id:"thorns.brown\thorn_0" layer:main position:(719, 368) flipped:true sort:0
+element: id:"reeds.green\reed_44" layer:main position:(158, 534) flipped:true sort:0
+element: id:"peats.blue\peat_48" layer:main position:(135, 572) flipped:false sort:0
+element: id:"peats.blue\peat_3" layer:main position:(682, 658) flipped:false sort:0
+element: id:"reeds.green\reed_10" layer:main position:(652, 688) flipped:true sort:0
+element: id:"reeds.green\reed_0" layer:main position:(404, 751) flipped:true sort:0
+element: id:"thorns.brown\thorn_37" layer:main position:(180, 772) flipped:true sort:0
+element: id:"peats.blue\peat_52" layer:main position:(407, 845) flipped:false sort:0

@@ -1,0 +1,40 @@
+# CANVAS
+
+version: 1.0
+size: (840, 840)
+
+# GROUND
+
+id: "flat.desert_grounds.yellow\desert_ground_0"
+position: (57, 106)
+render: true
+
+# BORDER
+
+id: "flat.border_medium.dark\border_medium_0"
+position: (22, 76)
+
+# RENDER MASK
+
+active: true
+
+# ELEMENTS
+
+element: id:"sand_patches.yellow\sand_patch_25" layer:ground position:(352, 222) flipped:true sort:0
+element: id:"sand_patches.yellow\sand_patch_34" layer:ground position:(446, 716) flipped:true sort:1
+element: id:"sand_marks.yellow\sand_marks_0" layer:ground position:(455, 659) flipped:false sort:2
+element: id:"sand_patches.yellow\sand_patch_7" layer:ground position:(632, 616) flipped:true sort:3
+element: id:"sand_marks.yellow\sand_marks_22" layer:ground position:(174, 592) flipped:true sort:4
+element: id:"sand_marks.yellow\sand_marks_59" layer:ground position:(431, 580) flipped:true sort:5
+element: id:"sand_patches.yellow\sand_patch_3" layer:ground position:(155, 529) flipped:true sort:6
+element: id:"sand_patches.yellow\sand_patch_2" layer:ground position:(640, 363) flipped:false sort:7
+element: id:"sand_marks.yellow\sand_marks_54" layer:ground position:(472, 231) flipped:false sort:8
+element: id:"desert_hills.yellow\desert_hill_23" layer:main position:(636, 241) flipped:true sort:0
+element: id:"palm_trees.green\palm_tree_59" layer:main position:(274, 378) flipped:true sort:0
+element: id:"desert_hills.yellow\desert_hill_18" layer:main position:(251, 408) flipped:false sort:0
+element: id:"palm_trees.green\palm_tree_0" layer:main position:(474, 501) flipped:false sort:0
+element: id:"desert_hills.yellow\desert_hill_15" layer:main position:(573, 510) flipped:false sort:0
+element: id:"palm_trees.green\palm_tree_3" layer:main position:(296, 649) flipped:true sort:0
+element: id:"palm_trees.green\palm_tree_29" layer:main position:(616, 651) flipped:true sort:0
+element: id:"desert_hills.yellow\desert_hill_4" layer:main position:(266, 776) flipped:true sort:0
+element: id:"palm_trees.green\palm_tree_48" layer:main position:(254, 900) flipped:false sort:0

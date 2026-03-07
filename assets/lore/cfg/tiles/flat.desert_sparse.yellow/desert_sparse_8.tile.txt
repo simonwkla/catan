@@ -1,0 +1,40 @@
+# CANVAS
+
+version: 1.0
+size: (840, 840)
+
+# GROUND
+
+id: "flat.desert_grounds.yellow\desert_ground_0"
+position: (57, 106)
+render: true
+
+# BORDER
+
+id: "flat.border_medium.dark\border_medium_0"
+position: (22, 76)
+
+# RENDER MASK
+
+active: true
+
+# ELEMENTS
+
+element: id:"sand_patches.yellow\sand_patch_13" layer:ground position:(132, 464) flipped:false sort:0
+element: id:"sand_patches.yellow\sand_patch_26" layer:ground position:(311, 221) flipped:false sort:1
+element: id:"sand_patches.yellow\sand_patch_22" layer:ground position:(669, 659) flipped:true sort:2
+element: id:"sand_patches.yellow\sand_patch_22" layer:ground position:(274, 769) flipped:true sort:3
+element: id:"sand_patches.yellow\sand_patch_12" layer:ground position:(659, 548) flipped:true sort:4
+element: id:"sand_patches.yellow\sand_patch_45" layer:ground position:(432, 354) flipped:false sort:5
+element: id:"sand_marks.yellow\sand_marks_5" layer:ground position:(386, 275) flipped:true sort:6
+element: id:"sand_marks.yellow\sand_marks_55" layer:ground position:(489, 569) flipped:true sort:7
+element: id:"sand_marks.yellow\sand_marks_39" layer:ground position:(173, 368) flipped:false sort:8
+element: id:"sand_marks.yellow\sand_marks_38" layer:ground position:(605, 735) flipped:true sort:9
+element: id:"sand_marks.yellow\sand_marks_46" layer:ground position:(377, 443) flipped:true sort:10
+element: id:"palm_trees.green\palm_tree_39" layer:main position:(580, 356) flipped:false sort:0
+element: id:"palm_trees.green\palm_tree_49" layer:main position:(247, 384) flipped:true sort:0
+element: id:"desert_hills.yellow\desert_hill_21" layer:main position:(594, 386) flipped:false sort:0
+element: id:"palm_trees.green\palm_tree_25" layer:main position:(595, 554) flipped:false sort:0
+element: id:"desert_hills.yellow\desert_hill_12" layer:main position:(346, 630) flipped:true sort:0
+element: id:"palm_trees.green\palm_tree_35" layer:main position:(150, 764) flipped:false sort:0
+element: id:"palm_trees.green\palm_tree_14" layer:main position:(458, 798) flipped:false sort:0

@@ -1,4 +1,4 @@
-use std::{fs::{File}, io::Read, path::Path};
+use std::{fs::File, io::Read, path::Path};
 
 use ariadne::{Label, Report, ReportKind, Source};
 use chumsky::error::Rich;
@@ -18,31 +18,46 @@ pub struct Config {
     pub elements: Vec<Element>,
 
     pub source_id: String,
+    pub tile_type: String,
 }
 
 const EXTENSION: &str = ".tile.txt";
 
 impl Config {
-    pub fn from_reader<R: Read>(source_id: &str, mut reader: R) -> Result<Self> {
+    pub fn from_reader<R: Read>(source_id: &str, tile_type: &str, mut reader: R) -> Result<Self> {
         let mut buf = String::new();
         reader
             .read_to_string(&mut buf)
             .wrap_err("Failed to read config")?;
 
-        Self::from_str(source_id, &buf)
+        Self::from_str(source_id, tile_type, &buf)
     }
 
-    pub fn from_str(source_id: &str, input: &str) -> Result<Self> {
-        match cfg_parser(source_id).parse(input).into_result() {
+    pub fn from_str(source_id: &str, tile_type: &str, input: &str) -> Result<Self> {
+        match cfg_parser(source_id, tile_type).parse(input).into_result() {
             Ok(cfg) => Ok(cfg),
             Err(errs) => Err(eyre!(render_chumsky_errors(source_id, input, errs))),
         }
     }
 
-    fn from_file(path: &Path) -> Result<Self> {
-        let file = File::open(path).wrap_err_with(|| format!("Failed to open file: {}", path.display()))?;
-        let file_name = path.file_name().ok_or_else(|| eyre!("Failed to get file name: {}", path.display()))?.to_string_lossy().to_string();
-        Self::from_reader(&file_name, file)
+    pub fn from_file(path: &Path) -> Result<Self> {
+        let file = File::open(path)
+            .wrap_err_with(|| format!("Failed to open file: {}", path.display()))?;
+        let file_name = path
+            .file_name()
+            .ok_or_else(|| eyre!("Failed to get file name: {}", path.display()))?
+            .to_string_lossy()
+            .to_string();
+
+        let tile_type = path
+            .parent()
+            .ok_or_else(|| eyre!("Failed to get parent directory: {}", path.display()))?
+            .file_name()
+            .ok_or_else(|| eyre!("Failed to get file name: {}", path.display()))?
+            .to_string_lossy()
+            .to_string();
+
+        Self::from_reader(&file_name, &tile_type, file)
     }
 
     pub fn from_dir(path: &Path) -> Result<Vec<Self>> {
@@ -53,7 +68,10 @@ impl Config {
         for entry in walker {
             let entry = entry?;
             let path = entry.path();
-            if path.file_name().map_or(false, |n| n.to_string_lossy().ends_with(EXTENSION)) {
+            if path
+                .file_name()
+                .map_or(false, |n| n.to_string_lossy().ends_with(EXTENSION))
+            {
                 cfgs.push(Self::from_file(path)?);
             }
         }
@@ -61,7 +79,6 @@ impl Config {
         Ok(cfgs)
     }
 }
-
 
 #[derive(Debug)]
 pub struct Canvas {
@@ -140,10 +157,19 @@ pub fn render_chumsky_errors(source_id: &str, input: &str, errs: Vec<Rich<char>>
     out
 }
 
-pub fn cfg_parser<'a>(file_name: &str) -> impl Parser<'a, &'a str, Config, extra::Err<Rich<'a, char>>> {
+pub fn cfg_parser<'a>(
+    file_name: &str,
+    tile_type: &str,
+) -> impl Parser<'a, &'a str, Config, extra::Err<Rich<'a, char>>> {
     let uint = text::int(10).from_str().unwrapped().map(|x: u32| x);
 
-    let int = just("-").padded().or_not().then(uint).map(|(minus, x)| if minus.is_some() { (x as i32) * -1 } else { x as i32 });
+    let int = just("-").padded().or_not().then(uint).map(|(minus, x)| {
+        if minus.is_some() {
+            (x as i32) * -1
+        } else {
+            x as i32
+        }
+    });
 
     let boolean = choice((just("true"), just("false"))).map(|x| x == "true");
 
@@ -295,6 +321,7 @@ pub fn cfg_parser<'a>(file_name: &str) -> impl Parser<'a, &'a str, Config, extra
                 border,
                 elements,
                 source_id: file_name.to_string(),
+                tile_type: tile_type.to_string(),
             },
         );
 

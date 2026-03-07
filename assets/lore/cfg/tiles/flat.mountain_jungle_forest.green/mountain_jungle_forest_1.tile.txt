@@ -1,0 +1,46 @@
+# CANVAS
+
+version: 1.0
+size: (840, 840)
+
+# GROUND
+
+id: "flat.grass_grounds.green\grass_ground_0"
+position: (57, 106)
+render: true
+
+# BORDER
+
+id: "flat.border_medium.dark\border_medium_0"
+position: (22, 76)
+
+# RENDER MASK
+
+active: true
+
+# ELEMENTS
+
+element: id:"jungle_trees.green\jungle_tree_3" layer:main position:(426, 268) flipped:false sort:0
+element: id:"jungle_trees.green\jungle_tree_15" layer:main position:(208, 316) flipped:false sort:0
+element: id:"jungle_trees.green\jungle_tree_58" layer:main position:(579, 359) flipped:true sort:0
+element: id:"jungle_trees.green\jungle_tree_17" layer:main position:(340, 368) flipped:false sort:0
+element: id:"jungle_trees.green\jungle_tree_44" layer:main position:(464, 434) flipped:false sort:0
+element: id:"jungle_trees.green\jungle_tree_0" layer:main position:(239, 465) flipped:true sort:0
+element: id:"jungle_trees.green\jungle_tree_10" layer:main position:(716, 474) flipped:false sort:0
+element: id:"jungle_trees.green\jungle_tree_29" layer:main position:(586, 496) flipped:false sort:0
+element: id:"jungle_trees.green\jungle_tree_58" layer:main position:(153, 520) flipped:true sort:0
+element: id:"jungle_trees.green\jungle_tree_56" layer:main position:(358, 559) flipped:false sort:0
+element: id:"jungle_trees.green\jungle_tree_19" layer:main position:(701, 596) flipped:true sort:0
+element: id:"jungle_trees.green\jungle_tree_34" layer:main position:(214, 597) flipped:true sort:0
+element: id:"jungle_trees.green\jungle_tree_29" layer:main position:(51, 634) flipped:false sort:0
+element: id:"jungle_trees.green\jungle_tree_0" layer:main position:(542, 669) flipped:true sort:0
+element: id:"jungle_trees.green\jungle_tree_53" layer:main position:(147, 677) flipped:true sort:0
+element: id:"jungle_trees.green\jungle_tree_20" layer:main position:(335, 698) flipped:true sort:0
+element: id:"jungle_trees.green\jungle_tree_4" layer:main position:(720, 710) flipped:true sort:0
+element: id:"jungle_trees.green\jungle_tree_57" layer:main position:(108, 802) flipped:false sort:0
+element: id:"jungle_trees.green\jungle_tree_19" layer:main position:(255, 823) flipped:true sort:0
+element: id:"jungle_trees.green\jungle_tree_26" layer:main position:(579, 828) flipped:false sort:0
+element: id:"jungle_trees.green\jungle_tree_3" layer:main position:(733, 863) flipped:true sort:0
+element: id:"jungle_trees.green\jungle_tree_14" layer:main position:(232, 970) flipped:true sort:0
+element: id:"jungle_trees.green\jungle_tree_22" layer:main position:(607, 993) flipped:false sort:0
+element: id:"mountains.blue\mountain_3" layer:main position:(149, 1602) flipped:true sort:0

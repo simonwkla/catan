@@ -1,0 +1,40 @@
+# CANVAS
+
+version: 1.0
+size: (840, 840)
+
+# GROUND
+
+id: "pointy.desert_grounds.yellow\desert_ground_0"
+position: (106, 57)
+render: true
+
+# BORDER
+
+id: "pointy.border_medium.dark\border_medium_0"
+position: (76, 22)
+
+# RENDER MASK
+
+active: true
+
+# ELEMENTS
+
+element: id:"sand_patches.yellow\sand_patch_43" layer:ground position:(625, 271) flipped:false sort:0
+element: id:"sand_patches.yellow\sand_patch_1" layer:ground position:(169, 728) flipped:false sort:1
+element: id:"sand_patches.yellow\sand_patch_19" layer:ground position:(355, 573) flipped:false sort:2
+element: id:"sand_patches.yellow\sand_patch_40" layer:ground position:(99, 371) flipped:true sort:3
+element: id:"sand_marks.yellow\sand_marks_35" layer:ground position:(606, 500) flipped:false sort:4
+element: id:"sand_marks.yellow\sand_marks_37" layer:ground position:(386, 261) flipped:true sort:5
+element: id:"sand_marks.yellow\sand_marks_23" layer:ground position:(334, 644) flipped:true sort:6
+element: id:"desert_hills.yellow\desert_hill_22" layer:main position:(177, 263) flipped:true sort:0
+element: id:"palm_trees.green\palm_tree_37" layer:main position:(441, 290) flipped:false sort:0
+element: id:"desert_hills.yellow\desert_hill_21" layer:main position:(530, 426) flipped:false sort:0
+element: id:"palm_trees.green\palm_tree_1" layer:main position:(131, 438) flipped:false sort:0
+element: id:"palm_trees.green\palm_tree_38" layer:main position:(711, 472) flipped:true sort:0
+element: id:"palm_trees.green\palm_tree_26" layer:main position:(367, 550) flipped:true sort:0
+element: id:"desert_hills.yellow\desert_hill_15" layer:main position:(171, 562) flipped:false sort:0
+element: id:"desert_hills.yellow\desert_hill_9" layer:main position:(554, 695) flipped:false sort:0
+element: id:"palm_trees.green\palm_tree_39" layer:main position:(698, 720) flipped:false sort:0
+element: id:"palm_trees.green\palm_tree_7" layer:main position:(242, 728) flipped:true sort:0
+element: id:"palm_trees.green\palm_tree_9" layer:main position:(425, 920) flipped:true sort:0

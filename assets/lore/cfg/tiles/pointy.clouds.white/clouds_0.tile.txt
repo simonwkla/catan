@@ -1,0 +1,46 @@
+# CANVAS
+
+version: 1.0
+size: (840, 840)
+
+# GROUND
+
+id: "pointy.grass_grounds.green\grass_ground_0"
+position: (106, 57)
+render: true
+
+# BORDER
+
+id: "pointy.border_medium.dark\border_medium_0"
+position: (76, 22)
+
+# RENDER MASK
+
+active: true
+
+# ELEMENTS
+
+element: id:"clouds.white\cloud_55" layer:main position:(456, 137) flipped:true sort:0
+element: id:"clouds.white\cloud_43" layer:main position:(391, 207) flipped:false sort:0
+element: id:"clouds.white\cloud_56" layer:main position:(501, 290) flipped:true sort:0
+element: id:"clouds.white\cloud_44" layer:main position:(242, 301) flipped:true sort:0
+element: id:"clouds.white\cloud_40" layer:main position:(693, 318) flipped:true sort:0
+element: id:"clouds.white\cloud_5" layer:main position:(339, 381) flipped:false sort:0
+element: id:"clouds.white\cloud_15" layer:main position:(653, 385) flipped:true sort:0
+element: id:"clouds.white\cloud_43" layer:main position:(532, 431) flipped:false sort:0
+element: id:"clouds.white\cloud_49" layer:main position:(159, 445) flipped:true sort:0
+element: id:"clouds.white\cloud_15" layer:main position:(742, 495) flipped:false sort:0
+element: id:"clouds.white\cloud_6" layer:main position:(337, 495) flipped:true sort:0
+element: id:"clouds.white\cloud_55" layer:main position:(666, 525) flipped:true sort:0
+element: id:"clouds.white\cloud_8" layer:main position:(27, 527) flipped:true sort:0
+element: id:"clouds.white\cloud_1" layer:main position:(492, 574) flipped:false sort:0
+element: id:"clouds.white\cloud_59" layer:main position:(208, 589) flipped:true sort:0
+element: id:"clouds.white\cloud_21" layer:main position:(87, 636) flipped:true sort:0
+element: id:"clouds.white\cloud_11" layer:main position:(702, 642) flipped:true sort:0
+element: id:"clouds.white\cloud_52" layer:main position:(379, 649) flipped:true sort:0
+element: id:"clouds.white\cloud_44" layer:main position:(551, 716) flipped:false sort:0
+element: id:"clouds.white\cloud_39" layer:main position:(212, 727) flipped:false sort:0
+element: id:"clouds.white\cloud_57" layer:main position:(423, 801) flipped:true sort:0
+element: id:"clouds.white\cloud_45" layer:main position:(661, 810) flipped:false sort:0
+element: id:"clouds.white\cloud_26" layer:main position:(217, 857) flipped:false sort:0
+element: id:"clouds.white\cloud_32" layer:main position:(416, 935) flipped:true sort:0

@@ -1,0 +1,42 @@
+# CANVAS
+
+version: 1.0
+size: (840, 840)
+
+# GROUND
+
+id: "pointy.grass_grounds.green\grass_ground_0"
+position: (106, 57)
+render: true
+
+# BORDER
+
+id: "pointy.border_medium.dark\border_medium_0"
+position: (76, 22)
+
+# RENDER MASK
+
+active: true
+
+# ELEMENTS
+
+element: id:"wheat.yellow\wheat_55" layer:main position:(477, 218) flipped:false sort:0
+element: id:"wheat.yellow\wheat_13" layer:main position:(405, 288) flipped:true sort:0
+element: id:"wheat.yellow\wheat_47" layer:main position:(640, 312) flipped:true sort:0
+element: id:"wheat.yellow\wheat_58" layer:main position:(554, 335) flipped:false sort:0
+element: id:"wheat.yellow\wheat_38" layer:main position:(341, 346) flipped:false sort:0
+element: id:"wheat.yellow\wheat_55" layer:main position:(481, 368) flipped:false sort:0
+element: id:"wheat.yellow\wheat_24" layer:main position:(269, 390) flipped:false sort:0
+element: id:"wheat.yellow\wheat_56" layer:main position:(714, 405) flipped:false sort:0
+element: id:"wheat.yellow\wheat_11" layer:main position:(201, 411) flipped:true sort:0
+element: id:"wheat.yellow\wheat_37" layer:main position:(121, 438) flipped:false sort:0
+element: id:"wheat.yellow\wheat_31" layer:main position:(639, 473) flipped:true sort:0
+element: id:"wheat.yellow\wheat_20" layer:main position:(253, 484) flipped:false sort:0
+element: id:"wheat.yellow\wheat_46" layer:main position:(554, 514) flipped:false sort:0
+element: id:"wheat.yellow\wheat_0" layer:main position:(717, 565) flipped:true sort:0
+element: id:"wheat.yellow\wheat_3" layer:main position:(170, 586) flipped:false sort:0
+element: id:"wheat.yellow\wheat_7" layer:main position:(110, 593) flipped:true sort:0
+element: id:"wheat.yellow\wheat_48" layer:main position:(640, 637) flipped:true sort:0
+element: id:"wheat.yellow\wheat_3" layer:main position:(715, 725) flipped:true sort:0
+element: id:"wheat.yellow\wheat_23" layer:main position:(135, 740) flipped:false sort:0
+element: id:"mountains.blue\mountain_1" layer:main position:(198, 1470) flipped:true sort:0

@@ -1,0 +1,36 @@
+# CANVAS
+
+version: 1.0
+size: (840, 840)
+
+# GROUND
+
+id: "pointy.desert_grounds.yellow\desert_ground_0"
+position: (106, 57)
+render: true
+
+# BORDER
+
+id: "pointy.border_medium.dark\border_medium_0"
+position: (76, 22)
+
+# RENDER MASK
+
+active: true
+
+# ELEMENTS
+
+element: id:"sand_patches.yellow\sand_patch_27" layer:ground position:(357, 368) flipped:true sort:0
+element: id:"sand_patches.yellow\sand_patch_57" layer:ground position:(95, 631) flipped:true sort:1
+element: id:"sand_patches.yellow\sand_patch_8" layer:ground position:(474, 446) flipped:false sort:2
+element: id:"sand_marks.yellow\sand_marks_7" layer:ground position:(411, 547) flipped:true sort:3
+element: id:"sand_marks.yellow\sand_marks_15" layer:ground position:(502, 390) flipped:true sort:4
+element: id:"sand_marks.yellow\sand_marks_40" layer:ground position:(263, 435) flipped:true sort:5
+element: id:"desert_hills.yellow\desert_hill_10" layer:main position:(210, 264) flipped:false sort:0
+element: id:"desert_hills.yellow\desert_hill_26" layer:main position:(813, 334) flipped:true sort:0
+element: id:"palm_trees.green\palm_tree_25" layer:main position:(594, 379) flipped:true sort:0
+element: id:"palm_trees.green\palm_tree_2" layer:main position:(129, 468) flipped:false sort:0
+element: id:"desert_hills.yellow\desert_hill_10" layer:main position:(33, 508) flipped:false sort:0
+element: id:"desert_hills.yellow\desert_hill_28" layer:main position:(709, 574) flipped:true sort:0
+element: id:"palm_trees.green\palm_tree_15" layer:main position:(568, 764) flipped:true sort:0
+element: id:"desert_hills.yellow\desert_hill_1" layer:main position:(359, 787) flipped:true sort:0

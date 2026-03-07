@@ -1,0 +1,42 @@
+# CANVAS
+
+version: 1.0
+size: (840, 840)
+
+# GROUND
+
+id: "flat.swamp_grounds.green\swamp_ground_0"
+position: (57, 106)
+render: true
+
+# BORDER
+
+id: "flat.border_medium.dark\border_medium_0"
+position: (22, 76)
+
+# RENDER MASK
+
+active: true
+
+# ELEMENTS
+
+element: id:"water_patches.blue\water_patch_59" layer:ground position:(397, 214) flipped:false sort:0
+element: id:"water_patches.blue\water_patch_13" layer:ground position:(400, 319) flipped:true sort:1
+element: id:"water_patches.blue\water_patch_25" layer:ground position:(584, 334) flipped:true sort:2
+element: id:"dirt_patches.brown\dirt_patch_19" layer:ground position:(628, 722) flipped:true sort:3
+element: id:"dirt_patches.brown\dirt_patch_29" layer:ground position:(327, 552) flipped:true sort:4
+element: id:"dirt_patches.brown\dirt_patch_34" layer:ground position:(230, 713) flipped:false sort:5
+element: id:"grass_marks.green\grass_marks_28" layer:ground position:(618, 408) flipped:true sort:6
+element: id:"grass_marks.green\grass_marks_55" layer:ground position:(278, 543) flipped:true sort:7
+element: id:"grass_marks.green\grass_marks_39" layer:ground position:(422, 664) flipped:true sort:8
+element: id:"reeds.green\reed_49" layer:main position:(572, 229) flipped:false sort:0
+element: id:"reeds.green\reed_54" layer:main position:(241, 393) flipped:false sort:0
+element: id:"reeds.green\reed_56" layer:main position:(488, 499) flipped:true sort:0
+element: id:"peats.blue\peat_19" layer:main position:(416, 534) flipped:true sort:0
+element: id:"thorns.brown\thorn_55" layer:main position:(109, 568) flipped:false sort:0
+element: id:"peats.blue\peat_25" layer:main position:(508, 573) flipped:true sort:0
+element: id:"thorns.brown\thorn_9" layer:main position:(438, 582) flipped:false sort:0
+element: id:"reeds.green\reed_42" layer:main position:(715, 586) flipped:true sort:0
+element: id:"thorns.brown\thorn_12" layer:main position:(553, 785) flipped:true sort:0
+element: id:"reeds.green\reed_56" layer:main position:(257, 792) flipped:false sort:0
+element: id:"reeds.green\reed_8" layer:main position:(340, 858) flipped:true sort:0

@@ -1,0 +1,42 @@
+# CANVAS
+
+version: 1.0
+size: (840, 840)
+
+# GROUND
+
+id: "pointy.grass_grounds.green\grass_ground_0"
+position: (106, 57)
+render: true
+
+# BORDER
+
+id: "pointy.border_medium.dark\border_medium_0"
+position: (76, 22)
+
+# RENDER MASK
+
+active: true
+
+# ELEMENTS
+
+element: id:"clouds.white\cloud_12" layer:main position:(408, 123) flipped:true sort:0
+element: id:"clouds.white\cloud_34" layer:main position:(202, 234) flipped:true sort:0
+element: id:"clouds.white\cloud_20" layer:main position:(453, 239) flipped:false sort:0
+element: id:"clouds.white\cloud_12" layer:main position:(341, 319) flipped:true sort:0
+element: id:"clouds.white\cloud_57" layer:main position:(559, 320) flipped:true sort:0
+element: id:"clouds.white\cloud_27" layer:main position:(218, 333) flipped:false sort:0
+element: id:"clouds.white\cloud_39" layer:main position:(703, 404) flipped:true sort:0
+element: id:"clouds.white\cloud_57" layer:main position:(315, 454) flipped:false sort:0
+element: id:"clouds.white\cloud_30" layer:main position:(834, 454) flipped:true sort:0
+element: id:"clouds.white\cloud_44" layer:main position:(515, 462) flipped:true sort:0
+element: id:"clouds.white\cloud_20" layer:main position:(110, 472) flipped:false sort:0
+element: id:"clouds.white\cloud_14" layer:main position:(701, 537) flipped:false sort:0
+element: id:"clouds.white\cloud_28" layer:main position:(237, 597) flipped:false sort:0
+element: id:"clouds.white\cloud_32" layer:main position:(582, 608) flipped:false sort:0
+element: id:"clouds.white\cloud_52" layer:main position:(112, 650) flipped:true sort:0
+element: id:"clouds.white\cloud_38" layer:main position:(673, 691) flipped:true sort:0
+element: id:"clouds.white\cloud_5" layer:main position:(219, 704) flipped:false sort:0
+element: id:"clouds.white\cloud_34" layer:main position:(631, 829) flipped:true sort:0
+element: id:"clouds.white\cloud_18" layer:main position:(220, 862) flipped:true sort:0
+element: id:"mountains.blue\mountain_7" layer:main position:(283, 1603) flipped:false sort:0

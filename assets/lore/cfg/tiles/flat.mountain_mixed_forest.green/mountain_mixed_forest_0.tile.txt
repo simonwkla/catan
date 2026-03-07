@@ -1,0 +1,41 @@
+# CANVAS
+
+version: 1.0
+size: (840, 840)
+
+# GROUND
+
+id: "flat.grass_grounds.green\grass_ground_0"
+position: (57, 106)
+render: true
+
+# BORDER
+
+id: "flat.border_medium.dark\border_medium_0"
+position: (22, 76)
+
+# RENDER MASK
+
+active: true
+
+# ELEMENTS
+
+element: id:"oak_trees.green\oak_tree_35" layer:main position:(646, 261) flipped:true sort:0
+element: id:"pine_trees.green\pine_tree_51" layer:main position:(481, 264) flipped:false sort:0
+element: id:"pine_trees.green\pine_tree_1" layer:main position:(287, 327) flipped:true sort:0
+element: id:"pine_trees.green\pine_tree_17" layer:main position:(564, 346) flipped:false sort:0
+element: id:"pine_trees.green\pine_tree_40" layer:main position:(400, 370) flipped:false sort:0
+element: id:"pine_trees.green\pine_tree_53" layer:main position:(97, 396) flipped:false sort:0
+element: id:"pine_trees.green\pine_tree_18" layer:main position:(501, 469) flipped:false sort:0
+element: id:"oak_trees.green\oak_tree_2" layer:main position:(644, 473) flipped:false sort:0
+element: id:"oak_trees.green\oak_tree_28" layer:main position:(242, 492) flipped:true sort:0
+element: id:"pine_trees.green\pine_tree_40" layer:main position:(128, 569) flipped:false sort:0
+element: id:"pine_trees.green\pine_tree_54" layer:main position:(709, 580) flipped:true sort:0
+element: id:"pine_trees.green\pine_tree_51" layer:main position:(240, 611) flipped:true sort:0
+element: id:"oak_trees.green\oak_tree_52" layer:main position:(577, 615) flipped:true sort:0
+element: id:"oak_trees.green\oak_tree_27" layer:main position:(45, 665) flipped:true sort:0
+element: id:"pine_trees.green\pine_tree_51" layer:main position:(655, 693) flipped:false sort:0
+element: id:"oak_trees.green\oak_tree_23" layer:main position:(780, 711) flipped:true sort:0
+element: id:"oak_trees.green\oak_tree_44" layer:main position:(195, 779) flipped:true sort:0
+element: id:"oak_trees.green\oak_tree_4" layer:main position:(233, 956) flipped:false sort:0
+element: id:"mountains.blue\mountain_0" layer:main position:(577, 1559) flipped:false sort:0

@@ -1,0 +1,61 @@
+# CANVAS
+
+version: 1.0
+size: (840, 840)
+
+# GROUND
+
+id: "flat.grass_grounds.green\grass_ground_0"
+position: (57, 106)
+render: true
+
+# BORDER
+
+id: "flat.border_medium.dark\border_medium_0"
+position: (22, 76)
+
+# RENDER MASK
+
+active: true
+
+# ELEMENTS
+
+element: id:"grass_marks.green\grass_marks_27" layer:ground position:(331, 685) flipped:false sort:0
+element: id:"tall_grass.green\tall_grass_37" layer:main position:(346, 210) flipped:true sort:0
+element: id:"tall_grass.green\tall_grass_6" layer:main position:(650, 213) flipped:true sort:0
+element: id:"tall_grass.green\tall_grass_41" layer:main position:(545, 221) flipped:false sort:0
+element: id:"tall_grass.green\tall_grass_54" layer:main position:(165, 241) flipped:true sort:0
+element: id:"tall_grass.green\tall_grass_54" layer:main position:(291, 251) flipped:false sort:0
+element: id:"tall_grass.green\tall_grass_46" layer:main position:(432, 268) flipped:false sort:0
+element: id:"tall_grass.green\tall_grass_4" layer:main position:(325, 332) flipped:false sort:0
+element: id:"tall_grass.green\tall_grass_16" layer:main position:(644, 336) flipped:false sort:0
+element: id:"tall_grass.green\tall_grass_51" layer:main position:(539, 341) flipped:true sort:0
+element: id:"tall_grass.green\tall_grass_41" layer:main position:(201, 386) flipped:true sort:0
+element: id:"tall_grass.green\tall_grass_4" layer:main position:(87, 414) flipped:false sort:0
+element: id:"tall_grass.green\tall_grass_30" layer:main position:(427, 418) flipped:true sort:0
+element: id:"tall_grass.green\tall_grass_59" layer:main position:(749, 418) flipped:false sort:0
+element: id:"tall_grass.green\tall_grass_36" layer:main position:(642, 448) flipped:true sort:0
+element: id:"tall_grass.green\tall_grass_52" layer:main position:(335, 466) flipped:true sort:0
+element: id:"tall_grass.green\tall_grass_20" layer:main position:(506, 475) flipped:true sort:0
+element: id:"tall_grass.green\tall_grass_12" layer:main position:(217, 485) flipped:false sort:0
+element: id:"tall_grass.green\tall_grass_39" layer:main position:(818, 504) flipped:false sort:0
+element: id:"tall_grass.green\tall_grass_51" layer:main position:(104, 519) flipped:true sort:0
+element: id:"tall_grass.green\tall_grass_55" layer:main position:(422, 574) flipped:true sort:0
+element: id:"grass_bushes.green\grass_bush_28" layer:main position:(422, 578) flipped:false sort:0
+element: id:"tall_grass.green\tall_grass_31" layer:main position:(692, 590) flipped:false sort:0
+element: id:"tall_grass.green\tall_grass_19" layer:main position:(300, 599) flipped:false sort:0
+element: id:"tall_grass.green\tall_grass_37" layer:main position:(572, 611) flipped:false sort:0
+element: id:"grass_bushes.greendark\grass_bush_18" layer:main position:(275, 625) flipped:false sort:0
+element: id:"tall_grass.green\tall_grass_11" layer:main position:(71, 626) flipped:true sort:0
+element: id:"grass_bushes.green\grass_bush_39" layer:main position:(421, 630) flipped:false sort:0
+element: id:"tall_grass.green\tall_grass_37" layer:main position:(187, 645) flipped:false sort:0
+element: id:"tall_grass.green\tall_grass_52" layer:main position:(495, 659) flipped:true sort:0
+element: id:"grass_bushes.green\grass_bush_47" layer:main position:(224, 665) flipped:false sort:0
+element: id:"tall_grass.green\tall_grass_38" layer:main position:(756, 703) flipped:false sort:0
+element: id:"tall_grass.green\tall_grass_36" layer:main position:(627, 720) flipped:true sort:0
+element: id:"tall_grass.green\tall_grass_4" layer:main position:(544, 744) flipped:false sort:0
+element: id:"tall_grass.green\tall_grass_4" layer:main position:(432, 760) flipped:true sort:0
+element: id:"grass_bushes.greendark\grass_bush_7" layer:main position:(253, 784) flipped:true sort:0
+element: id:"tall_grass.green\tall_grass_6" layer:main position:(631, 851) flipped:true sort:0
+element: id:"tall_grass.green\tall_grass_55" layer:main position:(389, 855) flipped:false sort:0
+element: id:"tall_grass.green\tall_grass_40" layer:main position:(518, 859) flipped:true sort:0

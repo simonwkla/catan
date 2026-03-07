@@ -1,0 +1,39 @@
+# CANVAS
+
+version: 1.0
+size: (840, 840)
+
+# GROUND
+
+id: "pointy.grass_grounds.green\grass_ground_0"
+position: (106, 57)
+render: true
+
+# BORDER
+
+id: "pointy.border_medium.dark\border_medium_0"
+position: (76, 22)
+
+# RENDER MASK
+
+active: true
+
+# ELEMENTS
+
+element: id:"clouds.white\cloud_31" layer:main position:(429, 202) flipped:true sort:0
+element: id:"clouds.white\cloud_1" layer:main position:(575, 299) flipped:false sort:0
+element: id:"clouds.white\cloud_0" layer:main position:(271, 301) flipped:true sort:0
+element: id:"clouds.white\cloud_48" layer:main position:(403, 363) flipped:true sort:0
+element: id:"clouds.white\cloud_5" layer:main position:(131, 382) flipped:false sort:0
+element: id:"clouds.white\cloud_17" layer:main position:(647, 385) flipped:true sort:0
+element: id:"clouds.white\cloud_11" layer:main position:(273, 463) flipped:false sort:0
+element: id:"clouds.white\cloud_20" layer:main position:(560, 487) flipped:true sort:0
+element: id:"clouds.white\cloud_52" layer:main position:(718, 532) flipped:true sort:0
+element: id:"clouds.white\cloud_23" layer:main position:(176, 556) flipped:true sort:0
+element: id:"clouds.white\cloud_54" layer:main position:(328, 592) flipped:true sort:0
+element: id:"clouds.white\cloud_40" layer:main position:(75, 621) flipped:true sort:0
+element: id:"clouds.white\cloud_13" layer:main position:(506, 628) flipped:true sort:0
+element: id:"clouds.white\cloud_18" layer:main position:(670, 701) flipped:false sort:0
+element: id:"clouds.white\cloud_20" layer:main position:(182, 723) flipped:false sort:0
+element: id:"clouds.white\cloud_19" layer:main position:(605, 834) flipped:true sort:0
+element: id:"mountains.blue\mountain_11" layer:main position:(204, 1586) flipped:false sort:0

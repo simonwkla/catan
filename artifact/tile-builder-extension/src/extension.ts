@@ -1,27 +1,108 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
+import { spawn } from "node:child_process";
+import * as fs from "node:fs";
+import * as os from "node:os";
+import * as path from "node:path";
 import * as vscode from "vscode";
 
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
-export function activate(context: vscode.ExtensionContext) {
-  // Use the console to output diagnostic information (console.log) and errors (console.error)
-  // This line of code will only be executed once when your extension is activated
-  console.log('Congratulations, your extension "tile-builder-extension" is now active!');
+const CONFIG_FILE = "tile-builder-config.json";
+const TILE_EXT = ".tile.txt";
+const PREVIEW_FILENAME = "tile-preview.png";
 
-  // The command has been defined in the package.json file
-  // Now provide the implementation of the command with registerCommand
-  // The commandId parameter must match the command field in package.json
-  const disposable = vscode.commands.registerCommand("tile-builder-extension.helloWorld", () => {
-    // The code you place here will be executed every time your command is executed
-    // Display a message box to the user
-    vscode.window.showInformationMessage("Hello World from tile-builder-extension!");
+function findNearestConfig(filePath: string): string | undefined {
+  let dir = path.dirname(filePath);
+  const workspaceFolder = vscode.workspace.getWorkspaceFolder(vscode.Uri.file(filePath));
+  if (!workspaceFolder) {
+    return undefined;
+  }
+  const root = workspaceFolder.uri.fsPath;
+
+  while (dir.length >= root.length && dir !== path.dirname(dir)) {
+    const configPath = path.join(dir, CONFIG_FILE);
+    if (fs.existsSync(configPath)) {
+      return configPath;
+    }
+    dir = path.dirname(dir);
+  }
+  return undefined;
+}
+
+function getPreviewOutputPath(): string {
+  const previewDir = path.join(os.tmpdir(), "tile-builder");
+  fs.mkdirSync(previewDir, { recursive: true });
+  return path.join(previewDir, PREVIEW_FILENAME);
+}
+
+function runTileBuilder(
+  context: vscode.ExtensionContext,
+  configPath: string,
+  inputPath: string,
+  outputPath: string,
+  cwd: string,
+): Promise<boolean> {
+  return new Promise((resolve) => {
+    const binName = process.platform === "win32" ? "tile-builder.exe" : "tile-builder";
+    const binPath = path.join(context.extensionPath, "bin", binName);
+
+    const proc = spawn(binPath, ["--config", configPath, "--input", inputPath, "--output", outputPath], {
+      cwd,
+      stdio: ["ignore", "pipe", "pipe"],
+    });
+
+    const output = vscode.window.createOutputChannel("Tile Builder");
+    output.show();
+    proc.stdout?.on("data", (data) => output.append(data.toString()));
+    proc.stderr?.on("data", (data) => output.append(data.toString()));
+
+    proc.on("close", (code) => {
+      resolve(code === 0);
+    });
+
+    proc.on("error", (err) => {
+      output.appendLine(`Error: ${err.message}`);
+      resolve(false);
+    });
+  });
+}
+
+export function activate(context: vscode.ExtensionContext) {
+  // On save of .tile.txt: render and show in split view
+  const saveDisposable = vscode.workspace.onDidSaveTextDocument(async (document) => {
+    if (!document.uri.fsPath.endsWith(TILE_EXT)) {
+      return;
+    }
+
+    const workspaceFolder = vscode.workspace.getWorkspaceFolder(document.uri);
+    if (!workspaceFolder) {
+      return;
+    }
+
+    const inputPath = document.uri.fsPath;
+    const configPath = findNearestConfig(inputPath);
+    if (!configPath) {
+      vscode.window.showErrorMessage(`No ${CONFIG_FILE} found in the file tree above ${path.basename(inputPath)}.`);
+      return;
+    }
+
+    const outputPath = getPreviewOutputPath();
+
+    const binName = process.platform === "win32" ? "tile-builder.exe" : "tile-builder";
+    const binPath = path.join(context.extensionPath, "bin", binName);
+    if (!fs.existsSync(binPath)) {
+      vscode.window.showErrorMessage(`Tile-builder binary not found at ${binPath}. Run 'just build-tb' to build it.`);
+      return;
+    }
+
+    const success = await runTileBuilder(context, configPath, inputPath, outputPath, workspaceFolder.uri.fsPath);
+
+    if (success) {
+      const outputUri = vscode.Uri.file(outputPath);
+      await vscode.commands.executeCommand("vscode.open", outputUri, vscode.ViewColumn.Beside);
+    } else {
+      vscode.window.showErrorMessage("Tile render failed. See Tile Builder output for details.");
+    }
   });
 
-  context.subscriptions.push(disposable);
+  context.subscriptions.push(saveDisposable);
 }
 
-// This method is called when your extension is deactivated
-export function deactivate() {
-  console.log('tile-builder-extension is deactivated');
-}
+export function deactivate() {}

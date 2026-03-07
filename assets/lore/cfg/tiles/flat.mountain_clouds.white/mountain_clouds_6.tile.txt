@@ -1,0 +1,43 @@
+# CANVAS
+
+version: 1.0
+size: (840, 840)
+
+# GROUND
+
+id: "flat.grass_grounds.green\grass_ground_0"
+position: (57, 106)
+render: true
+
+# BORDER
+
+id: "flat.border_medium.dark\border_medium_0"
+position: (22, 76)
+
+# RENDER MASK
+
+active: true
+
+# ELEMENTS
+
+element: id:"clouds.white\cloud_20" layer:main position:(365, 146) flipped:true sort:0
+element: id:"clouds.white\cloud_38" layer:main position:(657, 215) flipped:true sort:0
+element: id:"clouds.white\cloud_45" layer:main position:(136, 242) flipped:true sort:0
+element: id:"clouds.white\cloud_50" layer:main position:(428, 265) flipped:false sort:0
+element: id:"clouds.white\cloud_11" layer:main position:(579, 305) flipped:false sort:0
+element: id:"clouds.white\cloud_24" layer:main position:(278, 312) flipped:false sort:0
+element: id:"clouds.white\cloud_36" layer:main position:(679, 371) flipped:true sort:0
+element: id:"clouds.white\cloud_20" layer:main position:(239, 385) flipped:false sort:0
+element: id:"clouds.white\cloud_11" layer:main position:(455, 413) flipped:true sort:0
+element: id:"clouds.white\cloud_54" layer:main position:(147, 449) flipped:false sort:0
+element: id:"clouds.white\cloud_42" layer:main position:(713, 459) flipped:true sort:0
+element: id:"clouds.white\cloud_42" layer:main position:(-44, 485) flipped:false sort:0
+element: id:"clouds.white\cloud_55" layer:main position:(307, 535) flipped:true sort:0
+element: id:"clouds.white\cloud_4" layer:main position:(574, 545) flipped:false sort:0
+element: id:"clouds.white\cloud_20" layer:main position:(107, 577) flipped:false sort:0
+element: id:"clouds.white\cloud_58" layer:main position:(725, 593) flipped:true sort:0
+element: id:"clouds.white\cloud_56" layer:main position:(595, 702) flipped:true sort:0
+element: id:"clouds.white\cloud_33" layer:main position:(210, 708) flipped:false sort:0
+element: id:"clouds.white\cloud_30" layer:main position:(657, 821) flipped:true sort:0
+element: id:"clouds.white\cloud_5" layer:main position:(199, 848) flipped:true sort:0
+element: id:"mountains.blue\mountain_7" layer:main position:(558, 1581) flipped:true sort:0

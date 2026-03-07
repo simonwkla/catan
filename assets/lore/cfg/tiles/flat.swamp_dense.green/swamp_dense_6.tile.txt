@@ -1,0 +1,48 @@
+# CANVAS
+
+version: 1.0
+size: (840, 840)
+
+# GROUND
+
+id: "flat.swamp_grounds.green\swamp_ground_0"
+position: (57, 106)
+render: true
+
+# BORDER
+
+id: "flat.border_medium.dark\border_medium_0"
+position: (22, 76)
+
+# RENDER MASK
+
+active: true
+
+# ELEMENTS
+
+element: id:"water_patches.blue\water_patch_9" layer:ground position:(468, 676) flipped:false sort:0
+element: id:"water_patches.blue\water_patch_37" layer:ground position:(346, 789) flipped:false sort:1
+element: id:"dirt_patches.brown\dirt_patch_15" layer:ground position:(306, 576) flipped:true sort:2
+element: id:"dirt_patches.brown\dirt_patch_26" layer:ground position:(790, 623) flipped:true sort:3
+element: id:"dirt_patches.brown\dirt_patch_35" layer:ground position:(547, 364) flipped:true sort:4
+element: id:"grass_marks.green\grass_marks_17" layer:ground position:(615, 621) flipped:false sort:5
+element: id:"grass_marks.green\grass_marks_43" layer:ground position:(406, 448) flipped:false sort:6
+element: id:"thorns.brown\thorn_17" layer:main position:(525, 225) flipped:false sort:0
+element: id:"reeds.green\reed_40" layer:main position:(283, 348) flipped:true sort:0
+element: id:"reeds.green\reed_29" layer:main position:(216, 362) flipped:false sort:0
+element: id:"reeds.green\reed_23" layer:main position:(374, 381) flipped:false sort:0
+element: id:"peats.blue\peat_28" layer:main position:(315, 416) flipped:false sort:0
+element: id:"thorns.brown\thorn_15" layer:main position:(205, 419) flipped:false sort:0
+element: id:"reeds.green\reed_33" layer:main position:(566, 456) flipped:false sort:0
+element: id:"reeds.green\reed_20" layer:main position:(589, 521) flipped:false sort:0
+element: id:"peats.blue\peat_8" layer:main position:(510, 552) flipped:false sort:0
+element: id:"thorns.brown\thorn_40" layer:main position:(634, 570) flipped:true sort:0
+element: id:"reeds.green\reed_9" layer:main position:(129, 577) flipped:false sort:0
+element: id:"peats.blue\peat_59" layer:main position:(278, 609) flipped:false sort:0
+element: id:"thorns.brown\thorn_25" layer:main position:(236, 646) flipped:true sort:0
+element: id:"reeds.green\reed_46" layer:main position:(505, 778) flipped:false sort:0
+element: id:"thorns.brown\thorn_23" layer:main position:(534, 794) flipped:false sort:0
+element: id:"reeds.green\reed_9" layer:main position:(197, 818) flipped:true sort:0
+element: id:"reeds.green\reed_8" layer:main position:(592, 831) flipped:true sort:0
+element: id:"reeds.green\reed_35" layer:main position:(456, 832) flipped:false sort:0
+element: id:"reeds.green\reed_3" layer:main position:(223, 840) flipped:true sort:0

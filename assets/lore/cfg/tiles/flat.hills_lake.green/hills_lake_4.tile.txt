@@ -1,0 +1,48 @@
+# CANVAS
+
+version: 1.0
+size: (840, 840)
+
+# GROUND
+
+id: "flat.grass_grounds.green\grass_ground_0"
+position: (57, 106)
+render: true
+
+# BORDER
+
+id: "flat.border_medium.dark\border_medium_0"
+position: (22, 76)
+
+# RENDER MASK
+
+active: true
+
+# ELEMENTS
+
+element: id:"dirt_patches.brown\dirt_patch_7" layer:ground position:(712, 535) flipped:false sort:0
+element: id:"lakes.blue\lake_42" layer:ground position:(447, 559) flipped:true sort:1
+element: id:"dirt_patches.brown\dirt_patch_18" layer:ground position:(120, 516) flipped:true sort:2
+element: id:"grass_patches.green\grass_patch_13" layer:ground position:(526, 657) flipped:true sort:3
+element: id:"grass_marks.green\grass_marks_57" layer:ground position:(417, 392) flipped:false sort:4
+element: id:"grass_marks.green\grass_marks_28" layer:ground position:(270, 431) flipped:false sort:5
+element: id:"hills.green\hill_10" layer:main position:(640, 241) flipped:false sort:0
+element: id:"hills.green\hill_6" layer:main position:(239, 260) flipped:false sort:0
+element: id:"bushes.green\bush_5" layer:main position:(485, 271) flipped:true sort:0
+element: id:"grass_bushes.greendark\grass_bush_13" layer:main position:(288, 292) flipped:true sort:0
+element: id:"bushes.green\bush_24" layer:main position:(192, 320) flipped:false sort:0
+element: id:"hills.green\hill_5" layer:main position:(611, 355) flipped:true sort:0
+element: id:"hills.green\hill_17" layer:main position:(209, 367) flipped:true sort:0
+element: id:"grass_bushes.green\grass_bush_47" layer:main position:(269, 370) flipped:true sort:0
+element: id:"hills.green\hill_24" layer:main position:(713, 375) flipped:true sort:0
+element: id:"grass_bushes.greendark\grass_bush_44" layer:main position:(332, 385) flipped:true sort:0
+element: id:"bushes.green\bush_8" layer:main position:(123, 577) flipped:true sort:0
+element: id:"bushes.green\bush_55" layer:main position:(729, 620) flipped:true sort:0
+element: id:"hills.green\hill_3" layer:main position:(227, 631) flipped:true sort:0
+element: id:"grass_bushes.green\grass_bush_1" layer:main position:(406, 651) flipped:false sort:0
+element: id:"hills.green\hill_23" layer:main position:(640, 666) flipped:true sort:0
+element: id:"bushes.green\bush_49" layer:main position:(213, 699) flipped:true sort:0
+element: id:"hills.green\hill_26" layer:main position:(463, 751) flipped:false sort:0
+element: id:"grass_bushes.greendark\grass_bush_53" layer:main position:(475, 788) flipped:false sort:0
+element: id:"bushes.green\bush_26" layer:main position:(607, 802) flipped:true sort:0
+element: id:"hills.green\hill_7" layer:main position:(230, 819) flipped:false sort:0

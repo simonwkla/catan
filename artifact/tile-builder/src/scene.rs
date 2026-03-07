@@ -2,6 +2,13 @@ use std::path::PathBuf;
 
 use crate::config;
 
+/// Global overrides from the tile-builder config file.
+#[derive(Debug, Default)]
+pub struct GlobalOverrides {
+    pub render_mask_active: Option<bool>,
+    pub border_active: Option<bool>,
+}
+
 #[derive(Debug)]
 pub struct Scene {
     pub canvas: Canvas,
@@ -12,7 +19,7 @@ pub struct Scene {
 }
 
 impl Scene {
-    pub fn from_config(config: &config::Config) -> Self {
+    pub fn from_config(config: &config::Config, overrides: &GlobalOverrides) -> Self {
         let canvas = Canvas::new(config.canvas.width, config.canvas.height);
 
         let items = config
@@ -27,7 +34,18 @@ impl Scene {
             .filter(|ground| ground.render)
             .map(|ground| Item::from(ground));
 
-        let border = config.border.as_ref().map(|border| Item::from(border));
+        let per_tile_render_mask = config
+            .render_mask
+            .as_ref()
+            .map(|x| x.active)
+            .unwrap_or(true);
+        let render_mask_active = overrides.render_mask_active.unwrap_or(per_tile_render_mask);
+
+        let border = if overrides.border_active == Some(false) {
+            None
+        } else {
+            config.border.as_ref().map(|border| Item::from(border))
+        };
 
         Self {
             canvas,
@@ -36,11 +54,8 @@ impl Scene {
             items,
             cfg: Cfg {
                 source_id: config.source_id.clone(),
-                render_mask_active: config
-                    .render_mask
-                    .as_ref()
-                    .map(|x| x.active)
-                    .unwrap_or(true),
+                render_mask_active,
+                tile_type: config.tile_type.clone(),
             },
         }
     }
@@ -71,7 +86,7 @@ pub enum Anchor {
 impl From<&config::Element> for Item {
     fn from(element: &config::Element) -> Self {
         Self {
-            asset: AssetRef::from(format!("Elements/{}", element.id).as_str()),
+            asset: AssetRef::from(format!("elements/{}", element.id).as_str()),
             layer: Layer::from(&element.layer),
             position: element.position,
             anchor: Anchor::BottomCenter,
@@ -84,7 +99,7 @@ impl From<&config::Element> for Item {
 impl From<&config::Border> for Item {
     fn from(border: &config::Border) -> Self {
         Self {
-            asset: AssetRef::from(format!("Borders/{}", border.id).as_str()),
+            asset: AssetRef::from(format!("borders/{}", border.id).as_str()),
             layer: Layer(4),
             position: border.position,
             anchor: Anchor::TopLeft,
@@ -97,7 +112,7 @@ impl From<&config::Border> for Item {
 impl From<&config::Ground> for Item {
     fn from(ground: &config::Ground) -> Self {
         Self {
-            asset: AssetRef::from(format!("Grounds/{}", ground.id).as_str()),
+            asset: AssetRef::from(format!("grounds/{}", ground.id).as_str()),
             layer: Layer(0),
             position: ground.position,
             anchor: Anchor::TopLeft,
@@ -116,12 +131,6 @@ impl From<&str> for AssetRef {
     fn from(path: &str) -> Self {
         // normalize separators
         let s = path.replace('\\', std::path::MAIN_SEPARATOR_STR);
-
-        // remove the Isle of Lore 2 prefix if present
-        let s = s.replace(
-            format!("Isle of Lore 2{}", std::path::MAIN_SEPARATOR_STR).as_str(),
-            "",
-        );
 
         let p = PathBuf::from(s);
 
@@ -165,4 +174,5 @@ impl From<&config::Layer> for Layer {
 pub struct Cfg {
     pub render_mask_active: bool,
     pub source_id: String,
+    pub tile_type: String,
 }

@@ -1,0 +1,33 @@
+# CANVAS
+
+version: 1.0
+size: (840, 840)
+
+# GROUND
+
+id: "pointy.grass_grounds.green\grass_ground_0"
+position: (106, 57)
+render: true
+
+# BORDER
+
+id: "pointy.border_medium.dark\border_medium_0"
+position: (76, 22)
+
+# RENDER MASK
+
+active: true
+
+# ELEMENTS
+
+element: id:"bushes.green\bush_9" layer:main position:(404, 242) flipped:true sort:0
+element: id:"hills.green\hill_14" layer:main position:(646, 251) flipped:true sort:0
+element: id:"hills.green\hill_4" layer:main position:(198, 282) flipped:false sort:0
+element: id:"hills.green\hill_24" layer:main position:(514, 361) flipped:false sort:0
+element: id:"hills.green\hill_8" layer:main position:(255, 429) flipped:true sort:0
+element: id:"bushes.green\bush_25" layer:main position:(592, 439) flipped:true sort:0
+element: id:"hills.green\hill_16" layer:main position:(753, 479) flipped:true sort:0
+element: id:"bushes.green\bush_11" layer:main position:(238, 527) flipped:true sort:0
+element: id:"hills.green\hill_26" layer:main position:(680, 648) flipped:true sort:0
+element: id:"hills.green\hill_13" layer:main position:(12, 670) flipped:true sort:0
+element: id:"mountains.blue\mountain_8" layer:main position:(397, 1516) flipped:false sort:0

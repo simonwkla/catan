@@ -1,0 +1,41 @@
+# CANVAS
+
+version: 1.0
+size: (840, 840)
+
+# GROUND
+
+id: "pointy.grass_grounds.green\grass_ground_0"
+position: (106, 57)
+render: true
+
+# BORDER
+
+id: "pointy.border_medium.dark\border_medium_0"
+position: (76, 22)
+
+# RENDER MASK
+
+active: true
+
+# ELEMENTS
+
+element: id:"oak_trees.green\oak_tree_55" layer:main position:(439, 323) flipped:false sort:0
+element: id:"oak_trees.green\oak_tree_31" layer:main position:(271, 364) flipped:false sort:0
+element: id:"oak_trees.green\oak_tree_18" layer:main position:(572, 385) flipped:true sort:0
+element: id:"oak_trees.green\oak_tree_29" layer:main position:(129, 433) flipped:false sort:0
+element: id:"oak_trees.green\oak_tree_2" layer:main position:(375, 446) flipped:false sort:0
+element: id:"oak_trees.green\oak_tree_1" layer:main position:(694, 457) flipped:false sort:0
+element: id:"oak_trees.green\oak_tree_17" layer:main position:(249, 528) flipped:true sort:0
+element: id:"oak_trees.green\oak_tree_10" layer:main position:(536, 547) flipped:false sort:0
+element: id:"oak_trees.green\oak_tree_25" layer:main position:(371, 587) flipped:false sort:0
+element: id:"oak_trees.green\oak_tree_47" layer:main position:(141, 604) flipped:false sort:0
+element: id:"oak_trees.green\oak_tree_26" layer:main position:(671, 623) flipped:false sort:0
+element: id:"oak_trees.green\oak_tree_28" layer:main position:(254, 688) flipped:false sort:0
+element: id:"oak_trees.green\oak_tree_16" layer:main position:(553, 705) flipped:true sort:0
+element: id:"oak_trees.green\oak_tree_19" layer:main position:(121, 759) flipped:false sort:0
+element: id:"oak_trees.green\oak_tree_3" layer:main position:(403, 760) flipped:false sort:0
+element: id:"oak_trees.green\oak_tree_0" layer:main position:(682, 777) flipped:true sort:0
+element: id:"oak_trees.green\oak_tree_1" layer:main position:(552, 864) flipped:true sort:0
+element: id:"oak_trees.green\oak_tree_8" layer:main position:(273, 865) flipped:true sort:0
+element: id:"oak_trees.green\oak_tree_21" layer:main position:(422, 908) flipped:false sort:0

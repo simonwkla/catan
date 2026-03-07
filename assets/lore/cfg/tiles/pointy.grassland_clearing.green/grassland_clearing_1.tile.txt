@@ -1,0 +1,61 @@
+# CANVAS
+
+version: 1.0
+size: (840, 840)
+
+# GROUND
+
+id: "pointy.grass_grounds.green\grass_ground_0"
+position: (106, 57)
+render: true
+
+# BORDER
+
+id: "pointy.border_medium.dark\border_medium_0"
+position: (76, 22)
+
+# RENDER MASK
+
+active: true
+
+# ELEMENTS
+
+element: id:"grass_patches.green\grass_patch_12" layer:ground position:(317, 570) flipped:false sort:0
+element: id:"grass_patches.green\grass_patch_23" layer:ground position:(535, 408) flipped:false sort:1
+element: id:"grass_marks.green\grass_marks_49" layer:ground position:(312, 605) flipped:true sort:2
+element: id:"tall_grass.green\tall_grass_55" layer:main position:(426, 247) flipped:true sort:0
+element: id:"tall_grass.green\tall_grass_16" layer:main position:(195, 262) flipped:true sort:0
+element: id:"grass_bushes.greendark\grass_bush_11" layer:main position:(393, 277) flipped:true sort:0
+element: id:"tall_grass.green\tall_grass_29" layer:main position:(547, 296) flipped:true sort:0
+element: id:"tall_grass.green\tall_grass_55" layer:main position:(306, 306) flipped:false sort:0
+element: id:"grass_bushes.green\grass_bush_4" layer:main position:(481, 314) flipped:false sort:0
+element: id:"grass_bushes.greendark\grass_bush_25" layer:main position:(389, 330) flipped:true sort:0
+element: id:"tall_grass.green\tall_grass_58" layer:main position:(98, 331) flipped:false sort:0
+element: id:"grass_bushes.green\grass_bush_15" layer:main position:(282, 337) flipped:false sort:0
+element: id:"tall_grass.green\tall_grass_53" layer:main position:(672, 349) flipped:false sort:0
+element: id:"tall_grass.green\tall_grass_30" layer:main position:(212, 396) flipped:false sort:0
+element: id:"grass_bushes.greendark\grass_bush_6" layer:main position:(265, 409) flipped:true sort:0
+element: id:"grass_bushes.green\grass_bush_58" layer:main position:(198, 420) flipped:true sort:0
+element: id:"tall_grass.green\tall_grass_34" layer:main position:(119, 431) flipped:true sort:0
+element: id:"tall_grass.green\tall_grass_37" layer:main position:(727, 440) flipped:false sort:0
+element: id:"bushes.green\bush_3" layer:main position:(457, 467) flipped:false sort:0
+element: id:"grass_bushes.greendark\grass_bush_15" layer:main position:(223, 476) flipped:true sort:0
+element: id:"tall_grass.green\tall_grass_35" layer:main position:(707, 497) flipped:true sort:0
+element: id:"tall_grass.green\tall_grass_23" layer:main position:(61, 521) flipped:false sort:0
+element: id:"grass_bushes.green\grass_bush_45" layer:main position:(560, 564) flipped:false sort:0
+element: id:"grass_bushes.greendark\grass_bush_13" layer:main position:(474, 584) flipped:false sort:0
+element: id:"tall_grass.green\tall_grass_26" layer:main position:(159, 596) flipped:false sort:0
+element: id:"tall_grass.green\tall_grass_28" layer:main position:(667, 598) flipped:true sort:0
+element: id:"grass_bushes.greendark\grass_bush_37" layer:main position:(544, 636) flipped:true sort:0
+element: id:"tall_grass.green\tall_grass_6" layer:main position:(755, 690) flipped:false sort:0
+element: id:"tall_grass.green\tall_grass_27" layer:main position:(432, 701) flipped:true sort:0
+element: id:"tall_grass.green\tall_grass_46" layer:main position:(92, 719) flipped:true sort:0
+element: id:"tall_grass.green\tall_grass_0" layer:main position:(184, 726) flipped:true sort:0
+element: id:"tall_grass.green\tall_grass_0" layer:main position:(639, 734) flipped:true sort:0
+element: id:"tall_grass.green\tall_grass_2" layer:main position:(311, 768) flipped:false sort:0
+element: id:"tall_grass.green\tall_grass_8" layer:main position:(523, 769) flipped:true sort:0
+element: id:"tall_grass.green\tall_grass_54" layer:main position:(202, 804) flipped:false sort:0
+element: id:"tall_grass.green\tall_grass_12" layer:main position:(305, 837) flipped:false sort:0
+element: id:"tall_grass.green\tall_grass_39" layer:main position:(630, 839) flipped:true sort:0
+element: id:"tall_grass.green\tall_grass_30" layer:main position:(422, 848) flipped:true sort:0
+element: id:"tall_grass.green\tall_grass_5" layer:main position:(534, 858) flipped:false sort:0

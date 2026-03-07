@@ -1,0 +1,31 @@
+# CANVAS
+
+version: 1.0
+size: (840, 840)
+
+# GROUND
+
+id: "pointy.water_grounds.blue\water_ground_0"
+position: (106, 57)
+render: true
+
+# BORDER
+
+id: "pointy.border_medium.dark\border_medium_0"
+position: (76, 22)
+
+# RENDER MASK
+
+active: true
+
+# ELEMENTS
+
+element: id:"small_waves.white\small_wave_20" layer:main position:(455, 282) flipped:false sort:0
+element: id:"small_waves.white\small_wave_8" layer:main position:(151, 331) flipped:true sort:0
+element: id:"uncapped_rocks.blue\uncapped_rock_23" layer:main position:(656, 470) flipped:true sort:0
+element: id:"small_waves.white\small_wave_26" layer:main position:(358, 488) flipped:false sort:0
+element: id:"uncapped_rocks.blue\uncapped_rock_14" layer:main position:(282, 537) flipped:false sort:0
+element: id:"small_waves.white\small_wave_56" layer:main position:(195, 559) flipped:false sort:0
+element: id:"small_waves.white\small_wave_6" layer:main position:(701, 603) flipped:true sort:0
+element: id:"uncapped_rocks.blue\uncapped_rock_55" layer:main position:(494, 655) flipped:true sort:0
+element: id:"small_waves.white\small_wave_57" layer:main position:(387, 751) flipped:false sort:0

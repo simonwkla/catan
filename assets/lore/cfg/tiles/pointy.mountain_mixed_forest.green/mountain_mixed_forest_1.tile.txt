@@ -1,0 +1,39 @@
+# CANVAS
+
+version: 1.0
+size: (840, 840)
+
+# GROUND
+
+id: "pointy.grass_grounds.green\grass_ground_0"
+position: (106, 57)
+render: true
+
+# BORDER
+
+id: "pointy.border_medium.dark\border_medium_0"
+position: (76, 22)
+
+# RENDER MASK
+
+active: true
+
+# ELEMENTS
+
+element: id:"pine_trees.green\pine_tree_8" layer:main position:(614, 334) flipped:true sort:0
+element: id:"oak_trees.green\oak_tree_23" layer:main position:(250, 347) flipped:true sort:0
+element: id:"oak_trees.green\oak_tree_10" layer:main position:(416, 349) flipped:false sort:0
+element: id:"pine_trees.green\pine_tree_44" layer:main position:(320, 367) flipped:false sort:0
+element: id:"oak_trees.green\oak_tree_35" layer:main position:(495, 411) flipped:true sort:0
+element: id:"pine_trees.green\pine_tree_35" layer:main position:(695, 423) flipped:false sort:0
+element: id:"pine_trees.green\pine_tree_44" layer:main position:(150, 431) flipped:true sort:0
+element: id:"pine_trees.green\pine_tree_49" layer:main position:(553, 444) flipped:false sort:0
+element: id:"pine_trees.green\pine_tree_58" layer:main position:(272, 504) flipped:true sort:0
+element: id:"oak_trees.green\oak_tree_54" layer:main position:(609, 561) flipped:true sort:0
+element: id:"oak_trees.green\oak_tree_9" layer:main position:(134, 582) flipped:false sort:0
+element: id:"pine_trees.green\pine_tree_10" layer:main position:(713, 585) flipped:true sort:0
+element: id:"pine_trees.green\pine_tree_17" layer:main position:(237, 630) flipped:false sort:0
+element: id:"pine_trees.green\pine_tree_10" layer:main position:(109, 664) flipped:false sort:0
+element: id:"pine_trees.green\pine_tree_20" layer:main position:(165, 749) flipped:false sort:0
+element: id:"oak_trees.green\oak_tree_26" layer:main position:(647, 775) flipped:false sort:0
+element: id:"mountains.blue\mountain_8" layer:main position:(445, 1535) flipped:true sort:0

@@ -1,0 +1,43 @@
+# CANVAS
+
+version: 1.0
+size: (840, 840)
+
+# GROUND
+
+id: "pointy.grass_grounds.green\grass_ground_0"
+position: (106, 57)
+render: true
+
+# BORDER
+
+id: "pointy.border_medium.dark\border_medium_0"
+position: (76, 22)
+
+# RENDER MASK
+
+active: true
+
+# ELEMENTS
+
+element: id:"pine_trees.green\pine_tree_27" layer:main position:(552, 297) flipped:true sort:0
+element: id:"pine_trees.green\pine_tree_35" layer:main position:(444, 318) flipped:true sort:0
+element: id:"oak_trees.green\oak_tree_3" layer:main position:(363, 385) flipped:true sort:0
+element: id:"pine_trees.green\pine_tree_20" layer:main position:(491, 412) flipped:false sort:0
+element: id:"pine_trees.green\pine_tree_52" layer:main position:(209, 412) flipped:false sort:0
+element: id:"oak_trees.green\oak_tree_11" layer:main position:(628, 448) flipped:false sort:0
+element: id:"pine_trees.green\pine_tree_10" layer:main position:(730, 480) flipped:false sort:0
+element: id:"pine_trees.green\pine_tree_5" layer:main position:(527, 494) flipped:true sort:0
+element: id:"pine_trees.green\pine_tree_46" layer:main position:(128, 535) flipped:true sort:0
+element: id:"pine_trees.green\pine_tree_7" layer:main position:(274, 535) flipped:false sort:0
+element: id:"oak_trees.green\oak_tree_51" layer:main position:(390, 548) flipped:false sort:0
+element: id:"oak_trees.green\oak_tree_55" layer:main position:(651, 624) flipped:false sort:0
+element: id:"pine_trees.green\pine_tree_16" layer:main position:(499, 659) flipped:true sort:0
+element: id:"oak_trees.green\oak_tree_28" layer:main position:(154, 698) flipped:false sort:0
+element: id:"oak_trees.green\oak_tree_17" layer:main position:(316, 701) flipped:false sort:0
+element: id:"pine_trees.green\pine_tree_57" layer:main position:(421, 745) flipped:true sort:0
+element: id:"oak_trees.green\oak_tree_36" layer:main position:(187, 776) flipped:false sort:0
+element: id:"oak_trees.green\oak_tree_4" layer:main position:(676, 801) flipped:false sort:0
+element: id:"pine_trees.green\pine_tree_21" layer:main position:(327, 838) flipped:false sort:0
+element: id:"pine_trees.green\pine_tree_46" layer:main position:(535, 855) flipped:true sort:0
+element: id:"pine_trees.green\pine_tree_27" layer:main position:(417, 893) flipped:true sort:0

@@ -1,0 +1,45 @@
+# CANVAS
+
+version: 1.0
+size: (840, 840)
+
+# GROUND
+
+id: "pointy.grass_grounds.green\grass_ground_0"
+position: (106, 57)
+render: true
+
+# BORDER
+
+id: "pointy.border_medium.dark\border_medium_0"
+position: (76, 22)
+
+# RENDER MASK
+
+active: true
+
+# ELEMENTS
+
+element: id:"dirt_patches.brown\dirt_patch_20" layer:ground position:(459, 539) flipped:false sort:0
+element: id:"dirt_patches.brown\dirt_patch_10" layer:ground position:(418, 499) flipped:false sort:1
+element: id:"grass_patches.green\grass_patch_10" layer:ground position:(409, 379) flipped:true sort:2
+element: id:"grass_patches.green\grass_patch_4" layer:ground position:(334, 568) flipped:true sort:3
+element: id:"grass_marks.green\grass_marks_36" layer:ground position:(457, 569) flipped:false sort:4
+element: id:"grass_marks.green\grass_marks_2" layer:ground position:(531, 392) flipped:true sort:5
+element: id:"uncapped_rocks.blue\uncapped_rock_28" layer:main position:(454, 242) flipped:true sort:0
+element: id:"grass_bushes.greendark\grass_bush_25" layer:main position:(478, 271) flipped:false sort:0
+element: id:"uncapped_rocks.blue\uncapped_rock_42" layer:main position:(305, 283) flipped:false sort:0
+element: id:"uncapped_rocks.blue\uncapped_rock_43" layer:main position:(571, 302) flipped:true sort:0
+element: id:"grass_bushes.green\grass_bush_28" layer:main position:(547, 321) flipped:false sort:0
+element: id:"uncapped_rocks.blue\uncapped_rock_4" layer:main position:(670, 371) flipped:false sort:0
+element: id:"uncapped_rocks.blue\uncapped_rock_22" layer:main position:(194, 379) flipped:false sort:0
+element: id:"grass_bushes.greendark\grass_bush_21" layer:main position:(238, 415) flipped:false sort:0
+element: id:"uncapped_rocks.blue\uncapped_rock_25" layer:main position:(135, 503) flipped:false sort:0
+element: id:"uncapped_rocks.blue\uncapped_rock_18" layer:main position:(715, 516) flipped:false sort:0
+element: id:"grass_bushes.greendark\grass_bush_15" layer:main position:(573, 599) flipped:true sort:0
+element: id:"grass_bushes.green\grass_bush_0" layer:main position:(362, 628) flipped:true sort:0
+element: id:"uncapped_rocks.blue\uncapped_rock_25" layer:main position:(151, 701) flipped:false sort:0
+element: id:"uncapped_rocks.blue\uncapped_rock_9" layer:main position:(670, 717) flipped:true sort:0
+element: id:"uncapped_rocks.blue\uncapped_rock_49" layer:main position:(542, 784) flipped:true sort:0
+element: id:"uncapped_rocks.blue\uncapped_rock_22" layer:main position:(294, 802) flipped:true sort:0
+element: id:"uncapped_rocks.blue\uncapped_rock_18" layer:main position:(410, 864) flipped:false sort:0

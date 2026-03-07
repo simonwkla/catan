@@ -1,0 +1,41 @@
+# CANVAS
+
+version: 1.0
+size: (840, 840)
+
+# GROUND
+
+id: "flat.swamp_grounds.green\swamp_ground_0"
+position: (57, 106)
+render: true
+
+# BORDER
+
+id: "flat.border_medium.dark\border_medium_0"
+position: (22, 76)
+
+# RENDER MASK
+
+active: true
+
+# ELEMENTS
+
+element: id:"water_patches.blue\water_patch_52" layer:ground position:(638, 715) flipped:true sort:0
+element: id:"water_patches.blue\water_patch_32" layer:ground position:(197, 282) flipped:true sort:1
+element: id:"water_patches.blue\water_patch_15" layer:ground position:(404, 667) flipped:false sort:2
+element: id:"dirt_patches.brown\dirt_patch_6" layer:ground position:(649, 625) flipped:false sort:3
+element: id:"dirt_patches.brown\dirt_patch_48" layer:ground position:(356, 446) flipped:false sort:4
+element: id:"dirt_patches.brown\dirt_patch_25" layer:ground position:(632, 531) flipped:false sort:5
+element: id:"grass_marks.green\grass_marks_50" layer:ground position:(138, 474) flipped:false sort:6
+element: id:"grass_marks.green\grass_marks_16" layer:ground position:(503, 568) flipped:true sort:7
+element: id:"grass_marks.green\grass_marks_24" layer:ground position:(538, 357) flipped:true sort:8
+element: id:"reeds.green\reed_56" layer:main position:(365, 224) flipped:false sort:0
+element: id:"reeds.green\reed_0" layer:main position:(449, 280) flipped:false sort:0
+element: id:"reeds.green\reed_42" layer:main position:(162, 369) flipped:false sort:0
+element: id:"thorns.brown\thorn_58" layer:main position:(628, 372) flipped:false sort:0
+element: id:"reeds.green\reed_8" layer:main position:(427, 545) flipped:false sort:0
+element: id:"peats.blue\peat_9" layer:main position:(342, 555) flipped:false sort:0
+element: id:"thorns.brown\thorn_58" layer:main position:(239, 587) flipped:false sort:0
+element: id:"reeds.green\reed_1" layer:main position:(710, 686) flipped:true sort:0
+element: id:"thorns.brown\thorn_1" layer:main position:(503, 787) flipped:false sort:0
+element: id:"reeds.green\reed_15" layer:main position:(325, 866) flipped:false sort:0

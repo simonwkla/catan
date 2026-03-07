@@ -1,0 +1,41 @@
+# CANVAS
+
+version: 1.0
+size: (840, 840)
+
+# GROUND
+
+id: "pointy.grass_grounds.green\grass_ground_0"
+position: (106, 57)
+render: true
+
+# BORDER
+
+id: "pointy.border_medium.dark\border_medium_0"
+position: (76, 22)
+
+# RENDER MASK
+
+active: true
+
+# ELEMENTS
+
+element: id:"oak_trees.green\oak_tree_7" layer:main position:(608, 337) flipped:true sort:0
+element: id:"oak_trees.green\oak_tree_13" layer:main position:(249, 344) flipped:true sort:0
+element: id:"oak_trees.green\oak_tree_3" layer:main position:(394, 359) flipped:false sort:0
+element: id:"oak_trees.green\oak_tree_19" layer:main position:(727, 444) flipped:true sort:0
+element: id:"oak_trees.green\oak_tree_1" layer:main position:(168, 471) flipped:false sort:0
+element: id:"oak_trees.green\oak_tree_29" layer:main position:(301, 497) flipped:false sort:0
+element: id:"oak_trees.green\oak_tree_18" layer:main position:(596, 512) flipped:true sort:0
+element: id:"oak_trees.green\oak_tree_47" layer:main position:(462, 518) flipped:false sort:0
+element: id:"oak_trees.green\oak_tree_29" layer:main position:(707, 591) flipped:false sort:0
+element: id:"oak_trees.green\oak_tree_6" layer:main position:(87, 595) flipped:true sort:0
+element: id:"oak_trees.green\oak_tree_23" layer:main position:(405, 628) flipped:false sort:0
+element: id:"oak_trees.green\oak_tree_0" layer:main position:(555, 675) flipped:true sort:0
+element: id:"oak_trees.green\oak_tree_26" layer:main position:(238, 691) flipped:false sort:0
+element: id:"oak_trees.green\oak_tree_13" layer:main position:(438, 741) flipped:true sort:0
+element: id:"oak_trees.green\oak_tree_7" layer:main position:(729, 747) flipped:false sort:0
+element: id:"oak_trees.green\oak_tree_44" layer:main position:(136, 793) flipped:true sort:0
+element: id:"oak_trees.green\oak_tree_18" layer:main position:(280, 859) flipped:false sort:0
+element: id:"oak_trees.green\oak_tree_5" layer:main position:(583, 864) flipped:false sort:0
+element: id:"oak_trees.green\oak_tree_50" layer:main position:(426, 908) flipped:false sort:0

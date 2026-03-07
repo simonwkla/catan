@@ -1,0 +1,42 @@
+# CANVAS
+
+version: 1.0
+size: (840, 840)
+
+# GROUND
+
+id: "flat.grass_grounds.green\grass_ground_0"
+position: (57, 106)
+render: true
+
+# BORDER
+
+id: "flat.border_medium.dark\border_medium_0"
+position: (22, 76)
+
+# RENDER MASK
+
+active: true
+
+# ELEMENTS
+
+element: id:"pine_trees.green\pine_tree_17" layer:main position:(378, 214) flipped:true sort:0
+element: id:"pine_trees.green\pine_tree_10" layer:main position:(545, 216) flipped:false sort:0
+element: id:"pine_trees.green\pine_tree_41" layer:main position:(466, 269) flipped:true sort:0
+element: id:"pine_trees.green\pine_tree_28" layer:main position:(650, 302) flipped:true sort:0
+element: id:"pine_trees.green\pine_tree_1" layer:main position:(316, 347) flipped:false sort:0
+element: id:"pine_trees.green\pine_tree_24" layer:main position:(429, 351) flipped:false sort:0
+element: id:"pine_trees.green\pine_tree_17" layer:main position:(244, 358) flipped:true sort:0
+element: id:"pine_trees.green\pine_tree_20" layer:main position:(575, 384) flipped:false sort:0
+element: id:"pine_trees.green\pine_tree_43" layer:main position:(196, 433) flipped:false sort:0
+element: id:"pine_trees.green\pine_tree_14" layer:main position:(500, 464) flipped:false sort:0
+element: id:"pine_trees.green\pine_tree_1" layer:main position:(678, 493) flipped:true sort:0
+element: id:"pine_trees.green\pine_tree_21" layer:main position:(638, 510) flipped:true sort:0
+element: id:"pine_trees.green\pine_tree_1" layer:main position:(115, 557) flipped:false sort:0
+element: id:"pine_trees.green\pine_tree_5" layer:main position:(574, 593) flipped:true sort:0
+element: id:"pine_trees.green\pine_tree_9" layer:main position:(686, 610) flipped:true sort:0
+element: id:"pine_trees.green\pine_tree_56" layer:main position:(762, 665) flipped:true sort:0
+element: id:"pine_trees.green\pine_tree_5" layer:main position:(74, 670) flipped:true sort:0
+element: id:"pine_trees.green\pine_tree_45" layer:main position:(619, 740) flipped:true sort:0
+element: id:"pine_trees.green\pine_tree_46" layer:main position:(704, 826) flipped:false sort:0
+element: id:"mountains.blue\mountain_1" layer:main position:(550, 1456) flipped:false sort:0

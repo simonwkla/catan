@@ -1,0 +1,43 @@
+# CANVAS
+
+version: 1.0
+size: (840, 840)
+
+# GROUND
+
+id: "pointy.grass_grounds.green\grass_ground_0"
+position: (106, 57)
+render: true
+
+# BORDER
+
+id: "pointy.border_medium.dark\border_medium_0"
+position: (76, 22)
+
+# RENDER MASK
+
+active: true
+
+# ELEMENTS
+
+element: id:"wheat.yellow\wheat_50" layer:main position:(456, 265) flipped:true sort:0
+element: id:"wheat.yellow\wheat_20" layer:main position:(540, 333) flipped:true sort:0
+element: id:"wheat.yellow\wheat_16" layer:main position:(377, 340) flipped:true sort:0
+element: id:"wheat.yellow\wheat_27" layer:main position:(619, 344) flipped:false sort:0
+element: id:"wheat.yellow\wheat_1" layer:main position:(321, 361) flipped:true sort:0
+element: id:"wheat.yellow\wheat_53" layer:main position:(255, 363) flipped:false sort:0
+element: id:"wheat.yellow\wheat_13" layer:main position:(133, 423) flipped:true sort:0
+element: id:"wheat.yellow\wheat_18" layer:main position:(466, 426) flipped:true sort:0
+element: id:"wheat.yellow\wheat_5" layer:main position:(695, 435) flipped:true sort:0
+element: id:"wheat.yellow\wheat_29" layer:main position:(195, 458) flipped:false sort:0
+element: id:"wheat.yellow\wheat_33" layer:main position:(534, 486) flipped:false sort:0
+element: id:"wheat.yellow\wheat_30" layer:main position:(613, 508) flipped:false sort:0
+element: id:"wheat.yellow\wheat_26" layer:main position:(263, 522) flipped:false sort:0
+element: id:"wheat.yellow\wheat_19" layer:main position:(136, 569) flipped:false sort:0
+element: id:"wheat.yellow\wheat_15" layer:main position:(705, 586) flipped:false sort:0
+element: id:"wheat.yellow\wheat_20" layer:main position:(202, 599) flipped:true sort:0
+element: id:"wheat.yellow\wheat_15" layer:main position:(630, 667) flipped:true sort:0
+element: id:"wheat.yellow\wheat_54" layer:main position:(115, 708) flipped:false sort:0
+element: id:"wheat.yellow\wheat_8" layer:main position:(704, 743) flipped:true sort:0
+element: id:"wheat.yellow\wheat_30" layer:main position:(179, 751) flipped:true sort:0
+element: id:"mountains.blue\mountain_5" layer:main position:(644, 1582) flipped:true sort:0

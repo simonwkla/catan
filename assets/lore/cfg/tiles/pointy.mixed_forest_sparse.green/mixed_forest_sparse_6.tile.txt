@@ -1,0 +1,54 @@
+# CANVAS
+
+version: 1.0
+size: (840, 840)
+
+# GROUND
+
+id: "pointy.grass_grounds.green\grass_ground_0"
+position: (106, 57)
+render: true
+
+# BORDER
+
+id: "pointy.border_medium.dark\border_medium_0"
+position: (76, 22)
+
+# RENDER MASK
+
+active: true
+
+# ELEMENTS
+
+element: id:"dirt_patches.brown\dirt_patch_25" layer:ground position:(457, 553) flipped:false sort:0
+element: id:"grass_patches.green\grass_patch_46" layer:ground position:(688, 592) flipped:true sort:1
+element: id:"grass_patches.green\grass_patch_1" layer:ground position:(399, 273) flipped:false sort:2
+element: id:"grass_patches.green\grass_patch_47" layer:ground position:(415, 216) flipped:true sort:3
+element: id:"grass_marks.green\grass_marks_11" layer:ground position:(452, 421) flipped:true sort:4
+element: id:"grass_marks.green\grass_marks_2" layer:ground position:(360, 581) flipped:true sort:5
+element: id:"grass_marks.green\grass_marks_57" layer:ground position:(279, 244) flipped:false sort:6
+element: id:"grass_bushes.green\grass_bush_49" layer:main position:(313, 335) flipped:true sort:0
+element: id:"grass_bushes.green\grass_bush_56" layer:main position:(364, 368) flipped:false sort:0
+element: id:"oak_trees.green\oak_tree_55" layer:main position:(544, 373) flipped:true sort:0
+element: id:"bushes.green\bush_6" layer:main position:(555, 381) flipped:true sort:0
+element: id:"grass_bushes.greendark\grass_bush_50" layer:main position:(329, 407) flipped:true sort:0
+element: id:"oak_trees.green\oak_tree_22" layer:main position:(746, 425) flipped:false sort:0
+element: id:"grass_bushes.green\grass_bush_39" layer:main position:(689, 430) flipped:true sort:0
+element: id:"pine_trees.green\pine_tree_22" layer:main position:(666, 445) flipped:false sort:0
+element: id:"grass_bushes.greendark\grass_bush_39" layer:main position:(677, 480) flipped:true sort:0
+element: id:"pine_trees.green\pine_tree_26" layer:main position:(149, 481) flipped:true sort:0
+element: id:"grass_bushes.greendark\grass_bush_59" layer:main position:(248, 558) flipped:false sort:0
+element: id:"pine_trees.green\pine_tree_53" layer:main position:(254, 564) flipped:true sort:0
+element: id:"grass_bushes.green\grass_bush_31" layer:main position:(443, 574) flipped:true sort:0
+element: id:"grass_bushes.greendark\grass_bush_57" layer:main position:(554, 580) flipped:false sort:0
+element: id:"grass_bushes.green\grass_bush_51" layer:main position:(606, 616) flipped:false sort:0
+element: id:"oak_trees.green\oak_tree_11" layer:main position:(157, 635) flipped:false sort:0
+element: id:"bushes.green\bush_35" layer:main position:(224, 642) flipped:false sort:0
+element: id:"grass_bushes.greendark\grass_bush_35" layer:main position:(664, 659) flipped:false sort:0
+element: id:"pine_trees.green\pine_tree_14" layer:main position:(487, 705) flipped:false sort:0
+element: id:"grass_bushes.greendark\grass_bush_32" layer:main position:(633, 717) flipped:true sort:0
+element: id:"grass_bushes.green\grass_bush_45" layer:main position:(305, 733) flipped:false sort:0
+element: id:"oak_trees.green\oak_tree_23" layer:main position:(141, 755) flipped:true sort:0
+element: id:"pine_trees.green\pine_tree_33" layer:main position:(388, 835) flipped:true sort:0
+element: id:"oak_trees.green\oak_tree_54" layer:main position:(530, 850) flipped:false sort:0
+element: id:"oak_trees.green\oak_tree_37" layer:main position:(421, 951) flipped:true sort:0

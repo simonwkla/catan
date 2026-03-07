@@ -1,0 +1,38 @@
+# CANVAS
+
+version: 1.0
+size: (840, 840)
+
+# GROUND
+
+id: "flat.city_grounds.blue\city_ground_0"
+position: (57, 106)
+render: true
+
+# BORDER
+
+id: "flat.border_medium.dark\border_medium_0"
+position: (22, 76)
+
+# RENDER MASK
+
+active: true
+
+# ELEMENTS
+
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(530, 348) flipped:true sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(308, 375) flipped:false sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(417, 487) flipped:false sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(189, 490) flipped:false sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(605, 493) flipped:false sort:0
+element: id:"oak_trees.green\oak_tree_51" layer:main position:(213, 562) flipped:true sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(46, 577) flipped:false sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(520, 602) flipped:false sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(289, 607) flipped:false sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(757, 608) flipped:false sort:0
+element: id:"oak_trees.green\oak_tree_40" layer:main position:(713, 642) flipped:true sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(179, 728) flipped:true sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(644, 753) flipped:false sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(49, 772) flipped:false sort:0
+element: id:"locations.standard_none\location_city_house_2" layer:main position:(161, 904) flipped:false sort:0
+element: id:"mountains.blue\mountain_6" layer:main position:(426, 1582) flipped:true sort:0

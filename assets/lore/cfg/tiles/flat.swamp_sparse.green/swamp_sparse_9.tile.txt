@@ -1,0 +1,41 @@
+# CANVAS
+
+version: 1.0
+size: (840, 840)
+
+# GROUND
+
+id: "flat.swamp_grounds.green\swamp_ground_0"
+position: (57, 106)
+render: true
+
+# BORDER
+
+id: "flat.border_medium.dark\border_medium_0"
+position: (22, 76)
+
+# RENDER MASK
+
+active: true
+
+# ELEMENTS
+
+element: id:"water_patches.blue\water_patch_9" layer:ground position:(215, 599) flipped:false sort:0
+element: id:"water_patches.blue\water_patch_59" layer:ground position:(223, 708) flipped:true sort:1
+element: id:"dirt_patches.brown\dirt_patch_17" layer:ground position:(480, 773) flipped:false sort:2
+element: id:"dirt_patches.brown\dirt_patch_50" layer:ground position:(325, 280) flipped:true sort:3
+element: id:"dirt_patches.brown\dirt_patch_28" layer:ground position:(772, 568) flipped:false sort:4
+element: id:"grass_marks.green\grass_marks_26" layer:ground position:(300, 464) flipped:false sort:5
+element: id:"grass_marks.green\grass_marks_12" layer:ground position:(477, 334) flipped:true sort:6
+element: id:"grass_marks.green\grass_marks_43" layer:ground position:(384, 658) flipped:false sort:7
+element: id:"reeds.green\reed_42" layer:main position:(573, 302) flipped:false sort:0
+element: id:"thorns.brown\thorn_4" layer:main position:(183, 359) flipped:true sort:0
+element: id:"reeds.green\reed_16" layer:main position:(343, 383) flipped:false sort:0
+element: id:"reeds.green\reed_53" layer:main position:(598, 564) flipped:false sort:0
+element: id:"peats.blue\peat_19" layer:main position:(535, 566) flipped:true sort:0
+element: id:"reeds.green\reed_18" layer:main position:(67, 572) flipped:true sort:0
+element: id:"thorns.brown\thorn_42" layer:main position:(445, 603) flipped:false sort:0
+element: id:"thorns.brown\thorn_11" layer:main position:(651, 708) flipped:false sort:0
+element: id:"reeds.green\reed_13" layer:main position:(226, 731) flipped:true sort:0
+element: id:"thorns.brown\thorn_25" layer:main position:(293, 793) flipped:true sort:0
+element: id:"reeds.green\reed_34" layer:main position:(472, 902) flipped:true sort:0

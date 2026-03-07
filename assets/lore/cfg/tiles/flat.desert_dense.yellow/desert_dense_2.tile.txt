@@ -1,0 +1,44 @@
+# CANVAS
+
+version: 1.0
+size: (840, 840)
+
+# GROUND
+
+id: "flat.desert_grounds.yellow\desert_ground_0"
+position: (57, 106)
+render: true
+
+# BORDER
+
+id: "flat.border_medium.dark\border_medium_0"
+position: (22, 76)
+
+# RENDER MASK
+
+active: true
+
+# ELEMENTS
+
+element: id:"sand_patches.yellow\sand_patch_7" layer:ground position:(544, 348) flipped:true sort:0
+element: id:"sand_patches.yellow\sand_patch_16" layer:ground position:(792, 514) flipped:true sort:1
+element: id:"sand_patches.yellow\sand_patch_55" layer:ground position:(595, 774) flipped:true sort:2
+element: id:"sand_patches.yellow\sand_patch_39" layer:ground position:(189, 655) flipped:true sort:3
+element: id:"sand_patches.yellow\sand_patch_0" layer:ground position:(457, 595) flipped:true sort:4
+element: id:"sand_patches.yellow\sand_patch_14" layer:ground position:(216, 383) flipped:true sort:5
+element: id:"sand_marks.yellow\sand_marks_46" layer:ground position:(331, 639) flipped:false sort:6
+element: id:"sand_marks.yellow\sand_marks_23" layer:ground position:(169, 575) flipped:true sort:7
+element: id:"sand_marks.yellow\sand_marks_38" layer:ground position:(630, 265) flipped:false sort:8
+element: id:"sand_marks.yellow\sand_marks_46" layer:ground position:(332, 444) flipped:false sort:9
+element: id:"sand_marks.yellow\sand_marks_11" layer:ground position:(315, 327) flipped:false sort:10
+element: id:"desert_hills.yellow\desert_hill_0" layer:main position:(271, 244) flipped:false sort:0
+element: id:"palm_trees.green\palm_tree_53" layer:main position:(483, 386) flipped:true sort:0
+element: id:"desert_hills.yellow\desert_hill_5" layer:main position:(695, 395) flipped:true sort:0
+element: id:"desert_hills.yellow\desert_hill_17" layer:main position:(193, 487) flipped:true sort:0
+element: id:"palm_trees.green\palm_tree_25" layer:main position:(725, 516) flipped:false sort:0
+element: id:"palm_trees.green\palm_tree_29" layer:main position:(248, 597) flipped:true sort:0
+element: id:"palm_trees.green\palm_tree_33" layer:main position:(488, 641) flipped:true sort:0
+element: id:"desert_hills.yellow\desert_hill_24" layer:main position:(628, 649) flipped:true sort:0
+element: id:"desert_hills.yellow\desert_hill_2" layer:main position:(193, 776) flipped:false sort:0
+element: id:"palm_trees.green\palm_tree_25" layer:main position:(645, 803) flipped:false sort:0
+element: id:"palm_trees.green\palm_tree_49" layer:main position:(378, 897) flipped:true sort:0

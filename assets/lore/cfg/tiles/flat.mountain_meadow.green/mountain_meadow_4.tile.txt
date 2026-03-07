@@ -1,0 +1,40 @@
+# CANVAS
+
+version: 1.0
+size: (840, 840)
+
+# GROUND
+
+id: "flat.grass_grounds.green\grass_ground_0"
+position: (57, 106)
+render: true
+
+# BORDER
+
+id: "flat.border_medium.dark\border_medium_0"
+position: (22, 76)
+
+# RENDER MASK
+
+active: true
+
+# ELEMENTS
+
+element: id:"grass_patches.green\grass_patch_34" layer:ground position:(175, 485) flipped:true sort:0
+element: id:"grass_patches.green\grass_patch_1" layer:ground position:(512, 416) flipped:true sort:1
+element: id:"grass_patches.green\grass_patch_51" layer:ground position:(671, 436) flipped:true sort:2
+element: id:"grass_marks.green\grass_marks_52" layer:ground position:(268, 228) flipped:true sort:3
+element: id:"grass_marks.green\grass_marks_39" layer:ground position:(464, 314) flipped:true sort:4
+element: id:"grass_bushes.green\grass_bush_10" layer:main position:(420, 204) flipped:false sort:0
+element: id:"grass_bushes.green\grass_bush_31" layer:main position:(488, 205) flipped:true sort:0
+element: id:"grass_bushes.greendark\grass_bush_31" layer:main position:(454, 243) flipped:true sort:0
+element: id:"bushes.green\bush_12" layer:main position:(598, 320) flipped:true sort:0
+element: id:"grass_bushes.greendark\grass_bush_45" layer:main position:(199, 325) flipped:false sort:0
+element: id:"grass_bushes.greendark\grass_bush_7" layer:main position:(272, 372) flipped:true sort:0
+element: id:"grass_bushes.green\grass_bush_39" layer:main position:(179, 384) flipped:true sort:0
+element: id:"bushes.green\bush_4" layer:main position:(602, 493) flipped:true sort:0
+element: id:"grass_bushes.greendark\grass_bush_31" layer:main position:(125, 539) flipped:true sort:0
+element: id:"grass_bushes.greendark\grass_bush_55" layer:main position:(722, 545) flipped:false sort:0
+element: id:"grass_bushes.green\grass_bush_59" layer:main position:(664, 595) flipped:false sort:0
+element: id:"bushes.green\bush_24" layer:main position:(189, 636) flipped:true sort:0
+element: id:"mountains.blue\mountain_10" layer:main position:(572, 1568) flipped:true sort:0
