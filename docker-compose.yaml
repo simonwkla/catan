@@ -1,14 +1,15 @@
 services:
   frontend:
     build:
-      context: artifact/catan
+      context: .
+      dockerfile: artifact/catan/Dockerfile
       target: development
     ports:
       - "3000:3000"
       - "3001:3001"
     volumes:
-      - ./artifact/catan/:/app
-      - frontend-node-modules:/app/node_modules
+      - ./:/app
+      - node-modules:/app/node_modules
     environment:
       - SPOTIFY_CLIENT_ID=${SPOTIFY_CLIENT_ID}
       - SPOTIFY_CLIENT_SECRET=${SPOTIFY_CLIENT_SECRET}
@@ -30,5 +31,5 @@ services:
 
 volumes:
   db-data:
-  frontend-node-modules:
+  node-modules:
   drizzle-studio-node-modules:

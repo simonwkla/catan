@@ -16,7 +16,8 @@
   ],
   "main": "./dist/extension.js",
   "activationEvents": [
-    "workspaceContains:**/*.tile.txt"
+    "workspaceContains:**/*.tile.txt",
+    "workspaceContains:**/*.tile.yml"
   ],
   "contributes": {},
   "scripts": {
@@ -26,9 +27,13 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.3.10",
+    "@types/lodash.debounce": "^4.0.9",
     "@types/node": "22.x",
     "@types/vscode": "^1.105.0",
     "@vscode/vsce": "^3.7.1",
     "esbuild": "^0.27.3"
+  },
+  "dependencies": {
+    "lodash.debounce": "^4.0.8"
   }
 }

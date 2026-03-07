@@ -1,126 +1,22 @@
-use std::{fs::File, io::Read, path::Path};
-
 use ariadne::{Label, Report, ReportKind, Source};
 use chumsky::error::Rich;
 use chumsky::prelude::*;
+use color_eyre::eyre::{Result, eyre};
 
-use color_eyre::eyre::{Context, Result, eyre};
+use super::{Border, Canvas, Config, ConfigParser, Element, Ground, Layer, RenderMask};
 
-#[derive(Debug)]
-pub struct Config {
-    pub canvas: Canvas,
+pub struct TxtConfig;
 
-    pub render_mask: Option<RenderMask>,
-
-    pub ground: Option<Ground>,
-    pub border: Option<Border>,
-
-    pub elements: Vec<Element>,
-
-    pub source_id: String,
-    pub tile_type: String,
-}
-
-const EXTENSION: &str = ".tile.txt";
-
-impl Config {
-    pub fn from_reader<R: Read>(source_id: &str, tile_type: &str, mut reader: R) -> Result<Self> {
-        let mut buf = String::new();
-        reader
-            .read_to_string(&mut buf)
-            .wrap_err("Failed to read config")?;
-
-        Self::from_str(source_id, tile_type, &buf)
-    }
-
-    pub fn from_str(source_id: &str, tile_type: &str, input: &str) -> Result<Self> {
+impl ConfigParser for TxtConfig {
+    fn from_str(source_id: &str, tile_type: &str, input: &str) -> Result<Config> {
         match cfg_parser(source_id, tile_type).parse(input).into_result() {
             Ok(cfg) => Ok(cfg),
             Err(errs) => Err(eyre!(render_chumsky_errors(source_id, input, errs))),
         }
     }
-
-    pub fn from_file(path: &Path) -> Result<Self> {
-        let file = File::open(path)
-            .wrap_err_with(|| format!("Failed to open file: {}", path.display()))?;
-        let file_name = path
-            .file_name()
-            .ok_or_else(|| eyre!("Failed to get file name: {}", path.display()))?
-            .to_string_lossy()
-            .to_string();
-
-        let tile_type = path
-            .parent()
-            .ok_or_else(|| eyre!("Failed to get parent directory: {}", path.display()))?
-            .file_name()
-            .ok_or_else(|| eyre!("Failed to get file name: {}", path.display()))?
-            .to_string_lossy()
-            .to_string();
-
-        Self::from_reader(&file_name, &tile_type, file)
-    }
-
-    pub fn from_dir(path: &Path) -> Result<Vec<Self>> {
-        let mut cfgs = Vec::new();
-
-        let walker = walkdir::WalkDir::new(path).into_iter();
-
-        for entry in walker {
-            let entry = entry?;
-            let path = entry.path();
-            if path
-                .file_name()
-                .map_or(false, |n| n.to_string_lossy().ends_with(EXTENSION))
-            {
-                cfgs.push(Self::from_file(path)?);
-            }
-        }
-
-        Ok(cfgs)
-    }
 }
 
-#[derive(Debug)]
-pub struct Canvas {
-    pub width: u32,
-    pub height: u32,
-}
-
-#[derive(Debug)]
-pub struct RenderMask {
-    pub active: bool,
-}
-
-#[derive(Debug)]
-pub struct Ground {
-    pub id: String,
-    pub position: (i32, i32),
-    pub render: bool,
-}
-
-#[derive(Debug)]
-pub struct Element {
-    pub id: String,
-    pub layer: Layer,
-    pub position: (i32, i32),
-    pub flipped: bool,
-    pub sort: u32,
-}
-
-#[derive(Debug)]
-pub struct Border {
-    pub id: String,
-    pub position: (i32, i32),
-}
-
-#[derive(Debug)]
-pub enum Layer {
-    Ground,
-    Main,
-    Air,
-}
-
-pub fn render_chumsky_errors(source_id: &str, input: &str, errs: Vec<Rich<char>>) -> String {
+fn render_chumsky_errors(source_id: &str, input: &str, errs: Vec<Rich<char>>) -> String {
     let mut out = String::new();
     let mut buf = Vec::new();
     let source = (source_id, Source::from(input));
@@ -157,7 +53,7 @@ pub fn render_chumsky_errors(source_id: &str, input: &str, errs: Vec<Rich<char>>
     out
 }
 
-pub fn cfg_parser<'a>(
+fn cfg_parser<'a>(
     file_name: &str,
     tile_type: &str,
 ) -> impl Parser<'a, &'a str, Config, extra::Err<Rich<'a, char>>> {
@@ -236,8 +132,8 @@ pub fn cfg_parser<'a>(
         .ignore_then(version_line)
         .ignore_then(size_line)
         .map(|(width, height)| Canvas {
-            width: width,
-            height: height,
+            width,
+            height,
         });
 
     let id = just("id:").padded().ignore_then(string);
@@ -307,7 +203,7 @@ pub fn cfg_parser<'a>(
 
     let elements = elements_header.ignore_then(element_line.repeated().collect::<Vec<_>>());
 
-    let config = canvas
+    canvas
         .then(ground.or_not())
         .then(border.or_not())
         .then(render_mask.or_not())
@@ -323,7 +219,5 @@ pub fn cfg_parser<'a>(
                 source_id: file_name.to_string(),
                 tile_type: tile_type.to_string(),
             },
-        );
-
-    return config;
+        )
 }

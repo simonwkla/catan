@@ -3,5 +3,5 @@
   "cfg_root": "./cfg/tiles",
   "output_dir": "./tiles",
   "render_mask_active": true,
-  "border_active": false
+  "border_active": true
 }
