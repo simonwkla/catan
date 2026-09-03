@@ -131,10 +131,7 @@ fn cfg_parser<'a>(
     let canvas = canvas_header
         .ignore_then(version_line)
         .ignore_then(size_line)
-        .map(|(width, height)| Canvas {
-            width,
-            height,
-        });
+        .map(|(width, height)| Canvas { width, height });
 
     let id = just("id:").padded().ignore_then(string);
     let id_line = id.then_ignore(newline);

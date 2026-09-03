@@ -1,25 +1,12 @@
 import type { PropsWithChildren } from "react";
-import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData } from "react-router";
-import { Rand } from "@/lib/std";
+import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
 import type { Route } from "./+types/root";
-import { Button } from "./components/ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./components/ui/card";
-import { SeedProvider } from "./hook/use-seed";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./components/ui/card";
 import tailwindcss from "./tailwind.css?url";
 
 export const links: Route.LinksFunction = () => [{ rel: "stylesheet", href: tailwindcss }];
 
-export function loader() {
-  const seed = Rand.seed();
-
-  return {
-    seed,
-  };
-}
-
 export function Layout({ children }: PropsWithChildren) {
-  const { seed } = useLoaderData<typeof loader>();
-
   return (
     <html lang="en">
       <head>
@@ -29,7 +16,7 @@ export function Layout({ children }: PropsWithChildren) {
         <Links />
       </head>
       <body>
-        <SeedProvider seed={seed}>{children}</SeedProvider>
+        {children}
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -58,20 +45,17 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
     <main className="flex h-screen w-screen items-center justify-center">
       <Card className="bg-destructive/3 ring-destructive">
         <CardHeader>
-          <CardTitle>An error occured</CardTitle>
-          <CardDescription>{message}</CardDescription>
+          <CardTitle>{message}</CardTitle>
+          <CardDescription>{details}</CardDescription>
         </CardHeader>
 
-        <CardContent>
-          {stack && (
+        {stack && (
+          <CardContent>
             <pre className="w-full overflow-x-auto p-4">
               <code>{stack}</code>
             </pre>
-          )}
-        </CardContent>
-        <CardFooter>
-          <Button>OK</Button>
-        </CardFooter>
+          </CardContent>
+        )}
       </Card>
     </main>
   );

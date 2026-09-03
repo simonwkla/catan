@@ -52,19 +52,6 @@ const INT_TO_TOKEN_VALUE = {
   12: TokenValue.Twelve,
 } as const;
 
-const TOKEN_VALUE_DISPLAY_NAME = {
-  [TokenValue.Two]: "Two",
-  [TokenValue.Three]: "Three",
-  [TokenValue.Four]: "Four",
-  [TokenValue.Five]: "Five",
-  [TokenValue.Six]: "Six",
-  [TokenValue.Eight]: "Eight",
-  [TokenValue.Nine]: "Nine",
-  [TokenValue.Ten]: "Ten",
-  [TokenValue.Eleven]: "Eleven",
-  [TokenValue.Twelve]: "Twelve",
-} as const;
-
 // biome-ignore lint/suspicious/noExplicitAny: no other way to do this
 type DistributeToken<T extends TokenValue> = T extends any ? Token<T> : never;
 export class Token<V extends TokenValue = TokenValue> {
@@ -79,10 +66,6 @@ export class Token<V extends TokenValue = TokenValue> {
 
   get int(): (typeof TOKEN_VALUE_TO_INT)[V] {
     return TOKEN_VALUE_TO_INT[this.value];
-  }
-
-  get displayName(): (typeof TOKEN_VALUE_DISPLAY_NAME)[V] {
-    return TOKEN_VALUE_DISPLAY_NAME[this.value];
   }
 
   static fromValue<V extends TokenValue>(value: V): DistributeToken<V> {

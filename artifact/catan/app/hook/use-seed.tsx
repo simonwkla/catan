@@ -1,40 +1,17 @@
-import { createContext, type PropsWithChildren, useCallback, useContext, useState } from "react";
-import { Rand, type Seed } from "@/lib/std";
+import { createContext, type PropsWithChildren, useContext } from "react";
+import type { Seed } from "@/lib/std";
 
-interface SeedContext {
-  seed: Seed;
-  updateSeed: () => void;
-}
+const SeedContext = createContext<Seed | null>(null);
 
-const seedContext = createContext<SeedContext>({
-  seed: Rand.seed(),
-  updateSeed: () => {},
-});
-
-export function SeedProvider({ seed: initialSeed, children }: PropsWithChildren<{ seed: Seed }>) {
-  const [seed, setSeed] = useState<Seed>(initialSeed);
-
-  const updateSeed = useCallback(() => {
-    setSeed(Rand.seed());
-  }, []);
-
-  return <seedContext.Provider value={{ seed, updateSeed }}>{children}</seedContext.Provider>;
+export function SeedProvider({ seed, children }: PropsWithChildren<{ seed: Seed }>) {
+  return <SeedContext.Provider value={seed}>{children}</SeedContext.Provider>;
 }
 
 export function useSeed() {
-  const context = useContext(seedContext);
-  if (!context) {
+  const seed = useContext(SeedContext);
+  if (!seed) {
     throw new Error("useSeed must be used within a SeedProvider");
   }
 
-  return context.seed;
-}
-
-export function useUpdateSeed() {
-  const context = useContext(seedContext);
-  if (!context) {
-    throw new Error("useUpdateSeed must be used within a SeedProvider");
-  }
-
-  return context.updateSeed;
+  return seed;
 }

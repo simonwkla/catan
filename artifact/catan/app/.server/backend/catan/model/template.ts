@@ -79,7 +79,7 @@ export class Template {
       .map(([token]) => Token.fromValue(token));
   }
 
-  static default(_field: Field): Template {
+  static default(): Template {
     const tileTypesMap: Record<ValidTile["type"]["value"], number> = {
       water: 0,
       desert: 1,

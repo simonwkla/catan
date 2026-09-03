@@ -1,0 +1,1660 @@
+{
+  "schemaVersion": 1,
+  "packId": "catan",
+  "identifiedEdition": {
+    "name": "English CATAN Fifth Edition",
+    "artworkIntroduced": 2015,
+    "region": "English-language / North America",
+    "publishers": [
+      "Mayfair Games (2015 first printing)",
+      "Catan Studio (2016 onward)"
+    ],
+    "baseGameSource": "CATAN Fifth Edition base game",
+    "waterAndGoldSource": "CATAN: Seafarers Fifth Edition",
+    "notes": "The 2015 fifth-edition redesign uses a different illustration for every base-game terrain hex. Fifth-edition Seafarers supplies the matching full sea hex and two distinct gold-field illustrations."
+  },
+  "outputDimensions": [
+    384,
+    444
+  ],
+  "outputAspectRatio": "32:37",
+  "outputOrientation": "point-up",
+  "runtimeFormat": {
+    "format": "WebP",
+    "quality": 90
+  },
+  "qa": {
+    "lightContactSheet": "assets/catan-fifth-edition/qa/contact-sheet-light.png",
+    "darkContactSheet": "assets/catan-fifth-edition/qa/contact-sheet-dark.png"
+  },
+  "tiles": [
+    {
+      "id": "clay-hills-01",
+      "applicationType": "clay",
+      "officialTerrain": "Hills",
+      "sourceSet": "CATAN Fifth Edition base game",
+      "sourcePageUrl": "https://catancollector.com/hexes/item/brick-v1-5th",
+      "originalImageUrl": "https://catancollector.com/media/zoo/images/5th-brick1_4fdff73a381dc5a99348268de7547aee.jpg",
+      "originalSource": {
+        "path": "assets/catan-fifth-edition/source/clay-hills-01.jpg",
+        "dimensions": [
+          400,
+          344
+        ],
+        "sha256": "b5bbf32b97ccb7026d3f3f4f1cad41bc27b96c3787cdb6f1a84e2babac44e130",
+        "perspectiveCorrection": "none",
+        "colorCorrection": "none"
+      },
+      "enhancement": {
+        "path": "assets/catan-fifth-edition/enhanced/clay-hills-01.png",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "sha256": "b394fce6a6c33ef835c47759dd6a84e9b723295fef16d1744d47d2a02e6c46f8",
+        "generator": "OpenAI built-in image generation, image-to-image faithful remaster",
+        "prompt": "assets/catan-fifth-edition/prompts/faithful-remaster.md",
+        "detectedTileBounds": [
+          15,
+          55,
+          1241,
+          1115
+        ],
+        "cropBounds": [
+          14,
+          54,
+          1242,
+          1116
+        ]
+      },
+      "transform": {
+        "sourceOrientation": "flat-top",
+        "artworkOrientation": "upright, preserved from enhanced source",
+        "rotationDegreesCounterClockwise": 0,
+        "geometry": "radial flat-top to point-up hex morph",
+        "landRim": "original enhanced rim remapped with tile geometry",
+        "preparedCropDimensions": [
+          1228,
+          1062
+        ],
+        "outputOrientation": "point-up",
+        "outputDimensions": [
+          384,
+          444
+        ],
+        "alphaMask": "4x supersampled anti-aliased regular point-up hex"
+      },
+      "master": {
+        "path": "assets/catan-fifth-edition/tiles/clay/hills-01.png",
+        "sha256": "43a4fb9a7ffbecbde1f62e1169e4c31b982517e7d80b2291cce6cc5d953883dd",
+        "pixelSha256": "16217d598d3237141acd01f88c921e138b0d53ad508e9fae3cb96396b36d7c8a"
+      },
+      "runtime": {
+        "path": "artifact/catan/public/textures/catan-fifth-edition/tiles/clay/hills-01.webp",
+        "sha256": "e57ca525d4b729c13ef5728ab14a939d7b7036419b0613992cd111da04ae8d49",
+        "format": "WebP",
+        "quality": 90
+      },
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "clay-hills-02",
+      "applicationType": "clay",
+      "officialTerrain": "Hills",
+      "sourceSet": "CATAN Fifth Edition base game",
+      "sourcePageUrl": "https://catancollector.com/hexes/item/brick-v2-5th",
+      "originalImageUrl": "https://catancollector.com/media/zoo/images/5th-brick2_1732e83ed959dd6b11b0f623d6c1d004.jpg",
+      "originalSource": {
+        "path": "assets/catan-fifth-edition/source/clay-hills-02.jpg",
+        "dimensions": [
+          400,
+          344
+        ],
+        "sha256": "bbcab8949ec5e7958f3884f937bc83b86e006e89aaf62ddd4746770f31efa9d1",
+        "perspectiveCorrection": "none",
+        "colorCorrection": "none"
+      },
+      "enhancement": {
+        "path": "assets/catan-fifth-edition/enhanced/clay-hills-02.png",
+        "dimensions": [
+          1353,
+          1163
+        ],
+        "sha256": "fdf2e260efb49d6c36dd4e8cc4aa020539a808e2a8f547427b62ff7be71a0dec",
+        "generator": "OpenAI built-in image generation, image-to-image faithful remaster",
+        "prompt": "assets/catan-fifth-edition/prompts/faithful-remaster.md",
+        "detectedTileBounds": [
+          38,
+          32,
+          1315,
+          1130
+        ],
+        "cropBounds": [
+          37,
+          31,
+          1316,
+          1131
+        ]
+      },
+      "transform": {
+        "sourceOrientation": "flat-top",
+        "artworkOrientation": "upright, preserved from enhanced source",
+        "rotationDegreesCounterClockwise": 0,
+        "geometry": "radial flat-top to point-up hex morph",
+        "landRim": "original enhanced rim remapped with tile geometry",
+        "preparedCropDimensions": [
+          1279,
+          1100
+        ],
+        "outputOrientation": "point-up",
+        "outputDimensions": [
+          384,
+          444
+        ],
+        "alphaMask": "4x supersampled anti-aliased regular point-up hex"
+      },
+      "master": {
+        "path": "assets/catan-fifth-edition/tiles/clay/hills-02.png",
+        "sha256": "47a65cd9fa3d3cf111bc88ac7fc1ccefda79e7f879bf77d994f4e2155f8a5a3c",
+        "pixelSha256": "a649902c46c722d9b98c47d249260fb469228cfd623b74f25a0302d3703e2521"
+      },
+      "runtime": {
+        "path": "artifact/catan/public/textures/catan-fifth-edition/tiles/clay/hills-02.webp",
+        "sha256": "100459e5ba463133e9dec2e239489b9362d35f518a5e03727cebdc4d7c92c747",
+        "format": "WebP",
+        "quality": 90
+      },
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "clay-hills-03",
+      "applicationType": "clay",
+      "officialTerrain": "Hills",
+      "sourceSet": "CATAN Fifth Edition base game",
+      "sourcePageUrl": "https://catancollector.com/hexes/item/brick-v3-5th",
+      "originalImageUrl": "https://catancollector.com/media/zoo/images/5th-brick3_b0ffb0bf4e82c3c550d0ebc2754ee38a.jpg",
+      "originalSource": {
+        "path": "assets/catan-fifth-edition/source/clay-hills-03.jpg",
+        "dimensions": [
+          400,
+          344
+        ],
+        "sha256": "c81ff4a8d4f3e51737968f06fb6b41d8d42a228de47262b0532c6f07aeaae819",
+        "perspectiveCorrection": "none",
+        "colorCorrection": "none"
+      },
+      "enhancement": {
+        "path": "assets/catan-fifth-edition/enhanced/clay-hills-03.png",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "sha256": "fc6c6ba1631c3188529957ab8de86e62f28f07313c440a38393283cec3fc54f0",
+        "generator": "OpenAI built-in image generation, image-to-image faithful remaster",
+        "prompt": "assets/catan-fifth-edition/prompts/faithful-remaster.md",
+        "detectedTileBounds": [
+          20,
+          63,
+          1233,
+          1128
+        ],
+        "cropBounds": [
+          19,
+          62,
+          1234,
+          1129
+        ]
+      },
+      "transform": {
+        "sourceOrientation": "flat-top",
+        "artworkOrientation": "upright, preserved from enhanced source",
+        "rotationDegreesCounterClockwise": 0,
+        "geometry": "radial flat-top to point-up hex morph",
+        "landRim": "original enhanced rim remapped with tile geometry",
+        "preparedCropDimensions": [
+          1215,
+          1067
+        ],
+        "outputOrientation": "point-up",
+        "outputDimensions": [
+          384,
+          444
+        ],
+        "alphaMask": "4x supersampled anti-aliased regular point-up hex"
+      },
+      "master": {
+        "path": "assets/catan-fifth-edition/tiles/clay/hills-03.png",
+        "sha256": "781e8c67d3d89cb4f1bc36f4aaffd8c129dc1c1366b46668fe718a70bdc135f9",
+        "pixelSha256": "7f8893e30b2d299ddb894186b3f6e7d7948ebd7fbe7bda679ac7e813a3558f19"
+      },
+      "runtime": {
+        "path": "artifact/catan/public/textures/catan-fifth-edition/tiles/clay/hills-03.webp",
+        "sha256": "47779b0bd9c285301234d0d84777293fac9be17554a7e2241baa53236d155d98",
+        "format": "WebP",
+        "quality": 90
+      },
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "desert-01",
+      "applicationType": "desert",
+      "officialTerrain": "Desert",
+      "sourceSet": "CATAN Fifth Edition base game",
+      "sourcePageUrl": "https://catancollector.com/hexes/item/desert-5th",
+      "originalImageUrl": "https://catancollector.com/media/zoo/images/5th-desert_261d283d828b918690798fade78dd576.jpg",
+      "originalSource": {
+        "path": "assets/catan-fifth-edition/source/desert-01.jpg",
+        "dimensions": [
+          400,
+          344
+        ],
+        "sha256": "3e76c24e95bf9ccbd1a3a127cd99d2604c00e1384f402e131847bb70ed7151c6",
+        "perspectiveCorrection": "none",
+        "colorCorrection": "none"
+      },
+      "enhancement": {
+        "path": "assets/catan-fifth-edition/enhanced/desert-01.png",
+        "dimensions": [
+          1351,
+          1164
+        ],
+        "sha256": "66657e1cf8aa970a8ce6916e17679cd7dbf4a03bfd2e22d02d5849421204c801",
+        "generator": "OpenAI built-in image generation, image-to-image faithful remaster",
+        "prompt": "assets/catan-fifth-edition/prompts/faithful-remaster.md",
+        "detectedTileBounds": [
+          34,
+          24,
+          1322,
+          1130
+        ],
+        "cropBounds": [
+          33,
+          23,
+          1323,
+          1131
+        ]
+      },
+      "transform": {
+        "sourceOrientation": "flat-top",
+        "artworkOrientation": "upright, preserved from enhanced source",
+        "rotationDegreesCounterClockwise": 0,
+        "geometry": "radial flat-top to point-up hex morph",
+        "landRim": "original enhanced rim remapped with tile geometry",
+        "preparedCropDimensions": [
+          1290,
+          1108
+        ],
+        "outputOrientation": "point-up",
+        "outputDimensions": [
+          384,
+          444
+        ],
+        "alphaMask": "4x supersampled anti-aliased regular point-up hex"
+      },
+      "master": {
+        "path": "assets/catan-fifth-edition/tiles/desert/desert-01.png",
+        "sha256": "b2a003480a84af69e62d6e0d62b0fd66e0d9b651b089c285eb01277d5ef553b9",
+        "pixelSha256": "763ce20d09c1c7ed6f49c4bc7b2e7fd6da40464e083c300d87617fb86295f85a"
+      },
+      "runtime": {
+        "path": "artifact/catan/public/textures/catan-fifth-edition/tiles/desert/desert-01.webp",
+        "sha256": "cc4f490744a9c8ed80c47514fab3d5729d9d1672dcb04dbf8fae60639fa4b1b2",
+        "format": "WebP",
+        "quality": 90
+      },
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "field-fields-01",
+      "applicationType": "field",
+      "officialTerrain": "Fields",
+      "sourceSet": "CATAN Fifth Edition base game",
+      "sourcePageUrl": "https://catancollector.com/hexes/item/fields-v1-5th",
+      "originalImageUrl": "https://catancollector.com/media/zoo/images/5th-wheat1_f927db2510f267cc2556aff1972c4129.jpg",
+      "originalSource": {
+        "path": "assets/catan-fifth-edition/source/field-fields-01.jpg",
+        "dimensions": [
+          400,
+          344
+        ],
+        "sha256": "c47a81d351962acd2dee110807db32a58fa8d10e7f6d298fd2983e574b200770",
+        "perspectiveCorrection": "none",
+        "colorCorrection": "none"
+      },
+      "enhancement": {
+        "path": "assets/catan-fifth-edition/enhanced/field-fields-01.png",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "sha256": "27d169117797a952edd6170fd450ce4fc164c419cbe9154ee3d4aa0b654d8d7e",
+        "generator": "OpenAI built-in image generation, image-to-image faithful remaster",
+        "prompt": "assets/catan-fifth-edition/prompts/faithful-remaster.md",
+        "detectedTileBounds": [
+          16,
+          58,
+          1236,
+          1132
+        ],
+        "cropBounds": [
+          15,
+          57,
+          1237,
+          1133
+        ]
+      },
+      "transform": {
+        "sourceOrientation": "flat-top",
+        "artworkOrientation": "upright, preserved from enhanced source",
+        "rotationDegreesCounterClockwise": 0,
+        "geometry": "radial flat-top to point-up hex morph",
+        "landRim": "original enhanced rim remapped with tile geometry",
+        "preparedCropDimensions": [
+          1222,
+          1076
+        ],
+        "outputOrientation": "point-up",
+        "outputDimensions": [
+          384,
+          444
+        ],
+        "alphaMask": "4x supersampled anti-aliased regular point-up hex"
+      },
+      "master": {
+        "path": "assets/catan-fifth-edition/tiles/field/fields-01.png",
+        "sha256": "e7d9173811d87854c2927142657f7a76685fdd3463125df35a501f3e2d37888b",
+        "pixelSha256": "8bd027bbab1663d942b4e1d442321db41d1f4316bcf1b2305acf40e1129eeb1c"
+      },
+      "runtime": {
+        "path": "artifact/catan/public/textures/catan-fifth-edition/tiles/field/fields-01.webp",
+        "sha256": "6cef7f7d96844f5bd3a74686ec6975e5a240826cb344b38d1f58ae381861711a",
+        "format": "WebP",
+        "quality": 90
+      },
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "field-fields-02",
+      "applicationType": "field",
+      "officialTerrain": "Fields",
+      "sourceSet": "CATAN Fifth Edition base game",
+      "sourcePageUrl": "https://catancollector.com/hexes/item/fields-v2-5th",
+      "originalImageUrl": "https://catancollector.com/media/zoo/images/5th-wheat2_42e255ee431147c7f0fd7c347157890b.jpg",
+      "originalSource": {
+        "path": "assets/catan-fifth-edition/source/field-fields-02.jpg",
+        "dimensions": [
+          400,
+          344
+        ],
+        "sha256": "2f2b4f3aa488f84e8c9b79e68a5c8b3f1caaa9d3056f7f9495b99a78ece0a3db",
+        "perspectiveCorrection": "none",
+        "colorCorrection": "none"
+      },
+      "enhancement": {
+        "path": "assets/catan-fifth-edition/enhanced/field-fields-02.png",
+        "dimensions": [
+          1351,
+          1164
+        ],
+        "sha256": "b01436ce3a3fdcedb8380dffb2c7dc3497f765b389d1172f6103a07c1dfeb9b5",
+        "generator": "OpenAI built-in image generation, image-to-image faithful remaster",
+        "prompt": "assets/catan-fifth-edition/prompts/faithful-remaster.md",
+        "detectedTileBounds": [
+          42,
+          32,
+          1309,
+          1118
+        ],
+        "cropBounds": [
+          41,
+          31,
+          1310,
+          1119
+        ]
+      },
+      "transform": {
+        "sourceOrientation": "flat-top",
+        "artworkOrientation": "upright, preserved from enhanced source",
+        "rotationDegreesCounterClockwise": 0,
+        "geometry": "radial flat-top to point-up hex morph",
+        "landRim": "original enhanced rim remapped with tile geometry",
+        "preparedCropDimensions": [
+          1269,
+          1088
+        ],
+        "outputOrientation": "point-up",
+        "outputDimensions": [
+          384,
+          444
+        ],
+        "alphaMask": "4x supersampled anti-aliased regular point-up hex"
+      },
+      "master": {
+        "path": "assets/catan-fifth-edition/tiles/field/fields-02.png",
+        "sha256": "5d9bb5cd4394a15e19d4bcb2ef12e94b4ae9424ad4eb85e3554ea38c0869a54d",
+        "pixelSha256": "d0dd24a31948bcf7bea00df0c920bcb3ed462f9119b5ef8270e9e057c708fb4f"
+      },
+      "runtime": {
+        "path": "artifact/catan/public/textures/catan-fifth-edition/tiles/field/fields-02.webp",
+        "sha256": "901eff0c5dd95f067874e2fc5a63a46aa5d6d444da0a362e214b8ae5d6b4515b",
+        "format": "WebP",
+        "quality": 90
+      },
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "field-fields-03",
+      "applicationType": "field",
+      "officialTerrain": "Fields",
+      "sourceSet": "CATAN Fifth Edition base game",
+      "sourcePageUrl": "https://catancollector.com/hexes/item/fields-v3-5th",
+      "originalImageUrl": "https://catancollector.com/media/zoo/images/5th-wheat3_0a0494898f0daf07b057c0825378c9c2.jpg",
+      "originalSource": {
+        "path": "assets/catan-fifth-edition/source/field-fields-03.jpg",
+        "dimensions": [
+          400,
+          344
+        ],
+        "sha256": "d6f5f313da873782d43b02c13deebab08255a4ad60d9c6628856b29f4e37af94",
+        "perspectiveCorrection": "none",
+        "colorCorrection": "none"
+      },
+      "enhancement": {
+        "path": "assets/catan-fifth-edition/enhanced/field-fields-03.png",
+        "dimensions": [
+          1352,
+          1163
+        ],
+        "sha256": "5ca7a19f27427bda11cba7ba06a53711a5c297ff13abc77c6da96608f64b2091",
+        "generator": "OpenAI built-in image generation, image-to-image faithful remaster",
+        "prompt": "assets/catan-fifth-edition/prompts/faithful-remaster.md",
+        "detectedTileBounds": [
+          34,
+          29,
+          1317,
+          1129
+        ],
+        "cropBounds": [
+          33,
+          28,
+          1318,
+          1130
+        ]
+      },
+      "transform": {
+        "sourceOrientation": "flat-top",
+        "artworkOrientation": "upright, preserved from enhanced source",
+        "rotationDegreesCounterClockwise": 0,
+        "geometry": "radial flat-top to point-up hex morph",
+        "landRim": "original enhanced rim remapped with tile geometry",
+        "preparedCropDimensions": [
+          1285,
+          1102
+        ],
+        "outputOrientation": "point-up",
+        "outputDimensions": [
+          384,
+          444
+        ],
+        "alphaMask": "4x supersampled anti-aliased regular point-up hex"
+      },
+      "master": {
+        "path": "assets/catan-fifth-edition/tiles/field/fields-03.png",
+        "sha256": "05039d9a9ca0e62d3f6231299d3e870a3ae585ff346c1b633f1fb80d45cf0e9b",
+        "pixelSha256": "8dc0e05304a585f7685b78643089f86cac5f4d1ea8585aaac55b7532618e80d6"
+      },
+      "runtime": {
+        "path": "artifact/catan/public/textures/catan-fifth-edition/tiles/field/fields-03.webp",
+        "sha256": "216deb3efb46d9eb52c080de79f1851ffd316d8f2a9b32f9f778aa03f7292692",
+        "format": "WebP",
+        "quality": 90
+      },
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "field-fields-04",
+      "applicationType": "field",
+      "officialTerrain": "Fields",
+      "sourceSet": "CATAN Fifth Edition base game",
+      "sourcePageUrl": "https://catancollector.com/hexes/item/fields-v4-5th",
+      "originalImageUrl": "https://catancollector.com/media/zoo/images/5th-wheat4_37f0dc5541f23b5ea68055bfc8043957.jpg",
+      "originalSource": {
+        "path": "assets/catan-fifth-edition/source/field-fields-04.jpg",
+        "dimensions": [
+          400,
+          344
+        ],
+        "sha256": "f57b31c9b729d9208f19096d21e447d84513a1c0232760e0234c4e403b1f5800",
+        "perspectiveCorrection": "none",
+        "colorCorrection": "none"
+      },
+      "enhancement": {
+        "path": "assets/catan-fifth-edition/enhanced/field-fields-04.png",
+        "dimensions": [
+          1352,
+          1163
+        ],
+        "sha256": "e681424a28bc31ed0aa881397dbe4f600182ee76c6f5c669aa68c1a4159736f8",
+        "generator": "OpenAI built-in image generation, image-to-image faithful remaster",
+        "prompt": "assets/catan-fifth-edition/prompts/faithful-remaster.md",
+        "detectedTileBounds": [
+          34,
+          27,
+          1315,
+          1132
+        ],
+        "cropBounds": [
+          33,
+          26,
+          1316,
+          1133
+        ]
+      },
+      "transform": {
+        "sourceOrientation": "flat-top",
+        "artworkOrientation": "upright, preserved from enhanced source",
+        "rotationDegreesCounterClockwise": 0,
+        "geometry": "radial flat-top to point-up hex morph",
+        "landRim": "original enhanced rim remapped with tile geometry",
+        "preparedCropDimensions": [
+          1283,
+          1107
+        ],
+        "outputOrientation": "point-up",
+        "outputDimensions": [
+          384,
+          444
+        ],
+        "alphaMask": "4x supersampled anti-aliased regular point-up hex"
+      },
+      "master": {
+        "path": "assets/catan-fifth-edition/tiles/field/fields-04.png",
+        "sha256": "6a7f05aa4ffa7fe9c7a45b83dfad214499503ebebf5265bacedb9c3d0b77f4ce",
+        "pixelSha256": "9a380f53a17751363a9fd5862ac425dde3819b8d4e5b5d4cc5dba7f7fbeea97a"
+      },
+      "runtime": {
+        "path": "artifact/catan/public/textures/catan-fifth-edition/tiles/field/fields-04.webp",
+        "sha256": "19f3f09ad92088d86711e2daa5f4a0f7abc554c0bad4cb63f109434ad321ddfa",
+        "format": "WebP",
+        "quality": 90
+      },
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "forest-01",
+      "applicationType": "forest",
+      "officialTerrain": "Forest",
+      "sourceSet": "CATAN Fifth Edition base game",
+      "sourcePageUrl": "https://catancollector.com/hexes/item/forest-v1-5th",
+      "originalImageUrl": "https://catancollector.com/media/zoo/images/5th-wood1_b7e4bf069b24e606984dd58edc863cab.jpg",
+      "originalSource": {
+        "path": "assets/catan-fifth-edition/source/forest-01.jpg",
+        "dimensions": [
+          400,
+          344
+        ],
+        "sha256": "9c8e3e7b0a65c976b6f2950862eeb5b5b32530d5cc69c1c440accb15eefceff5",
+        "perspectiveCorrection": "none",
+        "colorCorrection": "none"
+      },
+      "enhancement": {
+        "path": "assets/catan-fifth-edition/enhanced/forest-01.png",
+        "dimensions": [
+          1353,
+          1163
+        ],
+        "sha256": "e01b2834588793f06aecc134e7a95ba5b5553c318781554b0e66befd83c6b4c6",
+        "generator": "OpenAI built-in image generation, image-to-image faithful remaster",
+        "prompt": "assets/catan-fifth-edition/prompts/faithful-remaster.md",
+        "detectedTileBounds": [
+          31,
+          16,
+          1320,
+          1130
+        ],
+        "cropBounds": [
+          30,
+          15,
+          1321,
+          1131
+        ]
+      },
+      "transform": {
+        "sourceOrientation": "flat-top",
+        "artworkOrientation": "upright, preserved from enhanced source",
+        "rotationDegreesCounterClockwise": 0,
+        "geometry": "radial flat-top to point-up hex morph",
+        "landRim": "original enhanced rim remapped with tile geometry",
+        "preparedCropDimensions": [
+          1291,
+          1116
+        ],
+        "outputOrientation": "point-up",
+        "outputDimensions": [
+          384,
+          444
+        ],
+        "alphaMask": "4x supersampled anti-aliased regular point-up hex"
+      },
+      "master": {
+        "path": "assets/catan-fifth-edition/tiles/forest/forest-01.png",
+        "sha256": "3c8f653784cbc3c5427d9e81f710633693ec78831ecc3a99d6b65e3adf7375c1",
+        "pixelSha256": "0a19ef151139cc6a81c6013d5d9385c41e902dde6d04823ae70a503f26334617"
+      },
+      "runtime": {
+        "path": "artifact/catan/public/textures/catan-fifth-edition/tiles/forest/forest-01.webp",
+        "sha256": "4e8f8b4bb6add70197a01ada77898b7197412ec2d9d5d38f5084b2d5f434405c",
+        "format": "WebP",
+        "quality": 90
+      },
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "forest-02",
+      "applicationType": "forest",
+      "officialTerrain": "Forest",
+      "sourceSet": "CATAN Fifth Edition base game",
+      "sourcePageUrl": "https://catancollector.com/hexes/item/forest-v2-5th",
+      "originalImageUrl": "https://catancollector.com/media/zoo/images/5th-wood2_77ae8564953a05c4ad79fe1be421f4d5.jpg",
+      "originalSource": {
+        "path": "assets/catan-fifth-edition/source/forest-02.jpg",
+        "dimensions": [
+          400,
+          344
+        ],
+        "sha256": "a7842b60fc4a9975ea7abec5ca4cb82d99334ec67a99c711776f1d4498f25264",
+        "perspectiveCorrection": "none",
+        "colorCorrection": "none"
+      },
+      "enhancement": {
+        "path": "assets/catan-fifth-edition/enhanced/forest-02.png",
+        "dimensions": [
+          1353,
+          1162
+        ],
+        "sha256": "69f56d37eea1290921c7dd561d407d1a5a31767c3e88d2879f670366f80124c0",
+        "generator": "OpenAI built-in image generation, image-to-image faithful remaster",
+        "prompt": "assets/catan-fifth-edition/prompts/faithful-remaster.md",
+        "detectedTileBounds": [
+          44,
+          33,
+          1311,
+          1126
+        ],
+        "cropBounds": [
+          43,
+          32,
+          1312,
+          1127
+        ]
+      },
+      "transform": {
+        "sourceOrientation": "flat-top",
+        "artworkOrientation": "upright, preserved from enhanced source",
+        "rotationDegreesCounterClockwise": 0,
+        "geometry": "radial flat-top to point-up hex morph",
+        "landRim": "original enhanced rim remapped with tile geometry",
+        "preparedCropDimensions": [
+          1269,
+          1095
+        ],
+        "outputOrientation": "point-up",
+        "outputDimensions": [
+          384,
+          444
+        ],
+        "alphaMask": "4x supersampled anti-aliased regular point-up hex"
+      },
+      "master": {
+        "path": "assets/catan-fifth-edition/tiles/forest/forest-02.png",
+        "sha256": "9620e8ad77bf4468e5d4f721589dc53b0b40934c7e6f33391eb45c849cc4e607",
+        "pixelSha256": "ce099edae537e2fc7fa65e9effa974be8bbea7d4e3b4ba313a259b6c8d350044"
+      },
+      "runtime": {
+        "path": "artifact/catan/public/textures/catan-fifth-edition/tiles/forest/forest-02.webp",
+        "sha256": "28f04ebfc1a02e7d41374701fd1d03cc231c972222d9b31aa6c8bf5ad70c3900",
+        "format": "WebP",
+        "quality": 90
+      },
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "forest-03",
+      "applicationType": "forest",
+      "officialTerrain": "Forest",
+      "sourceSet": "CATAN Fifth Edition base game",
+      "sourcePageUrl": "https://catancollector.com/hexes/item/forest-v3-5th",
+      "originalImageUrl": "https://catancollector.com/media/zoo/images/5th-wood3_7590eff2b585764bfbc1e2c8de4c4db7.jpg",
+      "originalSource": {
+        "path": "assets/catan-fifth-edition/source/forest-03.jpg",
+        "dimensions": [
+          400,
+          344
+        ],
+        "sha256": "0bfae4b6c24fad6d1d6804488bbaa09267b06081b8c98f23da50d5b58f603e14",
+        "perspectiveCorrection": "none",
+        "colorCorrection": "none"
+      },
+      "enhancement": {
+        "path": "assets/catan-fifth-edition/enhanced/forest-03.png",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "sha256": "65568cbe2e2abf886df0d5d28c155db1a14de702063155815b90a0525730498f",
+        "generator": "OpenAI built-in image generation, image-to-image faithful remaster",
+        "prompt": "assets/catan-fifth-edition/prompts/faithful-remaster.md",
+        "detectedTileBounds": [
+          4,
+          37,
+          1247,
+          1162
+        ],
+        "cropBounds": [
+          3,
+          36,
+          1248,
+          1163
+        ]
+      },
+      "transform": {
+        "sourceOrientation": "flat-top",
+        "artworkOrientation": "upright, preserved from enhanced source",
+        "rotationDegreesCounterClockwise": 0,
+        "geometry": "radial flat-top to point-up hex morph",
+        "landRim": "original enhanced rim remapped with tile geometry",
+        "preparedCropDimensions": [
+          1245,
+          1127
+        ],
+        "outputOrientation": "point-up",
+        "outputDimensions": [
+          384,
+          444
+        ],
+        "alphaMask": "4x supersampled anti-aliased regular point-up hex"
+      },
+      "master": {
+        "path": "assets/catan-fifth-edition/tiles/forest/forest-03.png",
+        "sha256": "e4f4e257b53839aeaae9837adb5551c21e242266eef7dd7022e8ffcb3eb3010a",
+        "pixelSha256": "2b2f05d2ef6d25856087e310e584fe8b410a08579005128545858fd2bc0d9041"
+      },
+      "runtime": {
+        "path": "artifact/catan/public/textures/catan-fifth-edition/tiles/forest/forest-03.webp",
+        "sha256": "53a3afd3f8edde0bba1074b28adbc0444ec86c2d409e325af14c3c0aa8904b7a",
+        "format": "WebP",
+        "quality": 90
+      },
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "forest-04",
+      "applicationType": "forest",
+      "officialTerrain": "Forest",
+      "sourceSet": "CATAN Fifth Edition base game",
+      "sourcePageUrl": "https://catancollector.com/hexes/item/forest-v4-5th",
+      "originalImageUrl": "https://catancollector.com/media/zoo/images/5th-wood4_e6793c8dad44ca619f5aae5e5a8e0717.jpg",
+      "originalSource": {
+        "path": "assets/catan-fifth-edition/source/forest-04.jpg",
+        "dimensions": [
+          400,
+          344
+        ],
+        "sha256": "c79aad4802917db633a0957a4e7596e4ec71c1c1d95e9ab2638c29517375d380",
+        "perspectiveCorrection": "none",
+        "colorCorrection": "none"
+      },
+      "enhancement": {
+        "path": "assets/catan-fifth-edition/enhanced/forest-04.png",
+        "dimensions": [
+          1353,
+          1163
+        ],
+        "sha256": "0d9fee5ed11ac48d71c92c1329df3f2037fe62113a86a29caf80efa556edaf73",
+        "generator": "OpenAI built-in image generation, image-to-image faithful remaster",
+        "prompt": "assets/catan-fifth-edition/prompts/faithful-remaster.md",
+        "detectedTileBounds": [
+          37,
+          34,
+          1314,
+          1134
+        ],
+        "cropBounds": [
+          36,
+          33,
+          1315,
+          1135
+        ]
+      },
+      "transform": {
+        "sourceOrientation": "flat-top",
+        "artworkOrientation": "upright, preserved from enhanced source",
+        "rotationDegreesCounterClockwise": 0,
+        "geometry": "radial flat-top to point-up hex morph",
+        "landRim": "original enhanced rim remapped with tile geometry",
+        "preparedCropDimensions": [
+          1279,
+          1102
+        ],
+        "outputOrientation": "point-up",
+        "outputDimensions": [
+          384,
+          444
+        ],
+        "alphaMask": "4x supersampled anti-aliased regular point-up hex"
+      },
+      "master": {
+        "path": "assets/catan-fifth-edition/tiles/forest/forest-04.png",
+        "sha256": "7acd4285ed0bdc1c3eceb2e65e2349448b2ea32d8947632dcc5b75b5a1664565",
+        "pixelSha256": "556b829f9597c24df51785d4e0eb9afaf5066416fafbfd9a8a3d90b712d46baf"
+      },
+      "runtime": {
+        "path": "artifact/catan/public/textures/catan-fifth-edition/tiles/forest/forest-04.webp",
+        "sha256": "bb1b73c4327c7f5c60a81c9edc0ad9ecf68b90b1e6e6a63992072dc1a596442f",
+        "format": "WebP",
+        "quality": 90
+      },
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "mountain-01",
+      "applicationType": "mountain",
+      "officialTerrain": "Mountains",
+      "sourceSet": "CATAN Fifth Edition base game",
+      "sourcePageUrl": "https://catancollector.com/hexes/item/mountain-v1-5th",
+      "originalImageUrl": "https://catancollector.com/media/zoo/images/5th-ore1_c73bbf497dad63cda8a873af23fc2e26.jpg",
+      "originalSource": {
+        "path": "assets/catan-fifth-edition/source/mountain-01.jpg",
+        "dimensions": [
+          400,
+          344
+        ],
+        "sha256": "eec744b87eb50e2fc904b39c872e62fe9c2bb4439e9b42b2b1f54d065a59296f",
+        "perspectiveCorrection": "none",
+        "colorCorrection": "none"
+      },
+      "enhancement": {
+        "path": "assets/catan-fifth-edition/enhanced/mountain-01.png",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "sha256": "384191f7ec2dc299431419eaa451192019adaf3eb5f81fc2e17a87593255d487",
+        "generator": "OpenAI built-in image generation, image-to-image faithful remaster",
+        "prompt": "assets/catan-fifth-edition/prompts/faithful-remaster.md",
+        "detectedTileBounds": [
+          34,
+          80,
+          1221,
+          1147
+        ],
+        "cropBounds": [
+          33,
+          79,
+          1222,
+          1148
+        ]
+      },
+      "transform": {
+        "sourceOrientation": "flat-top",
+        "artworkOrientation": "upright, preserved from enhanced source",
+        "rotationDegreesCounterClockwise": 0,
+        "geometry": "radial flat-top to point-up hex morph",
+        "landRim": "original enhanced rim remapped with tile geometry",
+        "preparedCropDimensions": [
+          1189,
+          1069
+        ],
+        "outputOrientation": "point-up",
+        "outputDimensions": [
+          384,
+          444
+        ],
+        "alphaMask": "4x supersampled anti-aliased regular point-up hex"
+      },
+      "master": {
+        "path": "assets/catan-fifth-edition/tiles/mountain/mountain-01.png",
+        "sha256": "d61b7afc91af32281b539166c6c9eb44eef5c129e9475f3c2b9b1d9e21a7fb4c",
+        "pixelSha256": "dfe015c8c9e0a28bd39ae4f00bd1fcfbbbf5bd50ad531842fcd17b2083372159"
+      },
+      "runtime": {
+        "path": "artifact/catan/public/textures/catan-fifth-edition/tiles/mountain/mountain-01.webp",
+        "sha256": "3f943247a93b5dddd934530ae6f2ceee2885ce6a54790cd449a92e1fa8c0345d",
+        "format": "WebP",
+        "quality": 90
+      },
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "mountain-02",
+      "applicationType": "mountain",
+      "officialTerrain": "Mountains",
+      "sourceSet": "CATAN Fifth Edition base game",
+      "sourcePageUrl": "https://catancollector.com/hexes/item/mountain-v2-5th",
+      "originalImageUrl": "https://catancollector.com/media/zoo/images/5th-ore2_40761a51e125029ed8fd38ea80d04830.jpg",
+      "originalSource": {
+        "path": "assets/catan-fifth-edition/source/mountain-02.jpg",
+        "dimensions": [
+          400,
+          344
+        ],
+        "sha256": "e5153e3a157a6ca89037bc3d8b2d5c65e72e24ed8add7ef13eeb43f987d24859",
+        "perspectiveCorrection": "none",
+        "colorCorrection": "none"
+      },
+      "enhancement": {
+        "path": "assets/catan-fifth-edition/enhanced/mountain-02.png",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "sha256": "8fe54d7fcae8377130e0bc403edb60b05b3ef686020b38d9b9eaa4bd7e63084f",
+        "generator": "OpenAI built-in image generation, image-to-image faithful remaster",
+        "prompt": "assets/catan-fifth-edition/prompts/faithful-remaster.md",
+        "detectedTileBounds": [
+          10,
+          27,
+          1243,
+          1117
+        ],
+        "cropBounds": [
+          9,
+          26,
+          1244,
+          1118
+        ]
+      },
+      "transform": {
+        "sourceOrientation": "flat-top",
+        "artworkOrientation": "upright, preserved from enhanced source",
+        "rotationDegreesCounterClockwise": 0,
+        "geometry": "radial flat-top to point-up hex morph",
+        "landRim": "original enhanced rim remapped with tile geometry",
+        "preparedCropDimensions": [
+          1235,
+          1092
+        ],
+        "outputOrientation": "point-up",
+        "outputDimensions": [
+          384,
+          444
+        ],
+        "alphaMask": "4x supersampled anti-aliased regular point-up hex"
+      },
+      "master": {
+        "path": "assets/catan-fifth-edition/tiles/mountain/mountain-02.png",
+        "sha256": "507c36006b07a6a1d30cea5f76b24b7780e6ea29f85d306f2fee86ce7ca4bbfb",
+        "pixelSha256": "65386255a2c7cc9070e51692d9f3dc8da3a93574f05620becbfa4d21280eab0e"
+      },
+      "runtime": {
+        "path": "artifact/catan/public/textures/catan-fifth-edition/tiles/mountain/mountain-02.webp",
+        "sha256": "1d5036454c7d2f57c2d9f6442cb37b48587397e20c3aaaeaf2c384277474262f",
+        "format": "WebP",
+        "quality": 90
+      },
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "mountain-03",
+      "applicationType": "mountain",
+      "officialTerrain": "Mountains",
+      "sourceSet": "CATAN Fifth Edition base game",
+      "sourcePageUrl": "https://catancollector.com/hexes/item/mountain-v3-5th",
+      "originalImageUrl": "https://catancollector.com/media/zoo/images/5th-ore3_b589c9785bfcd203bf06c40d3cb0b644.jpg",
+      "originalSource": {
+        "path": "assets/catan-fifth-edition/source/mountain-03.jpg",
+        "dimensions": [
+          400,
+          344
+        ],
+        "sha256": "037a447e110a8c628857dd0b31203642c77437244d31a61bfce7a3ca579c0b9b",
+        "perspectiveCorrection": "none",
+        "colorCorrection": "none"
+      },
+      "enhancement": {
+        "path": "assets/catan-fifth-edition/enhanced/mountain-03.png",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "sha256": "c2a35eb68ca4a369220f56b0b6c1bf281224f12b11ed85669871149dbfa3ca78",
+        "generator": "OpenAI built-in image generation, image-to-image faithful remaster",
+        "prompt": "assets/catan-fifth-edition/prompts/faithful-remaster.md",
+        "detectedTileBounds": [
+          17,
+          35,
+          1233,
+          1145
+        ],
+        "cropBounds": [
+          16,
+          34,
+          1234,
+          1146
+        ]
+      },
+      "transform": {
+        "sourceOrientation": "flat-top",
+        "artworkOrientation": "upright, preserved from enhanced source",
+        "rotationDegreesCounterClockwise": 0,
+        "geometry": "radial flat-top to point-up hex morph",
+        "landRim": "original enhanced rim remapped with tile geometry",
+        "preparedCropDimensions": [
+          1218,
+          1112
+        ],
+        "outputOrientation": "point-up",
+        "outputDimensions": [
+          384,
+          444
+        ],
+        "alphaMask": "4x supersampled anti-aliased regular point-up hex"
+      },
+      "master": {
+        "path": "assets/catan-fifth-edition/tiles/mountain/mountain-03.png",
+        "sha256": "7e27731de12d97b0851c2d094f3e1c516638e6ea99fb004f30b1cf1bd51db4e0",
+        "pixelSha256": "cb02219469cae3aeb3117cac81ffcdd41f83c78251d42a43e7319b56156d9602"
+      },
+      "runtime": {
+        "path": "artifact/catan/public/textures/catan-fifth-edition/tiles/mountain/mountain-03.webp",
+        "sha256": "6aadd36068bc742aded4f5953e799409b59d2e12a6025fb90a622264be68c870",
+        "format": "WebP",
+        "quality": 90
+      },
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "sheep-pasture-01",
+      "applicationType": "sheep",
+      "officialTerrain": "Pasture",
+      "sourceSet": "CATAN Fifth Edition base game",
+      "sourcePageUrl": "https://catancollector.com/hexes/item/pasture-v1-5th",
+      "originalImageUrl": "https://catancollector.com/media/zoo/images/5th-sheep1_c299fb71f2836b93969b34c769893bc8.jpg",
+      "originalSource": {
+        "path": "assets/catan-fifth-edition/source/sheep-pasture-01.jpg",
+        "dimensions": [
+          400,
+          344
+        ],
+        "sha256": "6c0a435e37cd5d48094f8b8bdc5660ff450b5049d783e768eabfcac6f99dd6eb",
+        "perspectiveCorrection": "none",
+        "colorCorrection": "none"
+      },
+      "enhancement": {
+        "path": "assets/catan-fifth-edition/enhanced/sheep-pasture-01.png",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "sha256": "d1aa99b4c3608ee2981d8b8b509252badda012b0a33b72852740e58d70f447ec",
+        "generator": "OpenAI built-in image generation, image-to-image faithful remaster",
+        "prompt": "assets/catan-fifth-edition/prompts/faithful-remaster.md",
+        "detectedTileBounds": [
+          19,
+          47,
+          1235,
+          1138
+        ],
+        "cropBounds": [
+          18,
+          46,
+          1236,
+          1139
+        ]
+      },
+      "transform": {
+        "sourceOrientation": "flat-top",
+        "artworkOrientation": "upright, preserved from enhanced source",
+        "rotationDegreesCounterClockwise": 0,
+        "geometry": "radial flat-top to point-up hex morph",
+        "landRim": "original enhanced rim remapped with tile geometry",
+        "preparedCropDimensions": [
+          1218,
+          1093
+        ],
+        "outputOrientation": "point-up",
+        "outputDimensions": [
+          384,
+          444
+        ],
+        "alphaMask": "4x supersampled anti-aliased regular point-up hex"
+      },
+      "master": {
+        "path": "assets/catan-fifth-edition/tiles/sheep/pasture-01.png",
+        "sha256": "c2cff720c3e5bf11cce56554f9892b72d1c537a50f6bc3291a5a2a5e4649e3ac",
+        "pixelSha256": "34a55390a154e2c386f7bf42cdb6672cac0ae26c078c3bd0b092f0b7da56902c"
+      },
+      "runtime": {
+        "path": "artifact/catan/public/textures/catan-fifth-edition/tiles/sheep/pasture-01.webp",
+        "sha256": "dba353d529fdef123670d0750a352cad51d135aa637e75527bb997122e1e3071",
+        "format": "WebP",
+        "quality": 90
+      },
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "sheep-pasture-02",
+      "applicationType": "sheep",
+      "officialTerrain": "Pasture",
+      "sourceSet": "CATAN Fifth Edition base game",
+      "sourcePageUrl": "https://catancollector.com/hexes/item/pasture-v2-5th",
+      "originalImageUrl": "https://catancollector.com/media/zoo/images/5th-sheep2_14cb3a281b634275d150a10ee877f9a0.jpg",
+      "originalSource": {
+        "path": "assets/catan-fifth-edition/source/sheep-pasture-02.jpg",
+        "dimensions": [
+          400,
+          344
+        ],
+        "sha256": "424a9db34c99e42565d0a202661f6434842c1054f55c11bc4284d92312518b14",
+        "perspectiveCorrection": "none",
+        "colorCorrection": "none"
+      },
+      "enhancement": {
+        "path": "assets/catan-fifth-edition/enhanced/sheep-pasture-02.png",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "sha256": "8dceb4032d76fb99f10e572a2a55dffdd524b0b99e1a219985f8626d2ee857b8",
+        "generator": "OpenAI built-in image generation, image-to-image faithful remaster",
+        "prompt": "assets/catan-fifth-edition/prompts/faithful-remaster.md",
+        "detectedTileBounds": [
+          13,
+          33,
+          1238,
+          1108
+        ],
+        "cropBounds": [
+          12,
+          32,
+          1239,
+          1109
+        ]
+      },
+      "transform": {
+        "sourceOrientation": "flat-top",
+        "artworkOrientation": "upright, preserved from enhanced source",
+        "rotationDegreesCounterClockwise": 0,
+        "geometry": "radial flat-top to point-up hex morph",
+        "landRim": "original enhanced rim remapped with tile geometry",
+        "preparedCropDimensions": [
+          1227,
+          1077
+        ],
+        "outputOrientation": "point-up",
+        "outputDimensions": [
+          384,
+          444
+        ],
+        "alphaMask": "4x supersampled anti-aliased regular point-up hex"
+      },
+      "master": {
+        "path": "assets/catan-fifth-edition/tiles/sheep/pasture-02.png",
+        "sha256": "fc412cf5fd9ccc171586d774dcdb9720a8b5ed61eb1bb3899d2edfb815689969",
+        "pixelSha256": "57e4db8fc9a5ed9bbd97729d9fe4e9725bf03b8346e972ed561f0abad4973326"
+      },
+      "runtime": {
+        "path": "artifact/catan/public/textures/catan-fifth-edition/tiles/sheep/pasture-02.webp",
+        "sha256": "2685344830ca7d7172ec0aa5227d9994ebe19e2b36002236ac8a3b25bb3a3913",
+        "format": "WebP",
+        "quality": 90
+      },
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "sheep-pasture-03",
+      "applicationType": "sheep",
+      "officialTerrain": "Pasture",
+      "sourceSet": "CATAN Fifth Edition base game",
+      "sourcePageUrl": "https://catancollector.com/hexes/item/pasture-v3-5th",
+      "originalImageUrl": "https://catancollector.com/media/zoo/images/5th-sheep3_c57a61f18cfc7eef0cfaed741358df98.jpg",
+      "originalSource": {
+        "path": "assets/catan-fifth-edition/source/sheep-pasture-03.jpg",
+        "dimensions": [
+          400,
+          344
+        ],
+        "sha256": "7622340cced97f43a6b9edc279ce4ce89ac31fb19d72431ff7b850b2b18002c9",
+        "perspectiveCorrection": "none",
+        "colorCorrection": "none"
+      },
+      "enhancement": {
+        "path": "assets/catan-fifth-edition/enhanced/sheep-pasture-03.png",
+        "dimensions": [
+          1353,
+          1163
+        ],
+        "sha256": "6300eb75cc6121998bce52237b5af793e0d4ee5eda22678c6ed937e48aeffde1",
+        "generator": "OpenAI built-in image generation, image-to-image faithful remaster",
+        "prompt": "assets/catan-fifth-edition/prompts/faithful-remaster.md",
+        "detectedTileBounds": [
+          42,
+          28,
+          1311,
+          1118
+        ],
+        "cropBounds": [
+          41,
+          27,
+          1312,
+          1119
+        ]
+      },
+      "transform": {
+        "sourceOrientation": "flat-top",
+        "artworkOrientation": "upright, preserved from enhanced source",
+        "rotationDegreesCounterClockwise": 0,
+        "geometry": "radial flat-top to point-up hex morph",
+        "landRim": "original enhanced rim remapped with tile geometry",
+        "preparedCropDimensions": [
+          1271,
+          1092
+        ],
+        "outputOrientation": "point-up",
+        "outputDimensions": [
+          384,
+          444
+        ],
+        "alphaMask": "4x supersampled anti-aliased regular point-up hex"
+      },
+      "master": {
+        "path": "assets/catan-fifth-edition/tiles/sheep/pasture-03.png",
+        "sha256": "d20d1e4a47da957daf173d92936fb5108d0642520f6927d8a192165d91a80737",
+        "pixelSha256": "cb0da9f4b291e600d0d83718a7961d30a19cd0dc4c34d6b9341e028c9a91594c"
+      },
+      "runtime": {
+        "path": "artifact/catan/public/textures/catan-fifth-edition/tiles/sheep/pasture-03.webp",
+        "sha256": "ef1260988537a988e94d8048d395a952d98b057b6bffde4330b43039a22ff221",
+        "format": "WebP",
+        "quality": 90
+      },
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "sheep-pasture-04",
+      "applicationType": "sheep",
+      "officialTerrain": "Pasture",
+      "sourceSet": "CATAN Fifth Edition base game",
+      "sourcePageUrl": "https://catancollector.com/hexes/item/pasture-v4-5th",
+      "originalImageUrl": "https://catancollector.com/media/zoo/images/5th-sheep4_208f6ba9798269c3f4b45f0e02973b63.jpg",
+      "originalSource": {
+        "path": "assets/catan-fifth-edition/source/sheep-pasture-04.jpg",
+        "dimensions": [
+          400,
+          344
+        ],
+        "sha256": "7c7967281928b7311302daf2e8e0e24d296a019963f2b58d2ca384921136202f",
+        "perspectiveCorrection": "none",
+        "colorCorrection": "none"
+      },
+      "enhancement": {
+        "path": "assets/catan-fifth-edition/enhanced/sheep-pasture-04.png",
+        "dimensions": [
+          1353,
+          1163
+        ],
+        "sha256": "bdd2093832389b3f1093179098e7ec3a8e61ba425e2f538b20c17104c5c6a4ed",
+        "generator": "OpenAI built-in image generation, image-to-image faithful remaster",
+        "prompt": "assets/catan-fifth-edition/prompts/faithful-remaster.md",
+        "detectedTileBounds": [
+          39,
+          25,
+          1297,
+          1123
+        ],
+        "cropBounds": [
+          38,
+          24,
+          1298,
+          1124
+        ]
+      },
+      "transform": {
+        "sourceOrientation": "flat-top",
+        "artworkOrientation": "upright, preserved from enhanced source",
+        "rotationDegreesCounterClockwise": 0,
+        "geometry": "radial flat-top to point-up hex morph",
+        "landRim": "original enhanced rim remapped with tile geometry",
+        "preparedCropDimensions": [
+          1260,
+          1100
+        ],
+        "outputOrientation": "point-up",
+        "outputDimensions": [
+          384,
+          444
+        ],
+        "alphaMask": "4x supersampled anti-aliased regular point-up hex"
+      },
+      "master": {
+        "path": "assets/catan-fifth-edition/tiles/sheep/pasture-04.png",
+        "sha256": "d618880dc633242b253b361120a7ce4d86182e03728bfee740257e4e0ac96557",
+        "pixelSha256": "fef458e780736fa94cd7b076d18ba4f22cbaa4e35304ea8ff6d2429ff1d62620"
+      },
+      "runtime": {
+        "path": "artifact/catan/public/textures/catan-fifth-edition/tiles/sheep/pasture-04.webp",
+        "sha256": "70e90ae4de842b361c4b021e9a28a9e43ef3953b73cd39b03089d703fdac5824",
+        "format": "WebP",
+        "quality": 90
+      },
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "water-01",
+      "applicationType": "water",
+      "officialTerrain": "Sea",
+      "sourceSet": "CATAN: Seafarers Fifth Edition",
+      "sourcePageUrl": "https://catancollector.com/hexes/item/sea-hex-5th-seafarers",
+      "originalImageUrl": "https://catancollector.com/media/zoo/images/5thsf-seahex_b111b206b64c0833f60f8b92f984ebd6.jpg",
+      "originalSource": {
+        "path": "assets/catan-fifth-edition/source/water-01.jpg",
+        "dimensions": [
+          400,
+          344
+        ],
+        "sha256": "dcba993d9402124ab8196cd1e083500a2b4a6527d0e9032d944e17567c2d4fd1",
+        "perspectiveCorrection": "none",
+        "colorCorrection": "none"
+      },
+      "enhancement": {
+        "path": "assets/catan-fifth-edition/enhanced/water-01.png",
+        "dimensions": [
+          1351,
+          1164
+        ],
+        "sha256": "c8db3270eade482c1c5b83e80b1236e9c2ddb18a4366d7a6b250522c991c091f",
+        "generator": "OpenAI built-in image generation, image-to-image faithful remaster",
+        "prompt": "assets/catan-fifth-edition/prompts/faithful-remaster.md",
+        "detectedTileBounds": [
+          39,
+          33,
+          1312,
+          1130
+        ],
+        "cropBounds": [
+          38,
+          32,
+          1313,
+          1131
+        ]
+      },
+      "transform": {
+        "sourceOrientation": "flat-top",
+        "artworkOrientation": "upright, preserved from enhanced source",
+        "rotationDegreesCounterClockwise": 0,
+        "geometry": "radial flat-top to point-up hex morph",
+        "landRim": "original enhanced rim remapped with tile geometry",
+        "preparedCropDimensions": [
+          1275,
+          1099
+        ],
+        "outputOrientation": "point-up",
+        "outputDimensions": [
+          384,
+          444
+        ],
+        "alphaMask": "4x supersampled anti-aliased regular point-up hex"
+      },
+      "master": {
+        "path": "assets/catan-fifth-edition/tiles/water/water-01.png",
+        "sha256": "466198d3f5e97774c2867d236493d3dc23449af56a8b192c031b2f274875c129",
+        "pixelSha256": "e1bcb81527ff3aba717a202e83135fc9b9212eec24e7ab780e4023f9c1363a20"
+      },
+      "runtime": {
+        "path": "artifact/catan/public/textures/catan-fifth-edition/tiles/water/water-01.webp",
+        "sha256": "086cf994f7e3f0bfbeccaa60b29c7e3302bb4d322f3cbd59bf3c6148083cc78f",
+        "format": "WebP",
+        "quality": 90
+      },
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gold-field-01",
+      "applicationType": "gold",
+      "officialTerrain": "Gold field",
+      "sourceSet": "CATAN: Seafarers Fifth Edition",
+      "sourcePageUrl": "https://catancollector.com/hexes/item/gold-01-5th-seafarers",
+      "originalImageUrl": "https://catancollector.com/media/zoo/images/5thsf-gold01_2d6ef3f9377f6292561cdb1edddfb392.jpg",
+      "originalSource": {
+        "path": "assets/catan-fifth-edition/source/gold-field-01.jpg",
+        "dimensions": [
+          400,
+          344
+        ],
+        "sha256": "1d5df74a00412542518249bbf890083bbb455b1ee35c23bcbc63e9a8034aabce",
+        "perspectiveCorrection": "none",
+        "colorCorrection": "none"
+      },
+      "enhancement": {
+        "path": "assets/catan-fifth-edition/enhanced/gold-field-01.png",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "sha256": "0e109083e964298bde939e59bd8a88ce1c58300dd29e29ee47b2f155bfafc212",
+        "generator": "OpenAI built-in image generation, image-to-image faithful remaster",
+        "prompt": "assets/catan-fifth-edition/prompts/faithful-remaster.md",
+        "detectedTileBounds": [
+          6,
+          22,
+          1249,
+          1132
+        ],
+        "cropBounds": [
+          5,
+          21,
+          1250,
+          1133
+        ]
+      },
+      "transform": {
+        "sourceOrientation": "flat-top",
+        "artworkOrientation": "upright, preserved from enhanced source",
+        "rotationDegreesCounterClockwise": 0,
+        "geometry": "radial flat-top to point-up hex morph",
+        "landRim": "original enhanced rim remapped with tile geometry",
+        "preparedCropDimensions": [
+          1245,
+          1112
+        ],
+        "outputOrientation": "point-up",
+        "outputDimensions": [
+          384,
+          444
+        ],
+        "alphaMask": "4x supersampled anti-aliased regular point-up hex"
+      },
+      "master": {
+        "path": "assets/catan-fifth-edition/tiles/gold/gold-field-01.png",
+        "sha256": "15d7d4fd8d86edfe6aa77e853f5895982c38a66e54c4284b017c61574de46c3a",
+        "pixelSha256": "f7edb626eb689b274c9064a258050532f32d45aa16f552889b0d1a4bc658ebb1"
+      },
+      "runtime": {
+        "path": "artifact/catan/public/textures/catan-fifth-edition/tiles/gold/gold-field-01.webp",
+        "sha256": "ad60d4362e2a0ecf1f8de8d5c2d8dd6abb0d9fdda5763a059414a3d7ac369279",
+        "format": "WebP",
+        "quality": 90
+      },
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gold-field-02",
+      "applicationType": "gold",
+      "officialTerrain": "Gold field",
+      "sourceSet": "CATAN: Seafarers Fifth Edition",
+      "sourcePageUrl": "https://catancollector.com/hexes/item/gold-02-5th-seafarers",
+      "originalImageUrl": "https://catancollector.com/media/zoo/images/5thsf-gold02_5b39ed557fbbfd678b4f7b9e8e4ba541.jpg",
+      "originalSource": {
+        "path": "assets/catan-fifth-edition/source/gold-field-02.jpg",
+        "dimensions": [
+          400,
+          344
+        ],
+        "sha256": "ebf471ad159f254738c174bc4c4133e6840cf96489b86a1f98343780d3571133",
+        "perspectiveCorrection": "none",
+        "colorCorrection": "none"
+      },
+      "enhancement": {
+        "path": "assets/catan-fifth-edition/enhanced/gold-field-02.png",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "sha256": "2d0bea32772e25e84111b31541ffe0125eb5607bbb3187f50a8c36ed83dc969f",
+        "generator": "OpenAI built-in image generation, image-to-image faithful remaster",
+        "prompt": "assets/catan-fifth-edition/prompts/faithful-remaster.md",
+        "detectedTileBounds": [
+          28,
+          46,
+          1226,
+          1159
+        ],
+        "cropBounds": [
+          27,
+          45,
+          1227,
+          1160
+        ]
+      },
+      "transform": {
+        "sourceOrientation": "flat-top",
+        "artworkOrientation": "upright, preserved from enhanced source",
+        "rotationDegreesCounterClockwise": 0,
+        "geometry": "radial flat-top to point-up hex morph",
+        "landRim": "original enhanced rim remapped with tile geometry",
+        "preparedCropDimensions": [
+          1200,
+          1115
+        ],
+        "outputOrientation": "point-up",
+        "outputDimensions": [
+          384,
+          444
+        ],
+        "alphaMask": "4x supersampled anti-aliased regular point-up hex"
+      },
+      "master": {
+        "path": "assets/catan-fifth-edition/tiles/gold/gold-field-02.png",
+        "sha256": "8a2d968ec5d94c1d4bb4a122af38153ecf051e16babe49e8831c0439585e79e7",
+        "pixelSha256": "0523c3bca35405722a6ecf5a4f96bd2cf94e72e79f754078f182b5726e6eced2"
+      },
+      "runtime": {
+        "path": "artifact/catan/public/textures/catan-fifth-edition/tiles/gold/gold-field-02.webp",
+        "sha256": "8b45880d8e16d6c2ac474113b8e78dd56714c63aeb700a39f3215b91193ca6b4",
+        "format": "WebP",
+        "quality": 90
+      },
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ]
+}

@@ -74,11 +74,7 @@ fn default_sort() -> u32 {
 pub struct YamlConfig;
 
 impl ConfigParser for YamlConfig {
-    fn from_str(
-        source_id: &str,
-        tile_type: &str,
-        input: &str,
-    ) -> color_eyre::eyre::Result<Config> {
+    fn from_str(source_id: &str, tile_type: &str, input: &str) -> color_eyre::eyre::Result<Config> {
         let doc: YamlDoc = serde_yaml::from_str(input)
             .map_err(|e| color_eyre::eyre::eyre!("Failed to parse YAML: {}", e))?;
         Ok(doc.into_config(source_id, tile_type))

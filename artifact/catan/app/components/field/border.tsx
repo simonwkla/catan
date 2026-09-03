@@ -62,12 +62,10 @@ function segmentsByCount(
 
 interface BorderProps {
   variant: "solid" | "dashed";
-  dashCount: number;
-  gapFrac: number;
   className?: string;
 }
 
-export function Border({ variant, dashCount, gapFrac, className }: BorderProps) {
+export function Border({ variant, className }: BorderProps) {
   return (
     <svg
       className={cn("pointer-events-none absolute inset-0 h-full w-full", className)}
@@ -94,7 +92,7 @@ export function Border({ variant, dashCount, gapFrac, className }: BorderProps) 
           vectorEffect="non-scaling-stroke"
           shapeRendering="geometricPrecision"
         >
-          {EDGES.flatMap(([a, b]) => segmentsByCount(a, b, dashCount, gapFrac))}
+          {EDGES.flatMap(([a, b]) => segmentsByCount(a, b, 3, 1))}
         </g>
       )}
     </svg>

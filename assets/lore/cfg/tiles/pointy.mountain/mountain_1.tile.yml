@@ -1,0 +1,179 @@
+canvas:
+  size: [840, 840]
+
+ground:
+  id: "pointy.grass_grounds.green\\grass_ground_0"
+  position: [106, 57]
+  render: true
+
+cfg:
+  render_mask_active: true
+
+elements:
+  # Cloud-heavy backdrop like the reference image.
+  - id: "clouds.white\\cloud_58"
+    layer: main
+    position: [366, 96]
+    flipped: false
+    sort: 0
+  - id: "clouds.white\\cloud_15"
+    layer: main
+    position: [261, 212]
+    flipped: true
+    sort: 0
+  - id: "clouds.white\\cloud_51"
+    layer: main
+    position: [652, 156]
+    flipped: false
+    sort: 0
+  - id: "clouds.white\\cloud_33"
+    layer: main
+    position: [472, 176]
+    flipped: false
+    sort: 0
+  - id: "clouds.white\\cloud_20"
+    layer: main
+    position: [350, 272]
+    flipped: false
+    sort: 0
+  - id: "clouds.white\\cloud_34"
+    layer: main
+    position: [196, 322]
+    flipped: false
+    sort: 0
+  - id: "clouds.white\\cloud_44"
+    layer: main
+    position: [545, 262]
+    flipped: false
+    sort: 0
+  - id: "clouds.white\\cloud_19"
+    layer: main
+    position: [700, 266]
+    flipped: false
+    sort: 0
+  - id: "clouds.white\\cloud_1"
+    layer: main
+    position: [465, 322]
+    flipped: true
+    sort: 0
+  - id: "clouds.white\\cloud_27"
+    layer: main
+    position: [573, 306]
+    flipped: false
+    sort: 0
+  - id: "clouds.white\\cloud_49"
+    layer: main
+    position: [752, 342]
+    flipped: false
+    sort: 0
+  - id: "clouds.white\\cloud_52"
+    layer: main
+    position: [670, 362]
+    flipped: true
+    sort: 0
+  # Side rocks for extra rocky feel without replacing the cloud backdrop.
+  - id: "uncapped_rocks.blue\\uncapped_rock_13"
+    layer: main
+    position: [124, 516]
+    flipped: false
+    sort: 0
+  - id: "uncapped_rocks.blue\\uncapped_rock_45"
+    layer: main
+    position: [700, 500]
+    flipped: false
+    sort: 0
+  - id: "uncapped_rocks.blue\\uncapped_rock_22"
+    layer: main
+    position: [164, 700]
+    flipped: true
+    sort: 0
+  - id: "uncapped_rocks.blue\\uncapped_rock_25"
+    layer: main
+    position: [678, 646]
+    flipped: true
+    sort: 0
+  - id: "uncapped_rocks.blue\\uncapped_rock_57"
+    layer: main
+    position: [176, 410]
+    flipped: true
+    sort: 0
+  - id: "uncapped_rocks.blue\\uncapped_rock_41"
+    layer: main
+    position: [660, 425]
+    flipped: false
+    sort: 0
+
+  # Two central mountains, one dominant and one supporting.
+  - id: "mountains.blue\\mountain_2"
+    layer: main
+    position: [430, 1555]
+    flipped: true
+    sort: 0
+  - id: "mountains.blue\\mountain_10"
+    layer: main
+    position: [620, 1705]
+    flipped: false
+    sort: 0
+
+  # Meadow-like vegetation rebuilt from scratch around the mountain.
+  - id: "grass_patches.green\\grass_patch_31"
+    layer: ground
+    position: [272, 400]
+    flipped: true
+    sort: 1
+  - id: "grass_marks.green\\grass_marks_18"
+    layer: ground
+    position: [308, 423]
+    flipped: true
+    sort: 2
+  - id: "grass_marks.green\\grass_marks_2"
+    layer: ground
+    position: [258, 495]
+    flipped: false
+    sort: 2
+  - id: "grass_bushes.green\\grass_bush_21"
+    layer: main
+    position: [258, 454]
+    flipped: true
+    sort: 0
+  - id: "grass_bushes.greendark\\grass_bush_6"
+    layer: main
+    position: [236, 560]
+    flipped: false
+    sort: 0
+  - id: "grass_marks.green\\grass_marks_55"
+    layer: ground
+    position: [560, 420]
+    flipped: true
+    sort: 2
+  - id: "grass_patches.green\\grass_patch_12"
+    layer: ground
+    position: [628, 434]
+    flipped: true
+    sort: 1
+  - id: "grass_bushes.green\\grass_bush_34"
+    layer: main
+    position: [642, 448]
+    flipped: true
+    sort: 0
+  - id: "grass_bushes.greendark\\grass_bush_17"
+    layer: main
+    position: [708, 456]
+    flipped: true
+    sort: 0
+  - id: "grass_patches.green\\grass_patch_5"
+    layer: ground
+    position: [736, 450]
+    flipped: true
+    sort: 1
+  # Top clouds only to keep the apex airy.
+  - id: "clouds.white\\cloud_31"
+    layer: main
+    position: [332, 98]
+    flipped: true
+    sort: 0
+  - id: "clouds.white\\cloud_40"
+    layer: main
+    position: [542, 100]
+    flipped: false
+    sort: 0

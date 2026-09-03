@@ -297,3 +297,6 @@ gradle-app.setting
 *.cache
 
 *.pnpm-store/
+
+# Local source images, generation prompts, preprocessing tools, and texture QA
+/assets/painted/
